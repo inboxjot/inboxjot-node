@@ -31,7 +31,7 @@ export default defineConfig({
     },
     overrides: [
       {
-        files: ['test/**'],
+        files: ['tests/**'],
         rules: { 'typescript/unbound-method': 'off' },
       },
     ],
