@@ -75,7 +75,7 @@ const image = await inboxjot.images.upload({
 });
 ```
 
-The client covers the whole public API: `emails`, `contacts`, `events`, `campaigns`, `templates`, `domains`, `images`, `segments`, `topics` and `webhooks`. The [API reference](https://inboxjot.com/docs) lists every endpoint and field.
+The client covers the whole public API: `emails`, `contacts`, `events`, `campaigns`, `templates`, `domains`, `images`, `segments`, `topics`, `brands` and `webhooks`. The [API reference](https://inboxjot.com/docs) lists every endpoint and field.
 
 ### Pagination
 

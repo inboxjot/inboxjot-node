@@ -20,6 +20,7 @@ describe('Contacts', () => {
     await inboxjot.contacts.update('ct_1', {
       last_name: 'Doe',
       topics: [{ id: 'tp_1', status: 'unsubscribed' }],
+      brands: [{ id: 'br_1', status: 'subscribed' }],
     });
     await inboxjot.contacts.delete('ct_1');
     await inboxjot.contacts.erase(

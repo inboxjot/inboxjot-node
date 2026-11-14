@@ -8,6 +8,7 @@ export * from './domains';
 export * from './images';
 export * from './segments';
 export * from './topics';
+export * from './brands';
 export * from './webhooks';
 
 export {
