@@ -580,6 +580,22 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/v1/events/batch": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post: operations["track_contact_event_batch"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/v1/exports": {
         parameters: {
             query?: never;
@@ -1987,6 +2003,8 @@ export interface components {
         CreateContactInput: {
             /** @description The contact address, up to 320 characters. Invalid and disposable addresses are refused. */
             email: string;
+            /** @description Your ID for the contact, 1 to 255 characters, such as your user ID. It is unique in the workspace. An existing contact with another `user_id` returns 409. */
+            user_id?: string | null;
             /** @description First name, up to 200 characters. Send `null` to clear it. */
             first_name?: string | null;
             /** @description Last name, up to 200 characters. Send `null` to clear it. */
@@ -2418,8 +2436,15 @@ export interface components {
         EventBody: {
             /** @description Event name, 1 to 100 characters. Start with a letter or number, then use letters, numbers, `.`, `_`, `:` or `-`. */
             name: string;
-            /** @description The contact address. A new address creates a subscribed contact. Disposable addresses are refused. */
-            email: string;
+            /** @description The contact address. A new address creates a subscribed contact. Disposable addresses are refused. Send `email`, `user_id` or both. */
+            email?: string | null;
+            /** @description Your ID for the contact, 1 to 255 characters. With an email, it is saved on the contact. Without one, it must match a contact that has it. */
+            user_id?: string | null;
+            /**
+             * Format: date-time
+             * @description When the event happened, as ISO 8601 with an offset, such as `2026-11-14T09:30:00Z`. Leave it out for now. An event older than 72 hours is recorded but starts no automation.
+             */
+            occurred_at?: string | null;
             /** @description Event data, such as `{ "plan": "pro" }`, up to 16 KB as JSON. Automations started by the event can use it in their emails. */
             data?: Record<string, unknown>;
         };
@@ -2846,6 +2871,8 @@ export interface components {
             id: string;
             /** @description The contact address. */
             email: string;
+            /** @description Your ID for the contact, or `null`. */
+            user_id: string | null;
             /** @description First name. */
             first_name: string | null;
             /** @description Last name. */
@@ -3709,6 +3736,10 @@ export interface components {
         };
         /** @enum {string} */
         TopicVisibilityOption: "public" | "private";
+        TrackedBatchResponse: {
+            /** @description One entry per event, in the order you sent them. */
+            data: components["schemas"]["TrackedResponse"][];
+        };
         TrackedResponse: {
             /** @description The contact the event belongs to. */
             contact_id: string;
@@ -3730,6 +3761,8 @@ export interface components {
             brands?: components["schemas"]["BrandStatusChoice"][] | null;
         };
         UpdateContactFields: {
+            /** @description Your ID for the contact, 1 to 255 characters, such as your user ID. It is unique in the workspace. Send `null` to clear it. */
+            user_id?: string | null;
             /** @description First name, up to 200 characters. Send `null` to clear it. */
             first_name?: string | null;
             /** @description Last name, up to 200 characters. Send `null` to clear it. */
@@ -17917,6 +17950,7 @@ export interface operations {
                  * @example {
                  *       "name": "order.completed",
                  *       "email": "riti@example.com",
+                 *       "user_id": "usr_8842",
                  *       "data": {
                  *         "order_id": "4821",
                  *         "total": 49
@@ -17963,10 +17997,10 @@ export interface operations {
                      * @example {
                      *       "name": "validation_error",
                      *       "status": 400,
-                     *       "message": "Use letters, numbers, dots, dashes or underscores",
+                     *       "message": "Use letters, numbers, dots, colons, dashes or underscores",
                      *       "errors": [
                      *         {
-                     *           "message": "Use letters, numbers, dots, dashes or underscores",
+                     *           "message": "Use letters, numbers, dots, colons, dashes or underscores",
                      *           "location": "name"
                      *         }
                      *       ],
@@ -18024,7 +18058,334 @@ export interface operations {
                     "application/json": components["schemas"]["ErrorBody"];
                 };
             };
-            /** @description A request with the same Idempotency-Key is still running. Retry after one second. */
+            /** @description No contact has the `user_id`, and no email was sent to create one. */
+            404: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The email and the `user_id` belong to different contacts, or a request with the same Idempotency-Key is still running. Retry the second case after one second. */
+            409: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "concurrent_idempotent_requests",
+                     *       "status": 409,
+                     *       "message": "A request with this idempotency key is still in progress. Try again later.",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The body is larger than 2 MB. */
+            413: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "payload_too_large",
+                     *       "status": 413,
+                     *       "message": "The request body is too large",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The Content-Type header is not application/json. */
+            415: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "unsupported_media_type",
+                     *       "status": 415,
+                     *       "message": "The Content-Type must be application/json",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The Idempotency-Key was already used with a different request. */
+            422: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "invalid_idempotent_request",
+                     *       "status": 422,
+                     *       "message": "This idempotency key was already used with a different request",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description Too many requests for this key. Wait for the seconds in the Retry-After header. */
+            429: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "rate_limit_exceeded",
+                     *       "status": 429,
+                     *       "message": "Too many attempts. Try again later.",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description Something failed on our side. Retry later. */
+            500: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "unknown_error",
+                     *       "status": 500,
+                     *       "message": "Something went wrong. Please try again later.",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The request failed */
+            default: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+        };
+    };
+    track_contact_event_batch: {
+        parameters: {
+            query?: never;
+            header?: {
+                /** @description A key that makes a retry of this request return the first response. It is kept for 24 hours. */
+                "Idempotency-Key"?: string;
+            };
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                /**
+                 * @example [
+                 *       {
+                 *         "name": "order.completed",
+                 *         "user_id": "usr_8842",
+                 *         "data": {
+                 *           "order_id": "4821"
+                 *         }
+                 *       },
+                 *       {
+                 *         "name": "signed_up",
+                 *         "email": "marcus.lee@example.com",
+                 *         "occurred_at": "2026-11-14T09:30:00Z"
+                 *       }
+                 *     ]
+                 */
+                "application/json": components["schemas"]["EventBody"][];
+            };
+        };
+        responses: {
+            /** @description Accepted. Inboxjot records the events in the background. A batch is all or nothing: one invalid event refuses the whole batch. */
+            202: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "idempotent-replayed": components["headers"]["IdempotentReplayed"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "data": [
+                     *         {
+                     *           "contact_id": "con_06d2mfk8r9wq3zh5ka2pe"
+                     *         },
+                     *         {
+                     *           "contact_id": "con_06d2mfk8rb4xk2vt9nq7d"
+                     *         }
+                     *       ]
+                     *     }
+                     */
+                    "application/json": components["schemas"]["TrackedBatchResponse"];
+                };
+            };
+            /** @description The list is empty or has more than 100 events, a field is missing or invalid, or the Idempotency-Key header is not valid. */
+            400: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "validation_error",
+                     *       "status": 400,
+                     *       "message": "The request body is not valid JSON",
+                     *       "errors": [
+                     *         {
+                     *           "message": "The request body is not valid JSON",
+                     *           "location": "body"
+                     *         }
+                     *       ],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The API key is missing, revoked or expired. */
+            401: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "unauthorized",
+                     *       "status": 401,
+                     *       "message": "Unauthorized",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The key is a Sending key or is limited to one domain, or the request comes from outside its IP allowlist. */
+            403: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "forbidden",
+                     *       "status": 403,
+                     *       "message": "This key cannot be used from 203.0.113.7",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description An event has a `user_id` that no contact has, and no email to create one. The message names the event, such as `Event 2: …`. */
+            404: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description An event has an email and a `user_id` that belong to different contacts, or a request with the same Idempotency-Key is still running. */
             409: {
                 headers: {
                     "x-request-id": components["headers"]["RequestId"];
