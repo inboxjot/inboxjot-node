@@ -1160,6 +1160,10 @@ export interface components {
             domain_id: string | null;
             /** @description The IP addresses that can use the key. An empty list lets every address use it. */
             ip_allowlist: string[];
+            /** @description The events a `tracking` key can send. */
+            allowed_events: string[];
+            /** @description The secret your server signs user tokens with, for a `tracking` key. Returned only here; store it now. */
+            signing_secret: string | null;
             /**
              * Format: date-time
              * @description When the key stops working.
@@ -1211,12 +1215,14 @@ export interface components {
             last_used_at: string | null;
             /** @description `active` or `inactive`. An inactive key does not work. */
             status: components["schemas"]["ApiKeyStatus"];
-            /** @description `full` or `sending`. A sending key can only send email. */
+            /** @description `full`, `sending` or `tracking`. A sending key can only send email, and a tracking key can only track events. */
             permission: components["schemas"]["ApiKeyPermission"];
             /** @description The domain the key is limited to. */
             domain_id: string | null;
             /** @description The IP addresses that can use the key. An empty list lets every address use it. */
             ip_allowlist: string[];
+            /** @description The events a `tracking` key can send. */
+            allowed_events: string[];
             /**
              * Format: date-time
              * @description When the key stops working.
@@ -1269,7 +1275,7 @@ export interface components {
             recent_requests: components["schemas"]["RecentApiRequest"][];
         };
         /** @enum {string} */
-        ApiKeyPermission: "full" | "sending";
+        ApiKeyPermission: "full" | "sending" | "tracking";
         /** @enum {string} */
         ApiKeyStatus: "active" | "inactive";
         ApiTemplateBody: {
@@ -1467,6 +1473,7 @@ export interface components {
             kind: "segment";
         } | {
             event: string;
+            filter?: components["schemas"]["EventFilter"] | null;
             /**
              * @description Always `event`.
              * @enum {string}
@@ -1590,6 +1597,7 @@ export interface components {
         AutomationTrigger: {
             /** @description The event name that starts a run, such as `user.created`. */
             event: string;
+            filter?: components["schemas"]["EventFilter"] | null;
             /**
              * @description Always `event`.
              * @enum {string}
@@ -2033,8 +2041,10 @@ export interface components {
         CreateKeyBody: {
             /** @description The key name, 1 to 100 characters. */
             name: string;
-            /** @description `full` or `sending`. Defaults to `full`. */
+            /** @description `full`, `sending` or `tracking`. Defaults to `full`. A tracking key is safe to use in a browser: it can only track the events in `allowed_events`, for the contact in a user token your server signs. */
             permission?: components["schemas"]["ApiKeyPermission"];
+            /** @description The events a `tracking` key can send, up to 50. Required for a tracking key. */
+            allowed_events?: string[];
             /** @description A domain to limit the key to. The key can then send only from this domain. */
             domain_id?: string | null;
             /** @description When the key stops working: `never`, `30d`, `90d` or `1y`. Defaults to `never`. */
@@ -2446,7 +2456,16 @@ export interface components {
              */
             occurred_at?: string | null;
             /** @description Event data, such as `{ "plan": "pro" }`, up to 16 KB as JSON. Automations started by the event can use it in their emails. */
-            data?: Record<string, unknown>;
+            data?: {
+                [key: string]: unknown;
+            };
+        };
+        EventFilter: {
+            /** @description A field of the event data. Use dots for nested fields, such as `order.total`. */
+            path: string;
+            operator: components["schemas"]["PropertyOperator"];
+            /** @description The value to compare with. Not used by `is_set` and `is_not_set`. */
+            value?: string;
         };
         ExportInput: {
             /** @description The contacts to export. Send `{}` to export every contact. */
@@ -3413,12 +3432,13 @@ export interface components {
             name: string;
         };
         SegmentRule: {
-            /** @description `email`, `first_name`, `last_name`, `language`, `status`, `created_at`, `segment`, `email.sent`, `email.delivered`, `email.opened`, `email.clicked`, `email.bounced`, `email.complained`, or `property.<key>` for a property you added. */
+            /** @description `email`, `first_name`, `last_name`, `language`, `status`, `created_at`, `segment`, `email.sent`, `email.delivered`, `email.opened`, `email.clicked`, `email.bounced`, `email.complained`, `property.<key>` for a property you added, or `event.<name>` for a custom event. */
             field: string;
-            /** @description Text fields take `is`, `is_not`, `contains`, `not_contains`, `starts_with`, `ends_with`, `is_set` and `is_not_set`. Numbers take `equals`, `not_equals`, `greater_than` and `less_than`. Dates take `within`, `not_within`, `before` and `after`. `segment` takes `in` and `not_in`. Email activity takes `within`, `not_within`, `at_least` and `never`. */
+            /** @description Text fields take `is`, `is_not`, `contains`, `not_contains`, `starts_with`, `ends_with`, `is_set` and `is_not_set`. Numbers take `equals`, `not_equals`, `greater_than` and `less_than`. Dates take `within`, `not_within`, `before` and `after`. `segment` takes `in` and `not_in`. Email activity and events take `within`, `not_within`, `at_least` and `never`. */
             operator: components["schemas"]["SegmentOperator"];
             /** @description Text up to 500 characters, a number or a boolean. A date window is a date or a number of days such as `30d`. `at_least` takes `{ "count": 2, "days": 30 }`, with a count up to 1,000 and up to 400 days. A `segment` rule takes the id of a static segment. */
             value?: components["schemas"]["RuleValue"];
+            filter?: components["schemas"]["EventFilter"] | null;
         };
         /** @enum {string} */
         SegmentSort: "created" | "name" | "contacts";

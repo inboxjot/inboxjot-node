@@ -42421,9 +42421,11 @@
           "status",
           "permission",
           "ip_allowlist",
+          "allowed_events",
           "created_at",
           "updated_at",
           "domain_id",
+          "signing_secret",
           "expires_at",
           "previous_short_token",
           "previous_long_token",
@@ -42480,6 +42482,20 @@
               "type": "string"
             },
             "description": "The IP addresses that can use the key. An empty list lets every address use it."
+          },
+          "allowed_events": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "The events a `tracking` key can send."
+          },
+          "signing_secret": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "The secret your server signs user tokens with, for a `tracking` key. Returned only here; store it now."
           },
           "expires_at": {
             "type": [
@@ -42542,6 +42558,7 @@
           "status",
           "permission",
           "ip_allowlist",
+          "allowed_events",
           "sent_last_30_days",
           "delivered_last_30_days",
           "bounced_last_30_days",
@@ -42594,7 +42611,7 @@
           },
           "permission": {
             "$ref": "#/components/schemas/ApiKeyPermission",
-            "description": "`full` or `sending`. A sending key can only send email."
+            "description": "`full`, `sending` or `tracking`. A sending key can only send email, and a tracking key can only track events."
           },
           "domain_id": {
             "type": [
@@ -42609,6 +42626,13 @@
               "type": "string"
             },
             "description": "The IP addresses that can use the key. An empty list lets every address use it."
+          },
+          "allowed_events": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "The events a `tracking` key can send."
           },
           "expires_at": {
             "type": [
@@ -42703,7 +42727,8 @@
         "type": "string",
         "enum": [
           "full",
-          "sending"
+          "sending",
+          "tracking"
         ]
       },
       "ApiKeyStatus": {
@@ -43210,6 +43235,19 @@
               "event": {
                 "type": "string"
               },
+              "filter": {
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/EventFilter",
+                    "description": "Count only events whose data matches.",
+                    "properties": null
+                  },
+                  {
+                    "type": "null",
+                    "properties": null
+                  }
+                ]
+              },
               "kind": {
                 "type": "string",
                 "enum": [
@@ -43585,6 +43623,19 @@
               "event": {
                 "type": "string",
                 "description": "The event name that starts a run, such as `user.created`."
+              },
+              "filter": {
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/EventFilter",
+                    "description": "Start a run only when the event data matches.",
+                    "properties": null
+                  },
+                  {
+                    "type": "null",
+                    "properties": null
+                  }
+                ]
               },
               "type": {
                 "type": "string",
@@ -44898,7 +44949,14 @@
           },
           "permission": {
             "$ref": "#/components/schemas/ApiKeyPermission",
-            "description": "`full` or `sending`. Defaults to `full`."
+            "description": "`full`, `sending` or `tracking`. Defaults to `full`. A tracking key is safe to use in a browser: it can only track the events in `allowed_events`, for the contact in a user token your server signs."
+          },
+          "allowed_events": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "The events a `tracking` key can send, up to 50. Required for a tracking key."
           },
           "domain_id": {
             "type": [
@@ -46222,7 +46280,31 @@
           },
           "data": {
             "type": "object",
-            "description": "Event data, such as `{ \"plan\": \"pro\" }`, up to 16 KB as JSON. Automations started by the event can use it in their emails."
+            "description": "Event data, such as `{ \"plan\": \"pro\" }`, up to 16 KB as JSON. Automations started by the event can use it in their emails.",
+            "additionalProperties": {},
+            "propertyNames": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "EventFilter": {
+        "type": "object",
+        "required": [
+          "path",
+          "operator"
+        ],
+        "properties": {
+          "path": {
+            "type": "string",
+            "description": "A field of the event data. Use dots for nested fields, such as `order.total`."
+          },
+          "operator": {
+            "$ref": "#/components/schemas/PropertyOperator"
+          },
+          "value": {
+            "type": "string",
+            "description": "The value to compare with. Not used by `is_set` and `is_not_set`."
           }
         }
       },
@@ -48810,15 +48892,28 @@
         "properties": {
           "field": {
             "type": "string",
-            "description": "`email`, `first_name`, `last_name`, `language`, `status`, `created_at`, `segment`, `email.sent`, `email.delivered`, `email.opened`, `email.clicked`, `email.bounced`, `email.complained`, or `property.<key>` for a property you added."
+            "description": "`email`, `first_name`, `last_name`, `language`, `status`, `created_at`, `segment`, `email.sent`, `email.delivered`, `email.opened`, `email.clicked`, `email.bounced`, `email.complained`, `property.<key>` for a property you added, or `event.<name>` for a custom event."
           },
           "operator": {
             "$ref": "#/components/schemas/SegmentOperator",
-            "description": "Text fields take `is`, `is_not`, `contains`, `not_contains`, `starts_with`, `ends_with`, `is_set` and `is_not_set`. Numbers take `equals`, `not_equals`, `greater_than` and `less_than`. Dates take `within`, `not_within`, `before` and `after`. `segment` takes `in` and `not_in`. Email activity takes `within`, `not_within`, `at_least` and `never`."
+            "description": "Text fields take `is`, `is_not`, `contains`, `not_contains`, `starts_with`, `ends_with`, `is_set` and `is_not_set`. Numbers take `equals`, `not_equals`, `greater_than` and `less_than`. Dates take `within`, `not_within`, `before` and `after`. `segment` takes `in` and `not_in`. Email activity and events take `within`, `not_within`, `at_least` and `never`."
           },
           "value": {
             "$ref": "#/components/schemas/RuleValue",
             "description": "Text up to 500 characters, a number or a boolean. A date window is a date or a number of days such as `30d`. `at_least` takes `{ \"count\": 2, \"days\": 30 }`, with a count up to 1,000 and up to 400 days. A `segment` rule takes the id of a static segment."
+          },
+          "filter": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/EventFilter",
+                "description": "For an `event.<name>` rule: count only events whose data matches.",
+                "properties": null
+              },
+              {
+                "type": "null",
+                "properties": null
+              }
+            ]
           }
         }
       },
