@@ -1833,6 +1833,7 @@ export interface components {
         ContactEventData: {
             contact_id: string;
             email: string;
+            user_id: string | null;
             first_name: string | null;
             last_name: string | null;
             status: components["schemas"]["ContactStatus"];
