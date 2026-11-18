@@ -2,7 +2,7 @@ export * from './inboxjot';
 export * from './emails';
 export * from './contacts';
 export * from './events';
-export * from './user-token';
+export * from './tokens';
 export * from './campaigns';
 export * from './templates';
 export * from './domains';
