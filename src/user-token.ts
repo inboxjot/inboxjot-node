@@ -1,4 +1,4 @@
-export type CreateUserTokenOptions = {
+export type SignUserTokenOptions = {
   secret: string;
   email?: string;
   userId?: string;
@@ -20,8 +20,8 @@ function encodeJson(value: unknown) {
   return toBase64Url(new TextEncoder().encode(JSON.stringify(value)));
 }
 
-export async function createUserToken(
-  options: CreateUserTokenOptions
+export async function signUserToken(
+  options: SignUserTokenOptions
 ): Promise<string> {
   const { secret, email, userId, expiresIn = 24 * 60 * 60 } = options;
 

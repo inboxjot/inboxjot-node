@@ -1,11 +1,11 @@
 import { describe, expect, it } from 'vite-plus/test';
 
-import { Inboxjot, createUserToken } from '../src';
+import { Inboxjot, signUserToken } from '../src';
 import { json, mockFetch, readCall } from './fetch';
 
-describe('createUserToken', () => {
+describe('signUserToken', () => {
   it('signs an HS256 token with the user and an expiry', async () => {
-    const token = await createUserToken({
+    const token = await signUserToken({
       secret: 'ibxts_secret',
       userId: 'usr_1',
       expiresIn: 60,
@@ -40,9 +40,9 @@ describe('createUserToken', () => {
   });
 
   it('refuses a token without a user or over 30 days', async () => {
-    await expect(createUserToken({ secret: 's' })).rejects.toThrow();
+    await expect(signUserToken({ secret: 's' })).rejects.toThrow();
     await expect(
-      createUserToken({ secret: 's', userId: 'u', expiresIn: 31 * 86_400 })
+      signUserToken({ secret: 's', userId: 'u', expiresIn: 31 * 86_400 })
     ).rejects.toThrow();
   });
 
