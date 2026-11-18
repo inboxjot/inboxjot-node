@@ -11,7 +11,7 @@ describe('Topics', () => {
     const { topics } = createClient(fetch);
 
     await topics.list({ after: 'cur_1' });
-    await topics.create({ name: 'News' });
+    await topics.create({ name: 'News', brand_id: 'br_1' });
     await topics.get('top_1');
     await topics.update('top_1', { description: null });
     await topics.delete('top_1');

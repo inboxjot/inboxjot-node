@@ -4,6 +4,134 @@
  */
 
 export interface paths {
+    "/v1/api-keys": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["list_api_keys"];
+        put?: never;
+        post: operations["create_api_key"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/api-keys/{key_id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["get_api_key"];
+        put?: never;
+        post?: never;
+        delete: operations["delete_api_key"];
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/api-keys/{key_id}/roll": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post: operations["roll_api_key"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/automations": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["list_api_automations"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/automations/{automation_id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["get_api_automation"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/automations/{automation_id}/status": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post: operations["change_api_automation_status"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/brands": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["list_api_brands"];
+        put?: never;
+        post: operations["create_api_brand"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/brands/{brand_id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["get_api_brand"];
+        put?: never;
+        post?: never;
+        delete: operations["delete_api_brand"];
+        options?: never;
+        head?: never;
+        patch: operations["update_api_brand"];
+        trace?: never;
+    };
     "/v1/campaigns": {
         parameters: {
             query?: never;
@@ -46,6 +174,38 @@ export interface paths {
         get?: never;
         put?: never;
         post: operations["cancel_api_campaign"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/campaigns/{campaign_id}/pause": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post: operations["pause_api_campaign"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/campaigns/{campaign_id}/resume": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post: operations["resume_api_campaign"];
         delete?: never;
         options?: never;
         head?: never;
@@ -126,6 +286,70 @@ export interface paths {
         get?: never;
         put?: never;
         post: operations["restore_api_campaign_version"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/contact-imports": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["list_api_imports"];
+        put?: never;
+        post: operations["start_api_import"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/contact-imports/presign": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post: operations["create_api_upload_url"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/contact-imports/{import_id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["get_api_import"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/contact-properties": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["list_api_contact_properties"];
+        put?: never;
+        post?: never;
         delete?: never;
         options?: never;
         head?: never;
@@ -324,6 +548,22 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/v1/emails/{email_id}/events": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["list_email_events"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/v1/events": {
         parameters: {
             query?: never;
@@ -334,6 +574,54 @@ export interface paths {
         get?: never;
         put?: never;
         post: operations["track_contact_event"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/events/batch": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post: operations["track_contact_event_batch"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/exports": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["list_api_exports"];
+        put?: never;
+        post: operations["create_api_export"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/exports/{export_id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["get_api_export"];
+        put?: never;
+        post?: never;
         delete?: never;
         options?: never;
         head?: never;
@@ -388,6 +676,38 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/v1/logs": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["list_api_logs"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/logs/{request_id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["get_api_log"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/v1/segments": {
         parameters: {
             query?: never;
@@ -431,6 +751,54 @@ export interface paths {
         put?: never;
         post: operations["add_api_segment_members"];
         delete: operations["remove_api_segment_members"];
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/stats": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["get_stats"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/suppressions": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["list_api_suppressions"];
+        put?: never;
+        post: operations["add_api_suppressions"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/suppressions/{suppression_id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post?: never;
+        delete: operations["delete_api_suppression"];
         options?: never;
         head?: never;
         patch?: never;
@@ -564,6 +932,54 @@ export interface paths {
         patch: operations["update_api_topic"];
         trace?: never;
     };
+    "/v1/webhook-deliveries": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["list_api_webhook_deliveries"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/webhook-deliveries/{delivery_id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["get_api_webhook_delivery"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/webhook-deliveries/{delivery_id}/replay": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post: operations["replay_api_webhook_delivery"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/v1/webhooks": {
         parameters: {
             query?: never;
@@ -596,13 +1012,63 @@ export interface paths {
         patch: operations["update_api_webhook"];
         trace?: never;
     };
+    "/v1/webhooks/{endpoint_id}/secret": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["get_api_webhook_secret"];
+        put?: never;
+        post: operations["rotate_api_webhook_secret"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/webhooks/{endpoint_id}/test": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post: operations["test_api_webhook"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
 }
 export type webhooks = Record<string, never>;
 export interface components {
     schemas: {
+        AddSuppressionsBody: {
+            /** @description The email addresses to suppress, 1 to 1,000. */
+            emails: string[];
+        };
         Added: {
             /** @description How many contacts were added. */
             added: number;
+        };
+        AddedSuppressions: {
+            /** @description How many addresses were added. */
+            added: number;
+            /** @description How many addresses were on the list already. */
+            skipped: number;
+        };
+        AnalyticsExportFilters: {
+            from?: string;
+            to?: string;
+            timezone?: string;
+            domain_ids?: string[] | null;
+            email_kind?: string | null;
+            email_source?: string | null;
         };
         ApiCampaignBody: {
             /** @description The campaign name, 1 to 200 characters. */
@@ -671,6 +1137,147 @@ export interface components {
             /** @description The tag value. */
             value: string;
         };
+        ApiKey: {
+            /** @description The key id. */
+            id: string;
+            /** @description The workspace the key belongs to. */
+            workspace_id: string;
+            /** @description The user who created the key. */
+            creator_id: string;
+            /** @description The key name. */
+            name: string;
+            /** @description The first part of the key, `ibx`. */
+            prefix: string;
+            /** @description The second part of the key. It identifies the key and is not secret. */
+            short_token: string;
+            /** @description The secret part of the key. Returned only here; store it now. The full key is `prefix_short_token_long_token`. */
+            long_token: string;
+            /** @description `active` or `inactive`. An inactive key does not work. */
+            status: components["schemas"]["ApiKeyStatus"];
+            /** @description `full` or `sending`. A sending key can only send email. */
+            permission: components["schemas"]["ApiKeyPermission"];
+            /** @description The domain the key is limited to. */
+            domain_id: string | null;
+            /** @description The IP addresses that can use the key. An empty list lets every address use it. */
+            ip_allowlist: string[];
+            /** @description The events a `tracking` key can send. */
+            allowed_events: string[];
+            /** @description The secret your server signs user tokens with, for a `tracking` key. Returned only here; store it now. */
+            signing_secret: string | null;
+            /**
+             * Format: date-time
+             * @description When the key stops working.
+             */
+            expires_at: string | null;
+            /** @description The short token of the key before a roll. `null` for a new key. */
+            previous_short_token: string | null;
+            /** @description A hash of the secret part of the key before a roll. `null` for a new key. */
+            previous_long_token: string | null;
+            /**
+             * Format: date-time
+             * @description When the key before a roll stops working. `null` for a new key.
+             */
+            previous_expires_at: string | null;
+            /**
+             * Format: date-time
+             * @description When the key was last used.
+             */
+            last_used_at: string | null;
+            /**
+             * Format: date-time
+             * @description When the key was created.
+             */
+            created_at: string;
+            /**
+             * Format: date-time
+             * @description When the key last changed.
+             */
+            updated_at: string;
+        };
+        ApiKeyDetail: {
+            /** @description The key id. */
+            id: string;
+            /** @description The key name. */
+            name: string;
+            /** @description The first part of the key, `ibx`. */
+            prefix: string;
+            /** @description The second part of the key. It identifies the key and is not secret. */
+            short_token: string;
+            /**
+             * Format: date-time
+             * @description When the key was created.
+             */
+            created_at: string;
+            /**
+             * Format: date-time
+             * @description When the key was last used.
+             */
+            last_used_at: string | null;
+            /** @description `active` or `inactive`. An inactive key does not work. */
+            status: components["schemas"]["ApiKeyStatus"];
+            /** @description `full`, `sending` or `tracking`. A sending key can only send email, and a tracking key can only track events. */
+            permission: components["schemas"]["ApiKeyPermission"];
+            /** @description The domain the key is limited to. */
+            domain_id: string | null;
+            /** @description The IP addresses that can use the key. An empty list lets every address use it. */
+            ip_allowlist: string[];
+            /** @description The events a `tracking` key can send. */
+            allowed_events: string[];
+            /**
+             * Format: date-time
+             * @description When the key stops working.
+             */
+            expires_at: string | null;
+            /** @description The name of the user who created the key. */
+            creator_name: string | null;
+            /** @description The short token of the old key while it still works after a roll. */
+            previous_short_token: string | null;
+            /**
+             * Format: date-time
+             * @description When the old key stops working after a roll.
+             */
+            previous_expires_at: string | null;
+            /** @description The name of the domain the key is limited to. */
+            domain_name: string | null;
+            /**
+             * Format: int32
+             * @description Emails sent with the key in the last 30 days.
+             */
+            sent_last_30_days: number;
+            /**
+             * Format: int32
+             * @description Emails sent with the key and delivered in the last 30 days.
+             */
+            delivered_last_30_days: number;
+            /**
+             * Format: int32
+             * @description Emails sent with the key that bounced in the last 30 days.
+             */
+            bounced_last_30_days: number;
+            /**
+             * Format: int64
+             * @description Requests made with the key in the last 30 days.
+             */
+            requests_last_30_days: number;
+            /**
+             * Format: int64
+             * @description Requests made with the key that failed in the last 30 days.
+             */
+            errors_last_30_days: number;
+            /**
+             * Format: int32
+             * @description How many requests per second the key can make.
+             */
+            requests_per_second: number;
+            /** @description The latest emails sent with the key. */
+            recent_emails: components["schemas"]["RecentEmail"][];
+            /** @description The latest requests made with the key. */
+            recent_requests: components["schemas"]["RecentApiRequest"][];
+        };
+        /** @enum {string} */
+        ApiKeyPermission: "full" | "sending" | "tracking";
+        /** @enum {string} */
+        ApiKeyStatus: "active" | "inactive";
         ApiTemplateBody: {
             /** @description The template name, 1 to 200 characters. */
             name?: string | null;
@@ -734,6 +1341,293 @@ export interface components {
              */
             expires_at: string | null;
         };
+        AttemptItem: {
+            /**
+             * Format: int32
+             * @description Which try this was, from 1.
+             */
+            attempt: number;
+            /**
+             * Format: int32
+             * @description The HTTP status your endpoint answered. `0` when it did not answer.
+             */
+            status: number;
+            /**
+             * Format: int32
+             * @description How long the answer took.
+             */
+            duration_ms: number;
+            /** @description Why the try failed. Empty when it succeeded. */
+            error: string;
+            /** @description The body your endpoint answered. A long body is cut short. */
+            response_body: string;
+            /**
+             * Format: date-time
+             * @description When the try was made.
+             */
+            attempted_at: string;
+        };
+        AuditExportFilters: {
+            category?: string | null;
+            query?: string | null;
+        };
+        Automation: {
+            /** @description The automation id. */
+            id: string;
+            /** @description The workspace id. */
+            workspace_id: string;
+            /** @description The automation name. */
+            name: string;
+            /** @description A note about what the automation does. */
+            description: string | null;
+            /** @description `draft`, `on` or `off`. */
+            status: components["schemas"]["AutomationState"];
+            trigger: components["schemas"]["AutomationTrigger"] | null;
+            /** @description Each step by its id. The `type` of a step is `send_email`, `wait`, `wait_for_event` or `check_if`. */
+            steps: {
+                [key: string]: components["schemas"]["AutomationStep"];
+            };
+            /** @description The id of the step that runs first. */
+            first_step_id: string | null;
+            /** @description Whether a contact can start a new run after the last one ends. */
+            allow_reentry: boolean;
+            /**
+             * Format: int32
+             * @description How many runs started.
+             */
+            entered_count: number;
+            /**
+             * Format: int32
+             * @description How many runs are in progress.
+             */
+            active_count: number;
+            /**
+             * Format: int32
+             * @description How many runs reached the last step.
+             */
+            completed_count: number;
+            /**
+             * Format: int32
+             * @description How many runs stopped before the last step.
+             */
+            exited_count: number;
+            /**
+             * Format: int32
+             * @description How many emails the automation sent.
+             */
+            sent_count: number;
+            /** @description The id of the user who created it. */
+            creator_id: string;
+            /**
+             * Format: date-time
+             * @description When it was last turned on. `null` when it was never on.
+             */
+            turned_on_at: string | null;
+            /**
+             * Format: date-time
+             * @description When it was created.
+             */
+            created_at: string;
+            /**
+             * Format: date-time
+             * @description When it last changed.
+             */
+            updated_at: string;
+        };
+        AutomationCondition: {
+            step_id: string | null;
+            /**
+             * @description Always `opened`.
+             * @enum {string}
+             */
+            kind: "opened";
+        } | {
+            step_id: string | null;
+            /**
+             * @description Always `clicked`.
+             * @enum {string}
+             */
+            kind: "clicked";
+        } | {
+            key: string;
+            operator: components["schemas"]["PropertyOperator"];
+            value: string;
+            /**
+             * @description Always `property`.
+             * @enum {string}
+             */
+            kind: "property";
+        } | {
+            topic_id: string | null;
+            /**
+             * @description Always `topic`.
+             * @enum {string}
+             */
+            kind: "topic";
+        } | {
+            segment_id: string | null;
+            /**
+             * @description Always `segment`.
+             * @enum {string}
+             */
+            kind: "segment";
+        } | {
+            event: string;
+            filter?: components["schemas"]["EventFilter"] | null;
+            /**
+             * @description Always `event`.
+             * @enum {string}
+             */
+            kind: "event";
+        };
+        AutomationDetail: components["schemas"]["Automation"] & {
+            /** @description The event name, or the name of the topic or segment in the trigger. */
+            trigger_label: string | null;
+            /** @description The templates that the steps send. */
+            templates: components["schemas"]["DetailTemplate"][];
+            /** @description The segments that the trigger and the steps use. */
+            segments: components["schemas"]["DetailSegment"][];
+            /** @description Counts for each step by its id: runs that wait there, emails sent, opened, clicked and unsubscribed, and `yes` and `no` for a `check_if` step. */
+            step_stats: {
+                [key: string]: components["schemas"]["StepStats"];
+            };
+            /** @description What stops the automation from turning on. Empty when it can turn on. */
+            problems: components["schemas"]["TurnOnProblem"][];
+        };
+        AutomationListItem: {
+            /** @description The automation id. */
+            id: string;
+            /** @description The automation name. */
+            name: string;
+            /** @description A note about what the automation does. */
+            description: string | null;
+            /** @description `draft`, `on` or `off`. */
+            status: components["schemas"]["AutomationState"];
+            trigger: components["schemas"]["AutomationTrigger"] | null;
+            /**
+             * Format: int32
+             * @description How many runs started.
+             */
+            entered_count: number;
+            /**
+             * Format: int32
+             * @description How many runs are in progress.
+             */
+            active_count: number;
+            /**
+             * Format: int32
+             * @description How many emails the automation sent.
+             */
+            sent_count: number;
+            /**
+             * Format: date-time
+             * @description When it was last turned on. `null` when it was never on.
+             */
+            turned_on_at: string | null;
+            /**
+             * Format: date-time
+             * @description When it was created.
+             */
+            created_at: string;
+            /**
+             * Format: date-time
+             * @description When it last changed.
+             */
+            updated_at: string;
+            /** @description The event name, or the name of the topic or segment in the trigger. */
+            trigger_label: string | null;
+        };
+        AutomationPage: {
+            /** @description Send it as `after` to get the next page. `null` on the last page. */
+            next_cursor: string | null;
+            /** @description Send it as `before` to get the page before. `null` on the first page. */
+            prev_cursor: string | null;
+            /** @description The automations on this page. */
+            data: components["schemas"]["AutomationListItem"][];
+        };
+        /** @enum {string} */
+        AutomationState: "draft" | "on" | "off";
+        /** @enum {string} */
+        AutomationStatus: "on" | "off";
+        AutomationStep: {
+            id: string;
+            template_id: string | null;
+            from: string;
+            subject: string;
+            next: string | null;
+            /**
+             * @description Always `send_email`.
+             * @enum {string}
+             */
+            type: "send_email";
+        } | {
+            id: string;
+            /** Format: int32 */
+            amount: number;
+            unit: components["schemas"]["WaitUnit"];
+            next: string | null;
+            /**
+             * @description Always `wait`.
+             * @enum {string}
+             */
+            type: "wait";
+        } | {
+            id: string;
+            event: string;
+            /** Format: int32 */
+            timeout_amount: number;
+            timeout_unit: components["schemas"]["WaitUnit"];
+            next: string | null;
+            /**
+             * @description Always `wait_for_event`.
+             * @enum {string}
+             */
+            type: "wait_for_event";
+        } | {
+            id: string;
+            condition: components["schemas"]["AutomationCondition"];
+            yes: string | null;
+            no: string | null;
+            /**
+             * @description Always `check_if`.
+             * @enum {string}
+             */
+            type: "check_if";
+        };
+        AutomationTrigger: {
+            /** @description The event name that starts a run, such as `user.created`. */
+            event: string;
+            filter?: components["schemas"]["EventFilter"] | null;
+            /**
+             * @description Always `event`.
+             * @enum {string}
+             */
+            type: "event";
+        } | {
+            /** @description The topic. A run starts when a contact subscribes to it. */
+            topic_id: string;
+            /**
+             * @description Always `topic_subscribed`.
+             * @enum {string}
+             */
+            type: "topic_subscribed";
+        } | {
+            /** @description The static segment. A run starts when a contact is added to it. */
+            segment_id: string;
+            /**
+             * @description Always `segment_added`.
+             * @enum {string}
+             */
+            type: "segment_added";
+        } | {
+            /** @description The dynamic segment. A run starts when a contact starts to match it. */
+            segment_id: string;
+            /**
+             * @description Always `segment_matched`.
+             * @enum {string}
+             */
+            type: "segment_matched";
+        };
         BatchEmailBody: {
             /** @description Sender on a verified domain, such as `Acme <hello@acme.dev>`, 3 to 320 characters. Required unless the template sets one. */
             from?: string | null;
@@ -769,6 +1663,57 @@ export interface components {
         };
         /** @enum {string} */
         BounceType: "permanent" | "transient" | "undetermined";
+        Brand: {
+            /** @description The brand id. */
+            id: string;
+            /** @description The name readers see on the unsubscribe page and in email footers. */
+            name: string;
+            /** @description The brand's slug in unsubscribe page links. */
+            slug: string;
+            /** @description The logo on the unsubscribe page, or `null`. */
+            logo_url: string | null;
+            /** @description Whether this is the workspace's default brand. It cannot be deleted. */
+            is_default: boolean;
+            /** @description The brand's default topic, or `null`. Only the default brand has one. */
+            default_topic_id: string | null;
+            /**
+             * Format: int64
+             * @description How many topics the brand owns.
+             */
+            topic_count: number;
+            /**
+             * Format: date-time
+             * @description ISO 8601 time.
+             */
+            created_at: string;
+            /**
+             * Format: date-time
+             * @description ISO 8601 time.
+             */
+            updated_at: string;
+        };
+        BrandBody: {
+            /** @description The name readers see, 1 to 100 characters. */
+            name: string;
+        };
+        /** @enum {string} */
+        BrandChoiceStatus: "subscribed" | "unsubscribed";
+        BrandPage: {
+            /** @description The brands on this page. */
+            data: components["schemas"]["Brand"][];
+            /** @description Send it as `before` to get the page before. `null` on the first page. */
+            prev_cursor: string | null;
+            /** @description Send it as `after` to get the next page. `null` on the last page. */
+            next_cursor: string | null;
+        };
+        BrandStatusChoice: {
+            /** @description The brand id. The brand must exist. */
+            id: string;
+            /** @description `subscribed` or `unsubscribed`. `unsubscribed` stops every topic of the brand. */
+            status: components["schemas"]["BrandChoiceStatus"];
+        };
+        /** @enum {string} */
+        CallerKind: "key" | "app";
         CampaignListItem: {
             /** @description The campaign id. */
             id: string;
@@ -869,9 +1814,26 @@ export interface components {
         };
         /** @enum {string} */
         ComplaintType: "abuse";
+        ContactBrand: {
+            id: string;
+            name: string;
+            status: components["schemas"]["ContactBrandStatus"];
+            /** Format: date-time */
+            paused_until: string | null;
+            /** Format: date-time */
+            unsubscribed_at: string | null;
+            unsubscribe_source: components["schemas"]["UnsubscribeSource"] | null;
+        };
+        /** @enum {string} */
+        ContactBrandStatus: "subscribed" | "unsubscribed";
+        ContactBrandStatusData: {
+            brand_id: string;
+            status: string;
+        };
         ContactEventData: {
             contact_id: string;
             email: string;
+            user_id: string | null;
             first_name: string | null;
             last_name: string | null;
             status: components["schemas"]["ContactStatus"];
@@ -879,14 +1841,94 @@ export interface components {
             properties: {
                 [key: string]: components["schemas"]["ContactPropertyValue"];
             };
+            brands: components["schemas"]["ContactBrandStatusData"][];
             /** Format: date-time */
             created_at: string;
             /** Format: date-time */
             updated_at: string;
         };
+        ContactExportFilters: {
+            status?: components["schemas"]["ContactStatus"] | null;
+            /** @description Export only the contacts in this segment. */
+            segment_id?: string | null;
+            /** @description Export only the contacts that match this text, up to 200 characters. */
+            query?: string | null;
+        };
         ContactIdsBody: {
             /** @description 1 to 1,000 contact ids. */
             contact_ids: string[];
+        };
+        ContactImport: {
+            /** @description The import id. */
+            id: string;
+            /** @description The workspace id. */
+            workspace_id: string;
+            /** @description The name of the uploaded file. */
+            file_name: string;
+            /** @description The key of the uploaded file. `null` after the file is deleted. */
+            file_key: string | null;
+            /** @description Each column of the file and the contact field it fills. `null` skips the column. */
+            mapping: {
+                [key: string]: string | null;
+            };
+            /** @description `queued`, `importing`, `completed` or `failed`. */
+            status: string;
+            /**
+             * Format: int32
+             * @description How many rows the file has.
+             */
+            total_rows: number;
+            /**
+             * Format: int32
+             * @description How many rows the import has read.
+             */
+            processed_rows: number;
+            /**
+             * Format: int32
+             * @description How many contacts the import created.
+             */
+            created_count: number;
+            /**
+             * Format: int32
+             * @description How many contacts the import changed.
+             */
+            updated_count: number;
+            /**
+             * Format: int32
+             * @description How many rows the import skipped.
+             */
+            skipped_count: number;
+            /** @description The rows that the import skipped, and why. */
+            errors: components["schemas"]["ContactImportError"][];
+            /** @description The id of the user who started the import. */
+            creator_id: string;
+            /**
+             * Format: date-time
+             * @description When the import finished. `null` until then.
+             */
+            completed_at: string | null;
+            /**
+             * Format: date-time
+             * @description When the import started.
+             */
+            created_at: string;
+            /**
+             * Format: date-time
+             * @description When it last changed.
+             */
+            updated_at: string;
+            /** @description The static segment that gets the contacts. */
+            segment_id: string | null;
+            /** @description The topic that the contacts subscribe to. */
+            topic_id: string | null;
+        };
+        ContactImportError: {
+            /** @description The row number in the file. */
+            row: number;
+            /** @description The email address in the row. Empty when the row has no valid address. */
+            email: string;
+            /** @description Why the row was skipped. */
+            reason: string;
         };
         ContactListItem: {
             /** @description The contact id. */
@@ -924,6 +1966,32 @@ export interface components {
              */
             total: number;
         };
+        ContactProperty: {
+            /** @description The property id. */
+            id: string;
+            /** @description The workspace id. */
+            workspace_id: string;
+            /** @description The key in a contact's `properties`, such as `plan`. */
+            key: string;
+            /** @description The name shown in the dashboard. */
+            label: string;
+            /** @description `text`, `number`, `boolean`, `date` or `choice`. */
+            type: components["schemas"]["ContactPropertyType"];
+            /** @description The choices of a `choice` property. `null` for other types. */
+            options: string[] | null;
+            /**
+             * Format: date-time
+             * @description When it was created.
+             */
+            created_at: string;
+            /**
+             * Format: date-time
+             * @description When it last changed.
+             */
+            updated_at: string;
+        };
+        /** @enum {string} */
+        ContactPropertyType: "text" | "number" | "boolean" | "date" | "choice";
         ContactPropertyValue: string | number | boolean | null;
         /** @enum {string} */
         ContactSort: "added" | "contact" | "last_activity";
@@ -944,6 +2012,8 @@ export interface components {
         CreateContactInput: {
             /** @description The contact address, up to 320 characters. Invalid and disposable addresses are refused. */
             email: string;
+            /** @description Your ID for the contact, 1 to 255 characters, such as your user ID. It is unique in the workspace. An existing contact with another `user_id` returns 409. */
+            user_id?: string | null;
             /** @description First name, up to 200 characters. Send `null` to clear it. */
             first_name?: string | null;
             /** @description Last name, up to 200 characters. Send `null` to clear it. */
@@ -969,9 +2039,125 @@ export interface components {
             /** @description The subdomain for bounces, such as `send`. Defaults to `send`. */
             return_path?: string | null;
         };
+        CreateKeyBody: {
+            /** @description The key name, 1 to 100 characters. */
+            name: string;
+            /** @description `full`, `sending` or `tracking`. Defaults to `full`. A tracking key is safe to use in a browser: it can only track the events in `allowed_events`, for the contact in a user token your server signs. */
+            permission?: components["schemas"]["ApiKeyPermission"];
+            /** @description The events a `tracking` key can send, up to 50. Required for a tracking key. */
+            allowed_events?: string[];
+            /** @description A domain to limit the key to. The key can then send only from this domain. */
+            domain_id?: string | null;
+            /** @description When the key stops working: `never`, `30d`, `90d` or `1y`. Defaults to `never`. */
+            expires_in?: string;
+            /** @description The IP addresses that can use the key, up to 50. An empty list lets every address use it. */
+            ip_allowlist?: string[];
+        };
         CreateTopicBody: components["schemas"]["TopicInput"] & {
             /** @description The topic name, 1 to 100 characters. */
             name: string;
+        };
+        CursorPage_SuppressionItem: {
+            /** @description The items on this page. */
+            data: {
+                /** @description The suppression id. */
+                id: string;
+                /** @description The suppressed email address. */
+                email: string;
+                /** @description `bounce`, `complaint` or `manual`. */
+                reason: components["schemas"]["SuppressionReason"];
+                /** @description `all` stops every email. `marketing` stops campaigns and automations only. */
+                scope: components["schemas"]["SuppressionScope"];
+                /**
+                 * Format: date-time
+                 * @description When the suppression ends. `null` when it does not end.
+                 */
+                expires_at: string | null;
+                /** @description The message from the receiving server for a bounce or a complaint. */
+                details: string | null;
+                source: components["schemas"]["SuppressionSource"] | null;
+                /** @description The name of the person who added it. */
+                creator_name: string | null;
+                /** @description The id of the email that caused it. */
+                source_email_id: string | null;
+                /**
+                 * Format: date-time
+                 * @description When it was added.
+                 */
+                created_at: string;
+            }[];
+            /** @description Send it as `before` to get the page before. `null` on the first page. */
+            prev_cursor: string | null;
+            /** @description Send it as `after` to get the next page. `null` on the last page. */
+            next_cursor: string | null;
+        };
+        DailyStat: components["schemas"]["StatTotals"] & {
+            /** @description The day, as `YYYY-MM-DD` in the time zone of the report. */
+            day: string;
+        };
+        DeliveryDetail: {
+            /** @description The delivery id. */
+            delivery_id: string;
+            /** @description The event id, also in the payload. */
+            event_id: string;
+            /** @description The event type. */
+            event_type: string;
+            /** @description The email the event is about. */
+            email_id: string;
+            /** @description The webhook the event went to. */
+            endpoint_id: string;
+            /** @description The name of the webhook. `null` when the webhook is deleted. */
+            endpoint_name: string | null;
+            /** @description The URL of the webhook. `null` when the webhook is deleted. */
+            endpoint_url: string | null;
+            /** @description The JSON body that was sent. Empty when it is past the retention period. */
+            payload: string;
+            /**
+             * Format: date-time
+             * @description When the event was first sent.
+             */
+            created_at: string;
+            /**
+             * Format: date-time
+             * @description When it is tried again, if it failed.
+             */
+            next_attempt_at: string | null;
+            /** @description The headers of the request. */
+            headers: components["schemas"]["SignedHeaders"];
+            /** @description Every try, oldest first. */
+            attempts: components["schemas"]["AttemptItem"][];
+        };
+        DeliveryIdResponse: {
+            /** @description The id of the queued delivery. */
+            delivery_id: string;
+        };
+        DeliveryPage: {
+            /** @description Send it as `after` to get the next page. `null` on the last page. */
+            next_cursor: string | null;
+            /** @description Send it as `before` to get the page before. `null` on the first page. */
+            prev_cursor: string | null;
+            /** @description The deliveries on this page. */
+            data: components["schemas"]["NamedDelivery"][];
+        };
+        DetailSegment: {
+            /** @description The segment id. */
+            id: string;
+            /** @description The segment name. */
+            name: string;
+            /** @description `static` or `dynamic`. */
+            type: components["schemas"]["SegmentType"];
+        };
+        DetailTemplate: {
+            /** @description The template id. */
+            id: string;
+            /** @description The template name. */
+            name: string;
+            /** @description The subject of the published template. */
+            subject: string;
+            /** @description The from address of the published template. */
+            from: string;
+            /** @description The preview text of the published template. */
+            preheader: string;
         };
         DocumentVersion: {
             /** @description The version id. */
@@ -1097,6 +2283,15 @@ export interface components {
             /** @description Whether the record was found: `not_started`, `pending`, `verified`, `failed` or `temporary_failure`. */
             status: components["schemas"]["DomainStatus"];
         };
+        DomainSent: {
+            /** @description The domain id. */
+            domain_id: string;
+            /**
+             * Format: int32
+             * @description Emails sent from the domain in the range.
+             */
+            sent: number;
+        };
         /** @enum {string} */
         DomainStatus: "not_started" | "pending" | "verified" | "failed" | "temporary_failure";
         DomainWarmup: {
@@ -1152,6 +2347,22 @@ export interface components {
             from: string;
             subject: string;
             tags?: components["schemas"]["EmailTag"][];
+        };
+        EmailEventList: {
+            /** @description The events of the email, oldest first. */
+            data: components["schemas"]["TimelineEvent"][];
+        };
+        EmailExportFilters: {
+            query?: string | null;
+            status?: string | null;
+            status_op?: string;
+            source?: components["schemas"]["EmailSource"] | null;
+            sent_after?: string | null;
+            sent_before?: string | null;
+            sort?: string;
+            direction?: string;
+            format?: string;
+            ids?: string[] | null;
         };
         EmailFailedData: components["schemas"]["EmailEventData"] & {
             reason: string;
@@ -1232,14 +2443,116 @@ export interface components {
             location: string;
         };
         /** @enum {string} */
-        ErrorName: "validation_error" | "not_found" | "unauthorized" | "forbidden" | "internal_server_error" | "bad_request" | "user_not_verified" | "rate_limit_exceeded" | "conflict" | "limit_exceeded" | "reauthentication_required" | "invalid_idempotency_key" | "concurrent_idempotent_requests" | "invalid_idempotent_request" | "payload_too_large" | "unsupported_media_type" | "service_unavailable" | "unknown_error";
+        ErrorName: "validation_error" | "not_found" | "unauthorized" | "forbidden" | "internal_server_error" | "bad_request" | "user_not_verified" | "domain_not_verified" | "rate_limit_exceeded" | "conflict" | "limit_exceeded" | "reauthentication_required" | "invalid_idempotency_key" | "concurrent_idempotent_requests" | "invalid_idempotent_request" | "payload_too_large" | "unsupported_media_type" | "service_unavailable" | "unknown_error";
         EventBody: {
             /** @description Event name, 1 to 100 characters. Start with a letter or number, then use letters, numbers, `.`, `_`, `:` or `-`. */
             name: string;
-            /** @description The contact address. A new address creates a subscribed contact. Disposable addresses are refused. */
-            email: string;
+            /** @description The contact address. A new address creates a subscribed contact. Disposable addresses are refused. Send `email`, `user_id` or both. */
+            email?: string | null;
+            /** @description Your ID for the contact, 1 to 255 characters. With an email, it is saved on the contact. Without one, it must match a contact that has it. */
+            user_id?: string | null;
+            /**
+             * Format: date-time
+             * @description When the event happened, as ISO 8601 with an offset, such as `2026-11-14T09:30:00Z`. Leave it out for now. An event older than 72 hours is recorded but starts no automation.
+             */
+            occurred_at?: string | null;
             /** @description Event data, such as `{ "plan": "pro" }`, up to 16 KB as JSON. Automations started by the event can use it in their emails. */
-            data?: Record<string, unknown>;
+            data?: {
+                [key: string]: unknown;
+            };
+        };
+        EventFilter: {
+            /** @description A field of the event data. Use dots for nested fields, such as `order.total`. */
+            path: string;
+            operator: components["schemas"]["PropertyOperator"];
+            /** @description The value to compare with. Not used by `is_set` and `is_not_set`. */
+            value?: string;
+        };
+        ExportInput: {
+            /** @description The contacts to export. Send `{}` to export every contact. */
+            filters: components["schemas"]["ContactExportFilters"];
+            /**
+             * @description Always `contacts`.
+             * @enum {string}
+             */
+            kind: "contacts";
+        } | {
+            /** @description The emails to export. */
+            filters: components["schemas"]["EmailExportFilters"];
+            /**
+             * @description Always `emails`.
+             * @enum {string}
+             */
+            kind: "emails";
+        } | {
+            /** @description The suppressions to export. */
+            filters: components["schemas"]["SuppressionExportFilters"];
+            /**
+             * @description Always `suppressions`.
+             * @enum {string}
+             */
+            kind: "suppressions";
+        } | {
+            /** @description The API requests to export. */
+            filters: components["schemas"]["LogExportFilters"];
+            /**
+             * @description Always `logs`.
+             * @enum {string}
+             */
+            kind: "logs";
+        } | {
+            /** @description The audit events to export. */
+            filters: components["schemas"]["AuditExportFilters"];
+            /**
+             * @description Always `audit_events`.
+             * @enum {string}
+             */
+            kind: "audit_events";
+        } | {
+            /** @description The webhook events to export. */
+            filters: components["schemas"]["WebhookExportFilters"];
+            /**
+             * @description Always `webhook_deliveries`.
+             * @enum {string}
+             */
+            kind: "webhook_deliveries";
+        } | {
+            /** @description The date range and the emails to count. */
+            filters: components["schemas"]["AnalyticsExportFilters"];
+            /**
+             * @description Always `analytics`.
+             * @enum {string}
+             */
+            kind: "analytics";
+        };
+        ExportResponse: {
+            /** @description The export id. */
+            id: string;
+            /** @description What the export holds: `contacts`, `emails`, `suppressions`, `logs`, `audit_events`, `webhook_deliveries` or `analytics`. */
+            kind: string;
+            /** @description `queued`, `exporting`, `completed` or `failed`. */
+            status: string;
+            /** @description The name of the file. */
+            file_name: string;
+            /**
+             * Format: int32
+             * @description How many rows the export has written.
+             */
+            row_count: number;
+            /** @description Why the export failed. `null` when it did not fail. */
+            error: string | null;
+            /**
+             * Format: date-time
+             * @description When the export started.
+             */
+            created_at: string;
+            /**
+             * Format: date-time
+             * @description When the export finished. `null` until then.
+             */
+            completed_at: string | null;
+            /** @description A link to download the file. It works for 10 minutes. Only a completed export read by its id has it. */
+            download_url: string | null;
         };
         Image: {
             /** @description The image id. */
@@ -1294,11 +2607,79 @@ export interface components {
             /** @description The key to send to Add Image. */
             key: string;
         };
+        KeyItem: {
+            /** @description The key id. */
+            id: string;
+            /** @description The key name. */
+            name: string;
+            /** @description The first part of the key, `ibx`. */
+            prefix: string;
+            /** @description The second part of the key. It identifies the key and is not secret. */
+            short_token: string;
+            /**
+             * Format: date-time
+             * @description When the key was created.
+             */
+            created_at: string;
+            /**
+             * Format: date-time
+             * @description When the key was last used.
+             */
+            last_used_at: string | null;
+            /** @description `active` or `inactive`. An inactive key does not work. */
+            status: components["schemas"]["ApiKeyStatus"];
+            /** @description `full` or `sending`. A sending key can only send email. */
+            permission: components["schemas"]["ApiKeyPermission"];
+            /** @description The domain the key is limited to. */
+            domain_id: string | null;
+            /** @description The name of the domain the key is limited to. */
+            domain_name: string | null;
+            /**
+             * Format: date-time
+             * @description When the key stops working.
+             */
+            expires_at: string | null;
+        };
+        KeyPage: {
+            /** @description The keys on this page. */
+            data: components["schemas"]["KeyItem"][];
+            /** @description Send it as `before` to get the page before. `null` on the first page. */
+            prev_cursor: string | null;
+            /** @description Send it as `after` to get the next page. `null` on the last page. */
+            next_cursor: string | null;
+            /**
+             * Format: int64
+             * @description How many keys match, across every page.
+             */
+            total: number;
+        };
         LastActivity: {
             /** @description The event, such as `opened` or `clicked`. */
             type: string;
             /** @description When it happened. */
             at: string;
+        };
+        LinkClicks: {
+            /** @description The link. */
+            url: string;
+            /**
+             * Format: int32
+             * @description Emails with a click on the link in the range.
+             */
+            clicks: number;
+        };
+        LogExportFilters: {
+            outcome?: string | null;
+            api_key_id?: string | null;
+            query?: string | null;
+        };
+        LogPage: {
+            /** @description Send it as `after` to get the next page. `null` on the last page. */
+            next_cursor: string | null;
+            /** @description Send it as `before` to get the page before. `null` on the first page. */
+            prev_cursor: string | null;
+            /** @description The API requests on this page. */
+            data: components["schemas"]["NamedRequestView_ApiRequestListItem"][];
         };
         NameVersionBody: {
             /** @description The new name, 1 to 100 characters. Send `null` to remove it. The version stays, and it can expire like an automatic version. */
@@ -1310,6 +2691,110 @@ export interface components {
             /** @description The name. */
             name: string;
         };
+        NamedDelivery: components["schemas"]["WebhookDeliveryListItem"] & {
+            /** @description The name of the webhook. `null` when the webhook is deleted. */
+            endpoint_name: string | null;
+        };
+        NamedRequestView_ApiRequestDetail: {
+            /** @description The request id. */
+            request_id: string;
+            /** @description The HTTP method. */
+            method: string;
+            /** @description The request path. */
+            path: string;
+            /**
+             * Format: int32
+             * @description The HTTP status of the response.
+             */
+            status: number;
+            /** @description A short summary of what the request did. Empty when the caller cannot read the resource. */
+            summary: string;
+            /** @description The id of the API key or connected app that made the request. */
+            api_key_id: string;
+            /**
+             * Format: date-time
+             * @description When the request arrived.
+             */
+            occurred_at: string;
+            /**
+             * Format: int32
+             * @description How long the request took, in milliseconds.
+             */
+            duration_ms: number;
+            /** @description The id of the resource that the request read or changed. Empty when there is none. */
+            resource_id: string;
+            /** @description The request body as text. Empty after the content retention of the plan, or when the caller cannot read the resource. */
+            request_body: string;
+            /** @description The response body as text. Empty after the content retention of the plan, or when the caller cannot read the resource. */
+            response_body: string;
+            /**
+             * Format: int32
+             * @description The size of the response body, in bytes.
+             */
+            response_size: number;
+            /** @description The IP address of the caller. */
+            ip_address: string;
+        } & {
+            /** @description The name of the API key or connected app that made the request. `null` when it no longer exists. */
+            api_key_name: string | null;
+            caller_kind: components["schemas"]["CallerKind"] | null;
+        };
+        NamedRequestView_ApiRequestListItem: {
+            /** @description The request id. */
+            request_id: string;
+            /** @description The HTTP method. */
+            method: string;
+            /** @description The request path. */
+            path: string;
+            /**
+             * Format: int32
+             * @description The HTTP status of the response.
+             */
+            status: number;
+            /** @description A short summary of what the request did. Empty when the caller cannot read the resource. */
+            summary: string;
+            /** @description The id of the API key or connected app that made the request. */
+            api_key_id: string;
+            /**
+             * Format: date-time
+             * @description When the request arrived.
+             */
+            occurred_at: string;
+            /**
+             * Format: int32
+             * @description How long the API took to answer, in milliseconds.
+             */
+            duration_ms: number;
+            /** @description The error name of a failed request, such as `validation_error`. Empty when it succeeded. */
+            error_name: string;
+            /** @description The error message of a failed request. Empty when it succeeded. */
+            error_message: string;
+        } & {
+            /** @description The name of the API key or connected app that made the request. `null` when it no longer exists. */
+            api_key_name: string | null;
+            caller_kind: components["schemas"]["CallerKind"] | null;
+        };
+        PresignBody: {
+            /** @description `text/csv` or `application/vnd.ms-excel`. */
+            content_type: string;
+            /**
+             * Format: int64
+             * @description The file size in bytes, up to 100 MB.
+             */
+            size: number;
+        };
+        PreviousStats: {
+            /** @description The first day of the previous period. */
+            from: string;
+            /** @description The last day of the previous period. */
+            to: string;
+            /** @description The counts of each day in the previous period. */
+            stats: components["schemas"]["DailyStat"][];
+            /** @description The totals of the previous period. */
+            total: components["schemas"]["StatTotals"];
+        };
+        /** @enum {string} */
+        PropertyOperator: "is" | "is_not" | "contains" | "is_set" | "is_not_set";
         PublicCampaignDetail: {
             /** @description The campaign id. */
             id: string;
@@ -1406,6 +2891,8 @@ export interface components {
             id: string;
             /** @description The contact address. */
             email: string;
+            /** @description Your ID for the contact, or `null`. */
+            user_id: string | null;
             /** @description First name. */
             first_name: string | null;
             /** @description Last name. */
@@ -1422,6 +2909,8 @@ export interface components {
             segments: components["schemas"]["SegmentRef"][];
             /** @description Every topic in the workspace, with the contact’s choice. */
             topics: components["schemas"]["PublicContactTopic"][];
+            /** @description Every brand in the workspace, with the contact’s choice. A brand with no choice yet is `subscribed`. */
+            brands: components["schemas"]["ContactBrand"][];
             /**
              * Format: date-time
              * @description ISO 8601 time.
@@ -1708,6 +3197,8 @@ export interface components {
         PublicTopic: {
             /** @description The topic id. */
             id: string;
+            /** @description The brand that owns the topic. */
+            brand_id: string | null;
             /** @description The topic name. */
             name: string;
             /** @description Shown on the preference page. */
@@ -1781,12 +3272,56 @@ export interface components {
             /** @description The id of each test email. Look them up with Retrieve Email. */
             ids: string[];
         };
+        RecentApiRequest: {
+            /** @description The request id. */
+            request_id: string;
+            /** @description The HTTP method. */
+            method: string;
+            /** @description The request path. */
+            path: string;
+            /**
+             * Format: int32
+             * @description The HTTP status of the answer.
+             */
+            status: number;
+            /**
+             * Format: int32
+             * @description How long the request took.
+             */
+            duration_ms: number;
+            /** @description The address the request came from. */
+            ip_address: string;
+            /**
+             * Format: date-time
+             * @description When the request was made.
+             */
+            occurred_at: string;
+        };
+        RecentEmail: {
+            /** @description The email id. */
+            id: string;
+            /** @description The recipients. */
+            to: string[];
+            /** @description The subject. */
+            subject: string;
+            /** @description The latest status of the email. */
+            status: components["schemas"]["EmailStatus"];
+            /**
+             * Format: date-time
+             * @description When the email was sent.
+             */
+            created_at: string;
+        };
         Recipients: string | string[];
         /** @enum {string} */
         RecordKind: "dkim" | "return_path" | "dmarc" | "tracking_cname" | "tracking_caa";
         Removed: {
             /** @description How many contacts were removed. */
             removed: number;
+        };
+        ReplayResponse: {
+            /** @description The id of the new delivery. It is not the id of the delivery you replayed. */
+            delivery_id: string;
         };
         RescheduleBody: {
             /** @description ISO 8601 time with an offset, in the future and up to 30 days ahead. */
@@ -1800,6 +3335,27 @@ export interface components {
              * @description The new send time.
              */
             scheduled_at: string | null;
+        };
+        RollKeyBody: {
+            /** @description When the old key stops working: `now`, `1h` or `24h`. Defaults to `now`. */
+            old_key_expires_in?: string;
+        };
+        RolledApiKey: {
+            /** @description The key id. It does not change. */
+            id: string;
+            /** @description The key name. */
+            name: string;
+            /** @description The first part of the key, `ibx`. */
+            prefix: string;
+            /** @description The new second part of the key. */
+            short_token: string;
+            /**
+             * Format: date-time
+             * @description When the old key stops working. `null` when it stopped at once.
+             */
+            previous_expires_at: string | null;
+            /** @description The new secret part of the key. Returned only here; store it now. */
+            long_token: string;
         };
         RuleValue: string | number | boolean | components["schemas"]["RuleWindow"];
         RuleWindow: {
@@ -1821,6 +3377,10 @@ export interface components {
         SavedContact: components["schemas"]["PublicContactWithTopics"] & {
             /** @description True when the contact is new. */
             created: boolean;
+        };
+        SecretResponse: {
+            /** @description The signing secret, starting with `whsec_`. Use it to check the `webhook-signature` header. */
+            secret: string;
         };
         SegmentConditions: {
             /** @description `all` needs every rule. `any` needs one. */
@@ -1873,12 +3433,13 @@ export interface components {
             name: string;
         };
         SegmentRule: {
-            /** @description `email`, `first_name`, `last_name`, `language`, `status`, `created_at`, `segment`, `email.sent`, `email.delivered`, `email.opened`, `email.clicked`, `email.bounced`, `email.complained`, or `property.<key>` for a property you added. */
+            /** @description `email`, `first_name`, `last_name`, `language`, `status`, `created_at`, `segment`, `email.sent`, `email.delivered`, `email.opened`, `email.clicked`, `email.bounced`, `email.complained`, `property.<key>` for a property you added, or `event.<name>` for a custom event. */
             field: string;
-            /** @description Text fields take `is`, `is_not`, `contains`, `not_contains`, `starts_with`, `ends_with`, `is_set` and `is_not_set`. Numbers take `equals`, `not_equals`, `greater_than` and `less_than`. Dates take `within`, `not_within`, `before` and `after`. `segment` takes `in` and `not_in`. Email activity takes `within`, `not_within`, `at_least` and `never`. */
+            /** @description Text fields take `is`, `is_not`, `contains`, `not_contains`, `starts_with`, `ends_with`, `is_set` and `is_not_set`. Numbers take `equals`, `not_equals`, `greater_than` and `less_than`. Dates take `within`, `not_within`, `before` and `after`. `segment` takes `in` and `not_in`. Email activity and events take `within`, `not_within`, `at_least` and `never`. */
             operator: components["schemas"]["SegmentOperator"];
             /** @description Text up to 500 characters, a number or a boolean. A date window is a date or a number of days such as `30d`. `at_least` takes `{ "count": 2, "days": 30 }`, with a count up to 1,000 and up to 400 days. A `segment` rule takes the id of a static segment. */
             value?: components["schemas"]["RuleValue"];
+            filter?: components["schemas"]["EventFilter"] | null;
         };
         /** @enum {string} */
         SegmentSort: "created" | "name" | "contacts";
@@ -1920,8 +3481,110 @@ export interface components {
             /** @description Up to 20 files, 30 MB in total. The whole request can be up to 45 MB. */
             attachments?: components["schemas"]["AttachmentInput"][];
         };
+        SignedHeaders: {
+            /** @description Always `application/json`. */
+            "Content-Type": string;
+            /** @description Always `Inboxjot-Webhooks/1.0`. */
+            "User-Agent": string;
+            /** @description The event id. */
+            "webhook-id": string;
+            /** @description The Unix time of the last try, in seconds. */
+            "webhook-timestamp": string;
+            /** @description The signature of the payload. Empty when the payload is past the retention period. */
+            "webhook-signature": string;
+        };
         /** @enum {string} */
         SortDirection: "asc" | "desc";
+        StartImportBody: {
+            /** @description The `key` from the upload URL request. */
+            file_key: string;
+            /** @description The name of the file, 1 to 255 characters. */
+            file_name: string;
+            /**
+             * Format: int32
+             * @description How many rows the file has, without the header row.
+             */
+            total_rows: number;
+            /** @description Each column name and the contact field it fills: `email`, `first_name`, `last_name` or a property key. `null` skips the column. One column must fill `email`. */
+            mapping: {
+                [key: string]: string | null;
+            };
+            /** @description A static segment id. The import adds each contact to it. */
+            segment_id?: string | null;
+            /** @description A topic id. The import subscribes each contact to it. */
+            topic_id?: string | null;
+            /** @description Set to `true` to confirm that the contacts agreed to get the topic. Needed with `topic_id`. */
+            topic_consent?: boolean | null;
+        };
+        StatTotals: {
+            /**
+             * Format: int64
+             * @description Emails sent.
+             */
+            sent: number;
+            /**
+             * Format: int64
+             * @description Emails delivered.
+             */
+            delivered: number;
+            /**
+             * Format: int64
+             * @description Emails opened at least once.
+             */
+            opened: number;
+            /**
+             * Format: int64
+             * @description Emails with at least one click.
+             */
+            clicked: number;
+            /**
+             * Format: int64
+             * @description Emails that bounced permanently.
+             */
+            bounced: number;
+            /**
+             * Format: int64
+             * @description Emails that bounced for a temporary reason or were rejected for their content.
+             */
+            soft_bounced: number;
+            /**
+             * Format: int64
+             * @description Emails marked as spam.
+             */
+            complained: number;
+            /**
+             * Format: int64
+             * @description Emails that led to an unsubscribe.
+             */
+            unsubscribed: number;
+        };
+        StatsReport: {
+            /** @description The first day of the range. */
+            from: string;
+            /** @description The last day of the range. */
+            to: string;
+            /** @description The time zone of the days. */
+            tz: string;
+            /** @description The counts of each day in the range. */
+            stats: components["schemas"]["DailyStat"][];
+            /** @description The totals of the range. */
+            total: components["schemas"]["StatTotals"];
+            previous: components["schemas"]["PreviousStats"] | null;
+            /** @description Emails sent from each domain in the range. */
+            domains: components["schemas"]["DomainSent"][];
+            /** @description The links with the most clicks in the range. */
+            links: components["schemas"]["LinkClicks"][];
+            /** @description Emails sent from each source in the range. */
+            sources: {
+                [key: string]: number;
+            };
+            /** @description When the counts were read. */
+            refreshed_at: string;
+        };
+        StatusBody: {
+            /** @description `on` starts the automation. `off` stops it. */
+            status: components["schemas"]["AutomationStatus"];
+        };
         StatusOk: {
             /**
              * @description Always `ok`.
@@ -1929,6 +3592,32 @@ export interface components {
              */
             status: string;
         };
+        StepStats: {
+            /** Format: int64 */
+            waiting: number;
+            /** Format: int64 */
+            sent: number;
+            /** Format: int64 */
+            opened: number;
+            /** Format: int64 */
+            clicked: number;
+            /** Format: int64 */
+            unsubscribed: number;
+            /** Format: int64 */
+            yes: number;
+            /** Format: int64 */
+            no: number;
+        };
+        SuppressionExportFilters: {
+            reason?: string | null;
+            query?: string | null;
+        };
+        /** @enum {string} */
+        SuppressionReason: "bounce" | "complaint" | "manual";
+        /** @enum {string} */
+        SuppressionScope: "all" | "marketing";
+        /** @enum {string} */
+        SuppressionSource: "user" | "api" | "dashboard";
         TemplateRef: {
             /** @description The template id, such as `tpl_06d2mfk8r1az4hb7cv5ke`. */
             id: string;
@@ -1955,6 +3644,70 @@ export interface components {
              * @description Clicked.
              */
             clicked: number;
+        };
+        TimelineEvent: {
+            /** @description The event id. */
+            event_id: string;
+            /** @description What occurred: `sent`, `delivered`, `delayed`, `opened`, `clicked`, `bounced`, `soft_bounced`, `complained`, `rejected`, `failed` or `unsubscribed`. */
+            type: string;
+            /** @description The recipient address of the event. */
+            recipient: string;
+            /**
+             * Format: date-time
+             * @description When the event occurred.
+             */
+            occurred_at: string;
+            /** @description The user agent of an open or a click. Empty for other events. */
+            user_agent: string;
+            /** @description The IP address of an open or a click. Empty for other events. */
+            ip_address: string;
+            /** @description The email client, such as `Gmail`. Empty when it is not known. */
+            client: string;
+            /** @description The browser, such as `Chrome`. Empty when it is not known. */
+            browser: string;
+            /** @description The operating system, such as `macOS`. Empty when it is not known. */
+            os: string;
+            /** @description The device type, such as `desktop` or `mobile`. Empty when it is not known. */
+            device_type: string;
+            /** @description The device name. Empty when it is not known. */
+            device: string;
+            /** @description The ISO country code of the IP address. Empty when it is not known. */
+            country_code: string;
+            /** @description The country of the IP address. Empty when it is not known. */
+            country: string;
+            /** @description The region of the IP address. Empty when it is not known. */
+            region: string;
+            /** @description The city of the IP address. Empty when it is not known. */
+            city: string;
+            /**
+             * Format: double
+             * @description The latitude of the IP address. `null` when it is not known.
+             */
+            latitude: number | null;
+            /**
+             * Format: double
+             * @description The longitude of the IP address. `null` when it is not known.
+             */
+            longitude: number | null;
+            /** @description The link of a click. Empty for other events. */
+            link: string;
+            /** @description The bounce type from the mail server, such as `Permanent`. Empty for other events. */
+            bounce_type: string;
+            /** @description The bounce subtype from the mail server, such as `General`. Empty for other events. */
+            bounce_sub: string;
+            /** @description The SMTP response of the receiving server for a delivery. Empty for other events. */
+            smtp_response: string;
+            /** @description The IP address of the receiving server for a delivery. Empty for other events. */
+            remote_mta_ip: string;
+            /**
+             * Format: int64
+             * @description How long the delivery took, in milliseconds. `0` for other events.
+             */
+            processing_time_ms: number;
+            /** @description The diagnostic code of the receiving server for a bounce. Empty for other events. */
+            diagnostic_code: string;
+            /** @description Why the send failed. Empty for other events. */
+            error_message: string;
         };
         TopicChoice: {
             /** @description The topic id. The topic must exist. */
@@ -1999,20 +3752,38 @@ export interface components {
             sender_email?: string | null;
             /** @description An `https://` page to show after someone signs up. */
             redirect_url?: string | null;
+            /** @description The brand that owns the topic. Defaults to the default brand. It cannot change after create. */
+            brand_id?: string | null;
         };
         /** @enum {string} */
         TopicVisibilityOption: "public" | "private";
+        TrackedBatchResponse: {
+            /** @description One entry per event, in the order you sent them. */
+            data: components["schemas"]["TrackedResponse"][];
+        };
         TrackedResponse: {
             /** @description The contact the event belongs to. */
             contact_id: string;
         };
         /** @enum {string} */
         TrackingStatus: "not_started" | "pending" | "issuing" | "verified" | "failed";
+        TurnOnProblem: {
+            /** @description The step to change. `null` when the problem is not in a step. */
+            step_id: string | null;
+            /** @description What to change before the automation can turn on. */
+            message: string;
+        };
+        /** @enum {string} */
+        UnsubscribeSource: "contact" | "team";
         UpdateContactBody: components["schemas"]["UpdateContactFields"] & {
             /** @description Topic choices to save, up to 100. Topics you leave out keep their choice. */
             topics?: components["schemas"]["TopicChoice"][] | null;
+            /** @description Brand choices to save, up to 20. `unsubscribed` stops every topic of the brand. Brands you leave out keep their choice. */
+            brands?: components["schemas"]["BrandStatusChoice"][] | null;
         };
         UpdateContactFields: {
+            /** @description Your ID for the contact, 1 to 255 characters, such as your user ID. It is unique in the workspace. Send `null` to clear it. */
+            user_id?: string | null;
             /** @description First name, up to 200 characters. Send `null` to clear it. */
             first_name?: string | null;
             /** @description Last name, up to 200 characters. Send `null` to clear it. */
@@ -2036,6 +3807,12 @@ export interface components {
             /** @description A description. Send `null` to clear it. */
             description?: string | null;
             conditions?: components["schemas"]["SegmentConditions"] | null;
+        };
+        UploadTarget: {
+            /** @description Send the file to this URL with `PUT` and the same `Content-Type` and size. It works for 5 minutes. */
+            upload_url: string;
+            /** @description Send it as `file_key` to start the import. */
+            key: string;
         };
         UploadUrlBody: {
             /** @description `image/png`, `image/jpeg` or `image/gif`. */
@@ -2062,6 +3839,8 @@ export interface components {
         };
         /** @enum {string} */
         VersionFilter: "all" | "saved";
+        /** @enum {string} */
+        WaitUnit: "minutes" | "hours" | "days";
         WebhookDeliveryListItem: {
             /** @description The delivery id. */
             delivery_id: string;
@@ -2106,59 +3885,104 @@ export interface components {
         };
         WebhookEventData: {
             data: components["schemas"]["EmailEventData"];
-            /** @enum {string} */
+            /**
+             * @description Always `email.sent`.
+             * @enum {string}
+             */
             type: "email.sent";
         } | {
             data: components["schemas"]["EmailEventData"];
-            /** @enum {string} */
+            /**
+             * @description Always `email.delivered`.
+             * @enum {string}
+             */
             type: "email.delivered";
         } | {
             data: components["schemas"]["EmailOpenedData"];
-            /** @enum {string} */
+            /**
+             * @description Always `email.opened`.
+             * @enum {string}
+             */
             type: "email.opened";
         } | {
             data: components["schemas"]["EmailClickedData"];
-            /** @enum {string} */
+            /**
+             * @description Always `email.clicked`.
+             * @enum {string}
+             */
             type: "email.clicked";
         } | {
             data: components["schemas"]["EmailBouncedData"];
-            /** @enum {string} */
+            /**
+             * @description Always `email.bounced`.
+             * @enum {string}
+             */
             type: "email.bounced";
         } | {
             data: components["schemas"]["EmailComplainedData"];
-            /** @enum {string} */
+            /**
+             * @description Always `email.complained`.
+             * @enum {string}
+             */
             type: "email.complained";
         } | {
             data: components["schemas"]["EmailEventData"];
-            /** @enum {string} */
+            /**
+             * @description Always `email.delivery_delayed`.
+             * @enum {string}
+             */
             type: "email.delivery_delayed";
         } | {
             data: components["schemas"]["EmailFailedData"];
-            /** @enum {string} */
+            /**
+             * @description Always `email.rejected`.
+             * @enum {string}
+             */
             type: "email.rejected";
         } | {
             data: components["schemas"]["EmailFailedData"];
-            /** @enum {string} */
+            /**
+             * @description Always `email.failed`.
+             * @enum {string}
+             */
             type: "email.failed";
         } | {
             data: components["schemas"]["EmailEventData"];
-            /** @enum {string} */
+            /**
+             * @description Always `email.unsubscribed`.
+             * @enum {string}
+             */
             type: "email.unsubscribed";
         } | {
             data: components["schemas"]["ContactEventData"];
-            /** @enum {string} */
+            /**
+             * @description Always `contact.created`.
+             * @enum {string}
+             */
             type: "contact.created";
         } | {
             data: components["schemas"]["ContactEventData"];
-            /** @enum {string} */
+            /**
+             * @description Always `contact.updated`.
+             * @enum {string}
+             */
             type: "contact.updated";
         } | {
             data: components["schemas"]["ContactEventData"];
-            /** @enum {string} */
+            /**
+             * @description Always `contact.deleted`.
+             * @enum {string}
+             */
             type: "contact.deleted";
         };
         /** @enum {string} */
         WebhookEventType: "email.sent" | "email.delivered" | "email.opened" | "email.clicked" | "email.bounced" | "email.complained" | "email.delivery_delayed" | "email.rejected" | "email.failed" | "email.unsubscribed" | "contact.created" | "contact.updated" | "contact.deleted";
+        WebhookExportFilters: {
+            endpoint_id?: string | null;
+            event_type?: string | null;
+            query?: string | null;
+            outcome?: string | null;
+        };
         WebhookPayload: components["schemas"]["WebhookEventData"] & {
             id: string;
             /** Format: date-time */
@@ -2188,6 +4012,3328 @@ export interface components {
 }
 export type $defs = Record<string, never>;
 export interface operations {
+    list_api_keys: {
+        parameters: {
+            query?: {
+                /** @description Returns only the keys whose name matches this text, up to 200 characters. */
+                query?: string;
+                /** @description How many items to return, from 1 to 100. Defaults to 50. */
+                per_page?: number;
+                /**
+                 * @description A `next_cursor` from the last page. Returns the items after it.
+                 * @example next_cursor
+                 */
+                after?: string;
+                /**
+                 * @description A `prev_cursor` from the last page. Returns the items before it. When you send both, `before` wins.
+                 * @example prev_cursor
+                 */
+                before?: string;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Returns a page of API keys. */
+            200: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "data": [
+                     *         {
+                     *           "id": "api_06d2mfk8r3vb6nz1hq8wc",
+                     *           "name": "Production",
+                     *           "prefix": "ibx",
+                     *           "short_token": "Q2pX7aN4",
+                     *           "created_at": "2026-10-21T09:00:00.000Z",
+                     *           "last_used_at": "2026-10-21T11:42:08.000Z",
+                     *           "status": "active",
+                     *           "permission": "full",
+                     *           "domain_id": null,
+                     *           "domain_name": null,
+                     *           "expires_at": null
+                     *         }
+                     *       ],
+                     *       "prev_cursor": null,
+                     *       "next_cursor": null,
+                     *       "total": 1
+                     *     }
+                     */
+                    "application/json": components["schemas"]["KeyPage"];
+                };
+            };
+            /** @description A parameter is missing or invalid. */
+            400: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "validation_error",
+                     *       "status": 400,
+                     *       "message": "Invalid cursor",
+                     *       "errors": [
+                     *         {
+                     *           "message": "Invalid cursor",
+                     *           "location": "after"
+                     *         }
+                     *       ],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The API key is missing, revoked or expired. */
+            401: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "unauthorized",
+                     *       "status": 401,
+                     *       "message": "Unauthorized",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The key is a Sending key or is limited to one domain, or the request comes from outside its IP allowlist. */
+            403: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "forbidden",
+                     *       "status": 403,
+                     *       "message": "This key cannot be used from 203.0.113.7",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description Too many requests for this key. Wait for the seconds in the Retry-After header. */
+            429: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "rate_limit_exceeded",
+                     *       "status": 429,
+                     *       "message": "Too many attempts. Try again later.",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description Something failed on our side. Retry later. */
+            500: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "unknown_error",
+                     *       "status": 500,
+                     *       "message": "Something went wrong. Please try again later.",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The request failed */
+            default: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+        };
+    };
+    create_api_key: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                /**
+                 * @example {
+                 *       "name": "Production",
+                 *       "permission": "sending",
+                 *       "expires_in": "90d",
+                 *       "ip_allowlist": [
+                 *         "203.0.113.10"
+                 *       ]
+                 *     }
+                 */
+                "application/json": components["schemas"]["CreateKeyBody"];
+            };
+        };
+        responses: {
+            /** @description Created the API key. The response holds the secret part of the key, and only this response does. */
+            200: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "id": "api_06d2mfk8r3vb6nz1hq8wc",
+                     *       "workspace_id": "ws_06d2mfk8r1ac3hy7tp5me",
+                     *       "creator_id": "usr_06d2mfk8r0zx2gw6sn4ld",
+                     *       "name": "Production",
+                     *       "prefix": "ibx",
+                     *       "short_token": "Q2pX7aN4",
+                     *       "long_token": "MfKQ9r1GKG3tZ8vQ2pX7aN4b",
+                     *       "status": "active",
+                     *       "permission": "sending",
+                     *       "domain_id": null,
+                     *       "ip_allowlist": [
+                     *         "203.0.113.10"
+                     *       ],
+                     *       "expires_at": "2027-01-19T09:00:00.000Z",
+                     *       "previous_short_token": null,
+                     *       "previous_long_token": null,
+                     *       "previous_expires_at": null,
+                     *       "last_used_at": null,
+                     *       "created_at": "2026-10-21T09:00:00.000Z",
+                     *       "updated_at": "2026-10-21T09:00:00.000Z"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ApiKey"];
+                };
+            };
+            /** @description A field is missing or invalid. */
+            400: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "validation_error",
+                     *       "status": 400,
+                     *       "message": "length is lower than 1",
+                     *       "errors": [
+                     *         {
+                     *           "message": "length is lower than 1",
+                     *           "location": "name"
+                     *         }
+                     *       ],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The API key is missing, revoked or expired. */
+            401: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "unauthorized",
+                     *       "status": 401,
+                     *       "message": "Unauthorized",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The caller is an API key. Manage API keys in the dashboard or with a login that has `api_keys:write`. */
+            403: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "forbidden",
+                     *       "status": 403,
+                     *       "message": "An API key cannot create, roll or delete API keys. Use the dashboard or inboxjot login.",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The domain does not exist in this workspace. */
+            404: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "not_found",
+                     *       "status": 404,
+                     *       "message": "Domain not found",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The body is larger than 2 MB. */
+            413: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "payload_too_large",
+                     *       "status": 413,
+                     *       "message": "The request body is too large",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The Content-Type header is not application/json. */
+            415: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "unsupported_media_type",
+                     *       "status": 415,
+                     *       "message": "The Content-Type must be application/json",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description Too many requests for this key. Wait for the seconds in the Retry-After header. */
+            429: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "rate_limit_exceeded",
+                     *       "status": 429,
+                     *       "message": "Too many attempts. Try again later.",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description Something failed on our side. Retry later. */
+            500: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "unknown_error",
+                     *       "status": 500,
+                     *       "message": "Something went wrong. Please try again later.",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The request failed */
+            default: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+        };
+    };
+    get_api_key: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description The API key id. */
+                key_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Returns the API key with its use in the last 30 days. */
+            200: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "id": "api_06d2mfk8r3vb6nz1hq8wc",
+                     *       "name": "Production",
+                     *       "prefix": "ibx",
+                     *       "short_token": "Q2pX7aN4",
+                     *       "created_at": "2026-10-21T09:00:00.000Z",
+                     *       "last_used_at": "2026-10-21T11:42:08.000Z",
+                     *       "status": "active",
+                     *       "permission": "full",
+                     *       "domain_id": null,
+                     *       "ip_allowlist": [],
+                     *       "expires_at": null,
+                     *       "creator_name": "Suhasinee Phan",
+                     *       "previous_short_token": null,
+                     *       "previous_expires_at": null,
+                     *       "domain_name": null,
+                     *       "sent_last_30_days": 1204,
+                     *       "delivered_last_30_days": 1196,
+                     *       "bounced_last_30_days": 3,
+                     *       "requests_last_30_days": 1310,
+                     *       "errors_last_30_days": 4,
+                     *       "requests_per_second": 10,
+                     *       "recent_emails": [
+                     *         {
+                     *           "id": "eml_06d2mfk8r4tq9xv2bnc7s",
+                     *           "to": [
+                     *             "suhasinee@example.com"
+                     *           ],
+                     *           "subject": "Your receipt",
+                     *           "status": "delivered",
+                     *           "created_at": "2026-10-21T11:42:08.000Z"
+                     *         }
+                     *       ],
+                     *       "recent_requests": [
+                     *         {
+                     *           "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90",
+                     *           "method": "POST",
+                     *           "path": "/v1/emails",
+                     *           "status": 200,
+                     *           "duration_ms": 48,
+                     *           "ip_address": "203.0.113.10",
+                     *           "occurred_at": "2026-10-21T11:42:08.000Z"
+                     *         }
+                     *       ]
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ApiKeyDetail"];
+                };
+            };
+            /** @description A path parameter is invalid. */
+            400: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "validation_error",
+                     *       "status": 400,
+                     *       "message": "length is greater than 100",
+                     *       "errors": [
+                     *         {
+                     *           "message": "length is greater than 100",
+                     *           "location": "key_id"
+                     *         }
+                     *       ],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The API key is missing, revoked or expired. */
+            401: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "unauthorized",
+                     *       "status": 401,
+                     *       "message": "Unauthorized",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The key is a Sending key or is limited to one domain, or the request comes from outside its IP allowlist. */
+            403: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "forbidden",
+                     *       "status": 403,
+                     *       "message": "This key cannot be used from 203.0.113.7",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The API key does not exist in this workspace. */
+            404: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "not_found",
+                     *       "status": 404,
+                     *       "message": "API key not found",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description Too many requests for this key. Wait for the seconds in the Retry-After header. */
+            429: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "rate_limit_exceeded",
+                     *       "status": 429,
+                     *       "message": "Too many attempts. Try again later.",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description Something failed on our side. Retry later. */
+            500: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "unknown_error",
+                     *       "status": 500,
+                     *       "message": "Something went wrong. Please try again later.",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The request failed */
+            default: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+        };
+    };
+    delete_api_key: {
+        parameters: {
+            query?: never;
+            header?: {
+                /** @description A key that makes a retry of this request return the first response. It is kept for 24 hours. */
+                "Idempotency-Key"?: string;
+            };
+            path: {
+                /** @description The API key id. */
+                key_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Deleted the API key. Requests with it fail at once. */
+            200: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "idempotent-replayed": components["headers"]["IdempotentReplayed"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "status": "ok"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["StatusOk"];
+                };
+            };
+            /** @description A parameter is missing or invalid, or the Idempotency-Key header is not valid. */
+            400: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "invalid_idempotency_key",
+                     *       "status": 400,
+                     *       "message": "Idempotency-Key must be 1 to 256 printable ASCII characters",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The API key is missing, revoked or expired. */
+            401: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "unauthorized",
+                     *       "status": 401,
+                     *       "message": "Unauthorized",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The caller is an API key. Manage API keys in the dashboard or with a login that has `api_keys:write`. */
+            403: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "forbidden",
+                     *       "status": 403,
+                     *       "message": "An API key cannot create, roll or delete API keys. Use the dashboard or inboxjot login.",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The API key does not exist in this workspace. */
+            404: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "not_found",
+                     *       "status": 404,
+                     *       "message": "API key not found",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description A request with the same Idempotency-Key is still running. Retry after one second. */
+            409: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "concurrent_idempotent_requests",
+                     *       "status": 409,
+                     *       "message": "A request with this idempotency key is still in progress. Try again later.",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The Idempotency-Key was already used with a different request. */
+            422: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "invalid_idempotent_request",
+                     *       "status": 422,
+                     *       "message": "This idempotency key was already used with a different request",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description Too many requests for this key. Wait for the seconds in the Retry-After header. */
+            429: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "rate_limit_exceeded",
+                     *       "status": 429,
+                     *       "message": "Too many attempts. Try again later.",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description Something failed on our side. Retry later. */
+            500: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "unknown_error",
+                     *       "status": 500,
+                     *       "message": "Something went wrong. Please try again later.",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The request failed */
+            default: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+        };
+    };
+    roll_api_key: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description The API key id. */
+                key_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                /**
+                 * @example {
+                 *       "old_key_expires_in": "1h"
+                 *     }
+                 */
+                "application/json": components["schemas"]["RollKeyBody"];
+            };
+        };
+        responses: {
+            /** @description Rolled the API key. The response holds the new secret part of the key, and only this response does. */
+            200: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "id": "api_06d2mfk8r3vb6nz1hq8wc",
+                     *       "name": "Production",
+                     *       "prefix": "ibx",
+                     *       "short_token": "Hk3Lm9Qz",
+                     *       "previous_expires_at": "2026-10-21T10:00:00.000Z",
+                     *       "long_token": "Vb7Rt2Wq5Xn8Ys1Za4Pc6Md0"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["RolledApiKey"];
+                };
+            };
+            /** @description A field is invalid. */
+            400: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "validation_error",
+                     *       "status": 400,
+                     *       "message": "Use one of: now, 1h, 24h",
+                     *       "errors": [
+                     *         {
+                     *           "message": "Use one of: now, 1h, 24h",
+                     *           "location": "old_key_expires_in"
+                     *         }
+                     *       ],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The API key is missing, revoked or expired. */
+            401: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "unauthorized",
+                     *       "status": 401,
+                     *       "message": "Unauthorized",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The caller is an API key. Manage API keys in the dashboard or with a login that has `api_keys:write`. */
+            403: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "forbidden",
+                     *       "status": 403,
+                     *       "message": "An API key cannot create, roll or delete API keys. Use the dashboard or inboxjot login.",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The API key does not exist in this workspace. */
+            404: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "not_found",
+                     *       "status": 404,
+                     *       "message": "API key not found",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The body is larger than 2 MB. */
+            413: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "payload_too_large",
+                     *       "status": 413,
+                     *       "message": "The request body is too large",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The Content-Type header is not application/json. */
+            415: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "unsupported_media_type",
+                     *       "status": 415,
+                     *       "message": "The Content-Type must be application/json",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description Too many requests for this key. Wait for the seconds in the Retry-After header. */
+            429: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "rate_limit_exceeded",
+                     *       "status": 429,
+                     *       "message": "Too many attempts. Try again later.",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description Something failed on our side. Retry later. */
+            500: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "unknown_error",
+                     *       "status": 500,
+                     *       "message": "Something went wrong. Please try again later.",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The request failed */
+            default: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+        };
+    };
+    list_api_automations: {
+        parameters: {
+            query?: {
+                /** @description Text to find in the name, up to 200 characters. */
+                query?: string;
+                /** @description One or more of `draft`, `on` and `off`, split by commas. */
+                status?: string;
+                /** @description `updated`, `name` or `entered`. Defaults to `updated`. */
+                sort?: string;
+                /** @description `asc` or `desc`. Defaults to `desc`. */
+                direction?: components["schemas"]["SortDirection"];
+                /** @description How many items to return, from 1 to 100. Defaults to 50. */
+                per_page?: number;
+                /**
+                 * @description A `next_cursor` from the last page. Returns the items after it.
+                 * @example next_cursor
+                 */
+                after?: string;
+                /**
+                 * @description A `prev_cursor` from the last page. Returns the items before it. When you send both, `before` wins.
+                 * @example prev_cursor
+                 */
+                before?: string;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Returns a page of automations. */
+            200: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "next_cursor": null,
+                     *       "prev_cursor": null,
+                     *       "data": [
+                     *         {
+                     *           "id": "aut_06d2mfk8r3gx6mc9qe1pb",
+                     *           "name": "Welcome series",
+                     *           "description": null,
+                     *           "status": "on",
+                     *           "trigger": {
+                     *             "type": "event",
+                     *             "event": "user.created"
+                     *           },
+                     *           "entered_count": 120,
+                     *           "active_count": 14,
+                     *           "sent_count": 118,
+                     *           "turned_on_at": "2026-10-01T12:00:00.000Z",
+                     *           "created_at": "2026-09-28T09:00:00.000Z",
+                     *           "updated_at": "2026-10-01T12:00:00.000Z",
+                     *           "trigger_label": "user.created"
+                     *         }
+                     *       ]
+                     *     }
+                     */
+                    "application/json": components["schemas"]["AutomationPage"];
+                };
+            };
+            /** @description A parameter is missing or invalid. */
+            400: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "validation_error",
+                     *       "status": 400,
+                     *       "message": "Invalid cursor",
+                     *       "errors": [
+                     *         {
+                     *           "message": "Invalid cursor",
+                     *           "location": "after"
+                     *         }
+                     *       ],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The API key is missing, revoked or expired. */
+            401: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "unauthorized",
+                     *       "status": 401,
+                     *       "message": "Unauthorized",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The key is a Sending key or is limited to one domain, or the request comes from outside its IP allowlist. */
+            403: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "forbidden",
+                     *       "status": 403,
+                     *       "message": "This key cannot be used from 203.0.113.7",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description Too many requests for this key. Wait for the seconds in the Retry-After header. */
+            429: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "rate_limit_exceeded",
+                     *       "status": 429,
+                     *       "message": "Too many attempts. Try again later.",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description Something failed on our side. Retry later. */
+            500: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "unknown_error",
+                     *       "status": 500,
+                     *       "message": "Something went wrong. Please try again later.",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The request failed */
+            default: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+        };
+    };
+    get_api_automation: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /**
+                 * @description The automation id.
+                 * @example aut_06d2mfk8r3gx6mc9qe1pb
+                 */
+                automation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Returns the automation with its steps, counts and problems. */
+            200: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "id": "aut_06d2mfk8r3gx6mc9qe1pb",
+                     *       "workspace_id": "ws_06d2mfk8r1aq9xv3jc6ne",
+                     *       "name": "Welcome series",
+                     *       "description": null,
+                     *       "status": "on",
+                     *       "trigger": {
+                     *         "type": "event",
+                     *         "event": "user.created"
+                     *       },
+                     *       "steps": {
+                     *         "s1": {
+                     *           "id": "s1",
+                     *           "type": "send_email",
+                     *           "template_id": "tpl_06d2mfk8r6hn3cx7vb2qe",
+                     *           "from": "",
+                     *           "subject": "",
+                     *           "next": "s2"
+                     *         },
+                     *         "s2": {
+                     *           "id": "s2",
+                     *           "type": "wait",
+                     *           "amount": 2,
+                     *           "unit": "days",
+                     *           "next": null
+                     *         }
+                     *       },
+                     *       "first_step_id": "s1",
+                     *       "allow_reentry": false,
+                     *       "entered_count": 120,
+                     *       "active_count": 14,
+                     *       "completed_count": 100,
+                     *       "exited_count": 6,
+                     *       "sent_count": 118,
+                     *       "creator_id": "usr_06d2mfk8r0ce7ha2pw5jx",
+                     *       "turned_on_at": "2026-10-01T12:00:00.000Z",
+                     *       "created_at": "2026-09-28T09:00:00.000Z",
+                     *       "updated_at": "2026-10-01T12:00:00.000Z",
+                     *       "trigger_label": "user.created",
+                     *       "templates": [
+                     *         {
+                     *           "id": "tpl_06d2mfk8r6hn3cx7vb2qe",
+                     *           "name": "Welcome",
+                     *           "subject": "Welcome to Acme",
+                     *           "from": "Acme <hello@acme.com>",
+                     *           "preheader": "Here is how to start."
+                     *         }
+                     *       ],
+                     *       "segments": [],
+                     *       "step_stats": {
+                     *         "s1": {
+                     *           "waiting": 0,
+                     *           "sent": 118,
+                     *           "opened": 74,
+                     *           "clicked": 21,
+                     *           "unsubscribed": 1,
+                     *           "yes": 0,
+                     *           "no": 0
+                     *         },
+                     *         "s2": {
+                     *           "waiting": 14,
+                     *           "sent": 0,
+                     *           "opened": 0,
+                     *           "clicked": 0,
+                     *           "unsubscribed": 0,
+                     *           "yes": 0,
+                     *           "no": 0
+                     *         }
+                     *       },
+                     *       "problems": []
+                     *     }
+                     */
+                    "application/json": components["schemas"]["AutomationDetail"];
+                };
+            };
+            /** @description A path parameter is invalid. */
+            400: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "validation_error",
+                     *       "status": 400,
+                     *       "message": "length is greater than 100",
+                     *       "errors": [
+                     *         {
+                     *           "message": "length is greater than 100",
+                     *           "location": "automation_id"
+                     *         }
+                     *       ],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The API key is missing, revoked or expired. */
+            401: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "unauthorized",
+                     *       "status": 401,
+                     *       "message": "Unauthorized",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The key is a Sending key or is limited to one domain, or the request comes from outside its IP allowlist. */
+            403: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "forbidden",
+                     *       "status": 403,
+                     *       "message": "This key cannot be used from 203.0.113.7",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The automation does not exist in this workspace. */
+            404: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "not_found",
+                     *       "status": 404,
+                     *       "message": "Automation not found",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description Too many requests for this key. Wait for the seconds in the Retry-After header. */
+            429: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "rate_limit_exceeded",
+                     *       "status": 429,
+                     *       "message": "Too many attempts. Try again later.",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description Something failed on our side. Retry later. */
+            500: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "unknown_error",
+                     *       "status": 500,
+                     *       "message": "Something went wrong. Please try again later.",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The request failed */
+            default: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+        };
+    };
+    change_api_automation_status: {
+        parameters: {
+            query?: never;
+            header?: {
+                /** @description A key that makes a retry of this request return the first response. It is kept for 24 hours. */
+                "Idempotency-Key"?: string;
+            };
+            path: {
+                /**
+                 * @description The automation id.
+                 * @example aut_06d2mfk8r3gx6mc9qe1pb
+                 */
+                automation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                /**
+                 * @example {
+                 *       "status": "off"
+                 *     }
+                 */
+                "application/json": components["schemas"]["StatusBody"];
+            };
+        };
+        responses: {
+            /** @description Turned the automation on or off. Returns the automation. */
+            200: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "idempotent-replayed": components["headers"]["IdempotentReplayed"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "id": "aut_06d2mfk8r3gx6mc9qe1pb",
+                     *       "workspace_id": "ws_06d2mfk8r1aq9xv3jc6ne",
+                     *       "name": "Welcome series",
+                     *       "description": null,
+                     *       "status": "off",
+                     *       "trigger": {
+                     *         "type": "event",
+                     *         "event": "user.created"
+                     *       },
+                     *       "steps": {
+                     *         "s1": {
+                     *           "id": "s1",
+                     *           "type": "send_email",
+                     *           "template_id": "tpl_06d2mfk8r6hn3cx7vb2qe",
+                     *           "from": "",
+                     *           "subject": "",
+                     *           "next": "s2"
+                     *         },
+                     *         "s2": {
+                     *           "id": "s2",
+                     *           "type": "wait",
+                     *           "amount": 2,
+                     *           "unit": "days",
+                     *           "next": null
+                     *         }
+                     *       },
+                     *       "first_step_id": "s1",
+                     *       "allow_reentry": false,
+                     *       "entered_count": 120,
+                     *       "active_count": 14,
+                     *       "completed_count": 100,
+                     *       "exited_count": 6,
+                     *       "sent_count": 118,
+                     *       "creator_id": "usr_06d2mfk8r0ce7ha2pw5jx",
+                     *       "turned_on_at": "2026-10-01T12:00:00.000Z",
+                     *       "created_at": "2026-09-28T09:00:00.000Z",
+                     *       "updated_at": "2026-10-14T08:30:00.000Z",
+                     *       "trigger_label": "user.created",
+                     *       "templates": [
+                     *         {
+                     *           "id": "tpl_06d2mfk8r6hn3cx7vb2qe",
+                     *           "name": "Welcome",
+                     *           "subject": "Welcome to Acme",
+                     *           "from": "Acme <hello@acme.com>",
+                     *           "preheader": "Here is how to start."
+                     *         }
+                     *       ],
+                     *       "segments": [],
+                     *       "step_stats": {
+                     *         "s1": {
+                     *           "waiting": 0,
+                     *           "sent": 118,
+                     *           "opened": 74,
+                     *           "clicked": 21,
+                     *           "unsubscribed": 1,
+                     *           "yes": 0,
+                     *           "no": 0
+                     *         },
+                     *         "s2": {
+                     *           "waiting": 14,
+                     *           "sent": 0,
+                     *           "opened": 0,
+                     *           "clicked": 0,
+                     *           "unsubscribed": 0,
+                     *           "yes": 0,
+                     *           "no": 0
+                     *         }
+                     *       },
+                     *       "problems": []
+                     *     }
+                     */
+                    "application/json": components["schemas"]["AutomationDetail"];
+                };
+            };
+            /** @description A field is invalid, the Idempotency-Key header is not valid, or the automation cannot turn on. `errors` names the step to change. */
+            400: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "validation_error",
+                     *       "status": 400,
+                     *       "message": "Pick a template.",
+                     *       "errors": [
+                     *         {
+                     *           "message": "Pick a template.",
+                     *           "location": "steps.s1"
+                     *         }
+                     *       ],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The API key is missing, revoked or expired. */
+            401: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "unauthorized",
+                     *       "status": 401,
+                     *       "message": "Unauthorized",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The key is a Sending key or is limited to one domain, or the request comes from outside its IP allowlist. */
+            403: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "forbidden",
+                     *       "status": 403,
+                     *       "message": "This key cannot be used from 203.0.113.7",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The automation does not exist in this workspace. */
+            404: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "not_found",
+                     *       "status": 404,
+                     *       "message": "Automation not found",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The automation changed while it was turning on, or a request with the same Idempotency-Key is still running. Retry after one second. */
+            409: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "conflict",
+                     *       "status": 409,
+                     *       "message": "The automation changed while it was turning on. Try again.",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The body is larger than 2 MB. */
+            413: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "payload_too_large",
+                     *       "status": 413,
+                     *       "message": "The request body is too large",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The Content-Type header is not application/json. */
+            415: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "unsupported_media_type",
+                     *       "status": 415,
+                     *       "message": "The Content-Type must be application/json",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The Idempotency-Key was already used with a different request. */
+            422: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "invalid_idempotent_request",
+                     *       "status": 422,
+                     *       "message": "This idempotency key was already used with a different request",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description Too many requests for this key. Wait for the seconds in the Retry-After header. */
+            429: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "rate_limit_exceeded",
+                     *       "status": 429,
+                     *       "message": "Too many attempts. Try again later.",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description Something failed on our side. Retry later. */
+            500: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "unknown_error",
+                     *       "status": 500,
+                     *       "message": "Something went wrong. Please try again later.",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The request failed */
+            default: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+        };
+    };
+    list_api_brands: {
+        parameters: {
+            query?: {
+                /** @description How many items to return, from 1 to 100. Defaults to 50. */
+                per_page?: number;
+                /**
+                 * @description A `next_cursor` from the last page. Returns the items after it.
+                 * @example next_cursor
+                 */
+                after?: string;
+                /**
+                 * @description A `prev_cursor` from the last page. Returns the items before it. When you send both, `before` wins.
+                 * @example prev_cursor
+                 */
+                before?: string;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Returns a page of brands, oldest first. */
+            200: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "data": [
+                     *         {
+                     *           "id": "brd_06d2mfk8r4wq7zc1ka5pe",
+                     *           "name": "Acme",
+                     *           "slug": "acme",
+                     *           "logo_url": null,
+                     *           "is_default": true,
+                     *           "default_topic_id": "top_06d2mfk8r6pn2tc8yw3hd",
+                     *           "topic_count": 3,
+                     *           "created_at": "2026-09-02T10:12:00.000Z",
+                     *           "updated_at": "2026-09-02T10:12:00.000Z"
+                     *         }
+                     *       ],
+                     *       "prev_cursor": null,
+                     *       "next_cursor": null
+                     *     }
+                     */
+                    "application/json": components["schemas"]["BrandPage"];
+                };
+            };
+            /** @description A parameter is missing or invalid. */
+            400: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "validation_error",
+                     *       "status": 400,
+                     *       "message": "Invalid cursor",
+                     *       "errors": [
+                     *         {
+                     *           "message": "Invalid cursor",
+                     *           "location": "after"
+                     *         }
+                     *       ],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The API key is missing, revoked or expired. */
+            401: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "unauthorized",
+                     *       "status": 401,
+                     *       "message": "Unauthorized",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The key is a Sending key or is limited to one domain, or the request comes from outside its IP allowlist. */
+            403: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "forbidden",
+                     *       "status": 403,
+                     *       "message": "This key cannot be used from 203.0.113.7",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description Too many requests for this key. Wait for the seconds in the Retry-After header. */
+            429: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "rate_limit_exceeded",
+                     *       "status": 429,
+                     *       "message": "Too many attempts. Try again later.",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description Something failed on our side. Retry later. */
+            500: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "unknown_error",
+                     *       "status": 500,
+                     *       "message": "Something went wrong. Please try again later.",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The request failed */
+            default: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+        };
+    };
+    create_api_brand: {
+        parameters: {
+            query?: never;
+            header?: {
+                /** @description A key that makes a retry of this request return the first response. It is kept for 24 hours. */
+                "Idempotency-Key"?: string;
+            };
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                /**
+                 * @example {
+                 *       "name": "Acme Labs"
+                 *     }
+                 */
+                "application/json": components["schemas"]["BrandBody"];
+            };
+        };
+        responses: {
+            /** @description Created the brand. */
+            201: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "idempotent-replayed": components["headers"]["IdempotentReplayed"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "id": "brd_06d2mfk8r9zq3hd5ka2pe",
+                     *       "name": "Acme Labs",
+                     *       "slug": "acme-labs",
+                     *       "logo_url": null,
+                     *       "is_default": false,
+                     *       "default_topic_id": null,
+                     *       "topic_count": 0,
+                     *       "created_at": "2026-10-12T09:41:07.000Z",
+                     *       "updated_at": "2026-10-12T09:41:07.000Z"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["Brand"];
+                };
+            };
+            /** @description The name is missing or longer than 100 characters, or the Idempotency-Key header is not valid. */
+            400: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "validation_error",
+                     *       "status": 400,
+                     *       "message": "The request body is not valid JSON",
+                     *       "errors": [
+                     *         {
+                     *           "message": "The request body is not valid JSON",
+                     *           "location": "body"
+                     *         }
+                     *       ],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The API key is missing, revoked or expired. */
+            401: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "unauthorized",
+                     *       "status": 401,
+                     *       "message": "Unauthorized",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The workspace already has 20 brands, the key is a Sending key or is limited to one domain, or the request comes from outside its IP allowlist. */
+            403: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "forbidden",
+                     *       "status": 403,
+                     *       "message": "This key cannot be used from 203.0.113.7",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description A request with the same Idempotency-Key is still running. Retry after one second. */
+            409: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "concurrent_idempotent_requests",
+                     *       "status": 409,
+                     *       "message": "A request with this idempotency key is still in progress. Try again later.",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The body is larger than 2 MB. */
+            413: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "payload_too_large",
+                     *       "status": 413,
+                     *       "message": "The request body is too large",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The Content-Type header is not application/json. */
+            415: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "unsupported_media_type",
+                     *       "status": 415,
+                     *       "message": "The Content-Type must be application/json",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The Idempotency-Key was already used with a different request. */
+            422: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "invalid_idempotent_request",
+                     *       "status": 422,
+                     *       "message": "This idempotency key was already used with a different request",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description Too many requests for this key. Wait for the seconds in the Retry-After header. */
+            429: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "rate_limit_exceeded",
+                     *       "status": 429,
+                     *       "message": "Too many attempts. Try again later.",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description Something failed on our side. Retry later. */
+            500: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "unknown_error",
+                     *       "status": 500,
+                     *       "message": "Something went wrong. Please try again later.",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The request failed */
+            default: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+        };
+    };
+    get_api_brand: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description The brand id. */
+                brand_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Returns the brand. */
+            200: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "id": "brd_06d2mfk8r9zq3hd5ka2pe",
+                     *       "name": "Acme Labs",
+                     *       "slug": "acme-labs",
+                     *       "logo_url": null,
+                     *       "is_default": false,
+                     *       "default_topic_id": null,
+                     *       "topic_count": 2,
+                     *       "created_at": "2026-10-12T09:41:07.000Z",
+                     *       "updated_at": "2026-10-12T09:41:07.000Z"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["Brand"];
+                };
+            };
+            /** @description A path parameter is invalid. */
+            400: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "validation_error",
+                     *       "status": 400,
+                     *       "message": "length is greater than 100",
+                     *       "errors": [
+                     *         {
+                     *           "message": "length is greater than 100",
+                     *           "location": "brand_id"
+                     *         }
+                     *       ],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The API key is missing, revoked or expired. */
+            401: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "unauthorized",
+                     *       "status": 401,
+                     *       "message": "Unauthorized",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The key is a Sending key or is limited to one domain, or the request comes from outside its IP allowlist. */
+            403: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "forbidden",
+                     *       "status": 403,
+                     *       "message": "This key cannot be used from 203.0.113.7",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The brand does not exist in this workspace. */
+            404: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "not_found",
+                     *       "status": 404,
+                     *       "message": "Brand not found",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description Too many requests for this key. Wait for the seconds in the Retry-After header. */
+            429: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "rate_limit_exceeded",
+                     *       "status": 429,
+                     *       "message": "Too many attempts. Try again later.",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description Something failed on our side. Retry later. */
+            500: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "unknown_error",
+                     *       "status": 500,
+                     *       "message": "Something went wrong. Please try again later.",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The request failed */
+            default: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+        };
+    };
+    delete_api_brand: {
+        parameters: {
+            query?: never;
+            header?: {
+                /** @description A key that makes a retry of this request return the first response. It is kept for 24 hours. */
+                "Idempotency-Key"?: string;
+            };
+            path: {
+                /** @description The brand id. */
+                brand_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Deleted the brand. */
+            200: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "idempotent-replayed": components["headers"]["IdempotentReplayed"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "status": "ok"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["StatusOk"];
+                };
+            };
+            /** @description The brand is the default brand, or it still has topics. */
+            400: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "validation_error",
+                     *       "status": 400,
+                     *       "message": "Move or delete this brand's topics first",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The API key is missing, revoked or expired. */
+            401: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "unauthorized",
+                     *       "status": 401,
+                     *       "message": "Unauthorized",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The key is a Sending key or is limited to one domain, or the request comes from outside its IP allowlist. */
+            403: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "forbidden",
+                     *       "status": 403,
+                     *       "message": "This key cannot be used from 203.0.113.7",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The brand does not exist in this workspace. */
+            404: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "not_found",
+                     *       "status": 404,
+                     *       "message": "Brand not found",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description A request with the same Idempotency-Key is still running. Retry after one second. */
+            409: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "concurrent_idempotent_requests",
+                     *       "status": 409,
+                     *       "message": "A request with this idempotency key is still in progress. Try again later.",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The Idempotency-Key was already used with a different request. */
+            422: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "invalid_idempotent_request",
+                     *       "status": 422,
+                     *       "message": "This idempotency key was already used with a different request",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description Too many requests for this key. Wait for the seconds in the Retry-After header. */
+            429: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "rate_limit_exceeded",
+                     *       "status": 429,
+                     *       "message": "Too many attempts. Try again later.",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description Something failed on our side. Retry later. */
+            500: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "unknown_error",
+                     *       "status": 500,
+                     *       "message": "Something went wrong. Please try again later.",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The request failed */
+            default: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+        };
+    };
+    update_api_brand: {
+        parameters: {
+            query?: never;
+            header?: {
+                /** @description A key that makes a retry of this request return the first response. It is kept for 24 hours. */
+                "Idempotency-Key"?: string;
+            };
+            path: {
+                /** @description The brand id. */
+                brand_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                /**
+                 * @example {
+                 *       "name": "Acme Studio"
+                 *     }
+                 */
+                "application/json": components["schemas"]["BrandBody"];
+            };
+        };
+        responses: {
+            /** @description Returns the renamed brand. */
+            200: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "idempotent-replayed": components["headers"]["IdempotentReplayed"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "id": "brd_06d2mfk8r9zq3hd5ka2pe",
+                     *       "name": "Acme Studio",
+                     *       "slug": "acme-labs",
+                     *       "logo_url": null,
+                     *       "is_default": false,
+                     *       "default_topic_id": null,
+                     *       "topic_count": 2,
+                     *       "created_at": "2026-10-12T09:41:07.000Z",
+                     *       "updated_at": "2026-10-15T14:02:33.000Z"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["Brand"];
+                };
+            };
+            /** @description A field is missing or invalid, or the Idempotency-Key header is not valid. */
+            400: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "validation_error",
+                     *       "status": 400,
+                     *       "message": "The request body is not valid JSON",
+                     *       "errors": [
+                     *         {
+                     *           "message": "The request body is not valid JSON",
+                     *           "location": "body"
+                     *         }
+                     *       ],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The API key is missing, revoked or expired. */
+            401: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "unauthorized",
+                     *       "status": 401,
+                     *       "message": "Unauthorized",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The key is a Sending key or is limited to one domain, or the request comes from outside its IP allowlist. */
+            403: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "forbidden",
+                     *       "status": 403,
+                     *       "message": "This key cannot be used from 203.0.113.7",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The brand does not exist in this workspace. */
+            404: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "not_found",
+                     *       "status": 404,
+                     *       "message": "Brand not found",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description A request with the same Idempotency-Key is still running. Retry after one second. */
+            409: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "concurrent_idempotent_requests",
+                     *       "status": 409,
+                     *       "message": "A request with this idempotency key is still in progress. Try again later.",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The body is larger than 2 MB. */
+            413: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "payload_too_large",
+                     *       "status": 413,
+                     *       "message": "The request body is too large",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The Content-Type header is not application/json. */
+            415: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "unsupported_media_type",
+                     *       "status": 415,
+                     *       "message": "The Content-Type must be application/json",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The Idempotency-Key was already used with a different request. */
+            422: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "invalid_idempotent_request",
+                     *       "status": 422,
+                     *       "message": "This idempotency key was already used with a different request",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description Too many requests for this key. Wait for the seconds in the Retry-After header. */
+            429: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "rate_limit_exceeded",
+                     *       "status": 429,
+                     *       "message": "Too many attempts. Try again later.",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description Something failed on our side. Retry later. */
+            500: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "unknown_error",
+                     *       "status": 500,
+                     *       "message": "Something went wrong. Please try again later.",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The request failed */
+            default: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+        };
+    };
     list_api_campaigns: {
         parameters: {
             query?: {
@@ -3745,6 +8891,568 @@ export interface operations {
                      *       "name": "conflict",
                      *       "status": 409,
                      *       "message": "Only a scheduled, sending, paused or failed campaign can be canceled",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The Idempotency-Key was already used with a different request. */
+            422: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "invalid_idempotent_request",
+                     *       "status": 422,
+                     *       "message": "This idempotency key was already used with a different request",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description Too many requests for this key. Wait for the seconds in the Retry-After header. */
+            429: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "rate_limit_exceeded",
+                     *       "status": 429,
+                     *       "message": "Too many attempts. Try again later.",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description Something failed on our side. Retry later. */
+            500: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "unknown_error",
+                     *       "status": 500,
+                     *       "message": "Something went wrong. Please try again later.",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The request failed */
+            default: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+        };
+    };
+    pause_api_campaign: {
+        parameters: {
+            query?: never;
+            header?: {
+                /** @description A key that makes a retry of this request return the first response. It is kept for 24 hours. */
+                "Idempotency-Key"?: string;
+            };
+            path: {
+                /** @description The campaign id. */
+                campaign_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Paused the campaign. Emails that are not sent yet wait until you resume it. */
+            200: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "idempotent-replayed": components["headers"]["IdempotentReplayed"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "id": "cpg_06d2mfk8r7hm4ps9wb2kd",
+                     *       "name": "October product update",
+                     *       "status": "paused",
+                     *       "from": "Acme <hello@acme.dev>",
+                     *       "reply_to": null,
+                     *       "subject": "What’s new in October",
+                     *       "preheader": "Scheduled sends are here",
+                     *       "html": "<!DOCTYPE html><html>…</html>",
+                     *       "text": "Hi Suhasinee, scheduled sends are here…",
+                     *       "template_id": null,
+                     *       "template": null,
+                     *       "include_segment_ids": [
+                     *         "seg_06d2mfk8r2kd7fq4mx9ab"
+                     *       ],
+                     *       "include_segments": [
+                     *         {
+                     *           "id": "seg_06d2mfk8r2kd7fq4mx9ab",
+                     *           "name": "Customers"
+                     *         }
+                     *       ],
+                     *       "exclude_segment_ids": [],
+                     *       "exclude_segments": [],
+                     *       "topic_id": "top_06d2mfk8r6pn2tc8yw3hd",
+                     *       "topic": {
+                     *         "id": "top_06d2mfk8r6pn2tc8yw3hd",
+                     *         "name": "Product updates"
+                     *       },
+                     *       "audience_count": 1204,
+                     *       "queued_count": 640,
+                     *       "skipped_count": 0,
+                     *       "paused_reason": "manual",
+                     *       "failure_reason": null,
+                     *       "scheduled_at": null,
+                     *       "started_at": "2026-10-21T09:00:00.000Z",
+                     *       "completed_at": null,
+                     *       "warmup_next_limit": null,
+                     *       "created_at": "2026-10-21T09:00:00.000Z",
+                     *       "updated_at": "2026-10-21T09:00:00.000Z"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["PublicCampaignDetail"];
+                };
+            };
+            /** @description A parameter is missing or invalid, or the Idempotency-Key header is not valid. */
+            400: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "invalid_idempotency_key",
+                     *       "status": 400,
+                     *       "message": "Idempotency-Key must be 1 to 256 printable ASCII characters",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The API key is missing, revoked or expired. */
+            401: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "unauthorized",
+                     *       "status": 401,
+                     *       "message": "Unauthorized",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The key is a Sending key or is limited to one domain, or the request comes from outside its IP allowlist. */
+            403: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "forbidden",
+                     *       "status": 403,
+                     *       "message": "This key cannot be used from 203.0.113.7",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The campaign does not exist in this workspace. */
+            404: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "not_found",
+                     *       "status": 404,
+                     *       "message": "Campaign not found",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The campaign is not sending, or a request with the same Idempotency-Key is still running. */
+            409: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "conflict",
+                     *       "status": 409,
+                     *       "message": "Only a sending campaign can be paused",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The Idempotency-Key was already used with a different request. */
+            422: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "invalid_idempotent_request",
+                     *       "status": 422,
+                     *       "message": "This idempotency key was already used with a different request",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description Too many requests for this key. Wait for the seconds in the Retry-After header. */
+            429: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "rate_limit_exceeded",
+                     *       "status": 429,
+                     *       "message": "Too many attempts. Try again later.",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description Something failed on our side. Retry later. */
+            500: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "unknown_error",
+                     *       "status": 500,
+                     *       "message": "Something went wrong. Please try again later.",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The request failed */
+            default: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+        };
+    };
+    resume_api_campaign: {
+        parameters: {
+            query?: never;
+            header?: {
+                /** @description A key that makes a retry of this request return the first response. It is kept for 24 hours. */
+                "Idempotency-Key"?: string;
+            };
+            path: {
+                /** @description The campaign id. */
+                campaign_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Resumed the campaign. It sends the emails that are left. */
+            200: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "idempotent-replayed": components["headers"]["IdempotentReplayed"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "id": "cpg_06d2mfk8r7hm4ps9wb2kd",
+                     *       "name": "October product update",
+                     *       "status": "sending",
+                     *       "from": "Acme <hello@acme.dev>",
+                     *       "reply_to": null,
+                     *       "subject": "What’s new in October",
+                     *       "preheader": "Scheduled sends are here",
+                     *       "html": "<!DOCTYPE html><html>…</html>",
+                     *       "text": "Hi Suhasinee, scheduled sends are here…",
+                     *       "template_id": null,
+                     *       "template": null,
+                     *       "include_segment_ids": [
+                     *         "seg_06d2mfk8r2kd7fq4mx9ab"
+                     *       ],
+                     *       "include_segments": [
+                     *         {
+                     *           "id": "seg_06d2mfk8r2kd7fq4mx9ab",
+                     *           "name": "Customers"
+                     *         }
+                     *       ],
+                     *       "exclude_segment_ids": [],
+                     *       "exclude_segments": [],
+                     *       "topic_id": "top_06d2mfk8r6pn2tc8yw3hd",
+                     *       "topic": {
+                     *         "id": "top_06d2mfk8r6pn2tc8yw3hd",
+                     *         "name": "Product updates"
+                     *       },
+                     *       "audience_count": 1204,
+                     *       "queued_count": 640,
+                     *       "skipped_count": 0,
+                     *       "paused_reason": null,
+                     *       "failure_reason": null,
+                     *       "scheduled_at": null,
+                     *       "started_at": "2026-10-21T09:00:00.000Z",
+                     *       "completed_at": null,
+                     *       "warmup_next_limit": null,
+                     *       "created_at": "2026-10-21T09:00:00.000Z",
+                     *       "updated_at": "2026-10-21T09:00:00.000Z"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["PublicCampaignDetail"];
+                };
+            };
+            /** @description A parameter is missing or invalid, or the Idempotency-Key header is not valid. */
+            400: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "invalid_idempotency_key",
+                     *       "status": 400,
+                     *       "message": "Idempotency-Key must be 1 to 256 printable ASCII characters",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The API key is missing, revoked or expired. */
+            401: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "unauthorized",
+                     *       "status": 401,
+                     *       "message": "Unauthorized",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The key is a Sending key or is limited to one domain, or the request comes from outside its IP allowlist. */
+            403: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "forbidden",
+                     *       "status": 403,
+                     *       "message": "This key cannot be used from 203.0.113.7",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The campaign does not exist in this workspace. */
+            404: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "not_found",
+                     *       "status": 404,
+                     *       "message": "Campaign not found",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The campaign is not paused or failed, or a request with the same Idempotency-Key is still running. */
+            409: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "conflict",
+                     *       "status": 409,
+                     *       "message": "Only a paused or failed campaign can be resumed",
                      *       "errors": [],
                      *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
                      *     }
@@ -5859,6 +11567,1163 @@ export interface operations {
             };
         };
     };
+    list_api_imports: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Returns the 20 latest imports of the workspace, newest first. */
+            200: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example [
+                     *       {
+                     *         "id": "imp_06d2mfk8r8wq5ze1hv4ms",
+                     *         "workspace_id": "ws_06d2mfk8r1aq9xv3jc6ne",
+                     *         "file_name": "contacts.csv",
+                     *         "file_key": "imports/ws_06d2mfk8r1aq9xv3jc6ne/0b9e6e5a-3c1f-4c55-9d3a-6f0d2a7c1e44.csv",
+                     *         "mapping": {
+                     *           "Email": "email",
+                     *           "First name": "first_name",
+                     *           "Notes": null
+                     *         },
+                     *         "status": "completed",
+                     *         "total_rows": 3,
+                     *         "processed_rows": 3,
+                     *         "created_count": 2,
+                     *         "updated_count": 0,
+                     *         "skipped_count": 1,
+                     *         "errors": [
+                     *           {
+                     *             "row": 3,
+                     *             "email": "",
+                     *             "reason": "Not a valid email address"
+                     *           }
+                     *         ],
+                     *         "creator_id": "usr_06d2mfk8r0ce7ha2pw5jx",
+                     *         "completed_at": "2026-10-14T08:31:00.000Z",
+                     *         "created_at": "2026-10-14T08:30:00.000Z",
+                     *         "updated_at": "2026-10-14T08:31:00.000Z",
+                     *         "segment_id": null,
+                     *         "topic_id": null
+                     *       }
+                     *     ]
+                     */
+                    "application/json": components["schemas"]["ContactImport"][];
+                };
+            };
+            /** @description The API key is missing, revoked or expired. */
+            401: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "unauthorized",
+                     *       "status": 401,
+                     *       "message": "Unauthorized",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The key is a Sending key or is limited to one domain, or the request comes from outside its IP allowlist. */
+            403: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "forbidden",
+                     *       "status": 403,
+                     *       "message": "This key cannot be used from 203.0.113.7",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description Too many requests for this key. Wait for the seconds in the Retry-After header. */
+            429: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "rate_limit_exceeded",
+                     *       "status": 429,
+                     *       "message": "Too many attempts. Try again later.",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description Something failed on our side. Retry later. */
+            500: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "unknown_error",
+                     *       "status": 500,
+                     *       "message": "Something went wrong. Please try again later.",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The request failed */
+            default: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+        };
+    };
+    start_api_import: {
+        parameters: {
+            query?: never;
+            header?: {
+                /** @description A key that makes a retry of this request return the first response. It is kept for 24 hours. */
+                "Idempotency-Key"?: string;
+            };
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                /**
+                 * @example {
+                 *       "file_key": "imports/ws_06d2mfk8r1aq9xv3jc6ne/0b9e6e5a-3c1f-4c55-9d3a-6f0d2a7c1e44.csv",
+                 *       "file_name": "contacts.csv",
+                 *       "total_rows": 3,
+                 *       "mapping": {
+                 *         "Email": "email",
+                 *         "First name": "first_name",
+                 *         "Notes": null
+                 *       },
+                 *       "segment_id": "seg_06d2mfk8r2kd7fq4mx9ab"
+                 *     }
+                 */
+                "application/json": components["schemas"]["StartImportBody"];
+            };
+        };
+        responses: {
+            /** @description Queued the import. Read it again to follow its progress. */
+            201: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "idempotent-replayed": components["headers"]["IdempotentReplayed"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "id": "imp_06d2mfk8r8wq5ze1hv4ms",
+                     *       "workspace_id": "ws_06d2mfk8r1aq9xv3jc6ne",
+                     *       "file_name": "contacts.csv",
+                     *       "file_key": "imports/ws_06d2mfk8r1aq9xv3jc6ne/0b9e6e5a-3c1f-4c55-9d3a-6f0d2a7c1e44.csv",
+                     *       "mapping": {
+                     *         "Email": "email",
+                     *         "First name": "first_name",
+                     *         "Notes": null
+                     *       },
+                     *       "status": "queued",
+                     *       "total_rows": 3,
+                     *       "processed_rows": 0,
+                     *       "created_count": 0,
+                     *       "updated_count": 0,
+                     *       "skipped_count": 0,
+                     *       "errors": [],
+                     *       "creator_id": "usr_06d2mfk8r0ce7ha2pw5jx",
+                     *       "completed_at": null,
+                     *       "created_at": "2026-10-14T08:30:00.000Z",
+                     *       "updated_at": "2026-10-14T08:30:00.000Z",
+                     *       "segment_id": "seg_06d2mfk8r2kd7fq4mx9ab",
+                     *       "topic_id": null
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ContactImport"];
+                };
+            };
+            /** @description A field is missing or invalid, or the Idempotency-Key header is not valid. */
+            400: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "validation_error",
+                     *       "status": 400,
+                     *       "message": "The request body is not valid JSON",
+                     *       "errors": [
+                     *         {
+                     *           "message": "The request body is not valid JSON",
+                     *           "location": "body"
+                     *         }
+                     *       ],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The API key is missing, revoked or expired. */
+            401: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "unauthorized",
+                     *       "status": 401,
+                     *       "message": "Unauthorized",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The key is a Sending key or is limited to one domain, or the request comes from outside its IP allowlist. */
+            403: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "forbidden",
+                     *       "status": 403,
+                     *       "message": "This key cannot be used from 203.0.113.7",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The segment is not a static segment of this workspace, or the topic does not exist. */
+            404: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "not_found",
+                     *       "status": 404,
+                     *       "message": "Segment not found",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description A request with the same Idempotency-Key is still running. Retry after one second. */
+            409: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "concurrent_idempotent_requests",
+                     *       "status": 409,
+                     *       "message": "A request with this idempotency key is still in progress. Try again later.",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The body is larger than 2 MB. */
+            413: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "payload_too_large",
+                     *       "status": 413,
+                     *       "message": "The request body is too large",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The Content-Type header is not application/json. */
+            415: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "unsupported_media_type",
+                     *       "status": 415,
+                     *       "message": "The Content-Type must be application/json",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The Idempotency-Key was already used with a different request. */
+            422: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "invalid_idempotent_request",
+                     *       "status": 422,
+                     *       "message": "This idempotency key was already used with a different request",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description Too many requests for this key. Wait for the seconds in the Retry-After header. */
+            429: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "rate_limit_exceeded",
+                     *       "status": 429,
+                     *       "message": "Too many attempts. Try again later.",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description Something failed on our side. Retry later. */
+            500: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "unknown_error",
+                     *       "status": 500,
+                     *       "message": "Something went wrong. Please try again later.",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The request failed */
+            default: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+        };
+    };
+    create_api_upload_url: {
+        parameters: {
+            query?: never;
+            header?: {
+                /** @description A key that makes a retry of this request return the first response. It is kept for 24 hours. */
+                "Idempotency-Key"?: string;
+            };
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                /**
+                 * @example {
+                 *       "content_type": "text/csv",
+                 *       "size": 1024
+                 *     }
+                 */
+                "application/json": components["schemas"]["PresignBody"];
+            };
+        };
+        responses: {
+            /** @description Returns a URL to upload the CSV file to. */
+            200: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "idempotent-replayed": components["headers"]["IdempotentReplayed"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "upload_url": "https://uploads.inboxjot.com/imports/ws_06d2mfk8r1aq9xv3jc6ne/0b9e6e5a-3c1f-4c55-9d3a-6f0d2a7c1e44.csv?X-Amz-Expires=300",
+                     *       "key": "imports/ws_06d2mfk8r1aq9xv3jc6ne/0b9e6e5a-3c1f-4c55-9d3a-6f0d2a7c1e44.csv"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["UploadTarget"];
+                };
+            };
+            /** @description A field is missing or invalid, or the Idempotency-Key header is not valid. */
+            400: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "validation_error",
+                     *       "status": 400,
+                     *       "message": "The request body is not valid JSON",
+                     *       "errors": [
+                     *         {
+                     *           "message": "The request body is not valid JSON",
+                     *           "location": "body"
+                     *         }
+                     *       ],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The API key is missing, revoked or expired. */
+            401: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "unauthorized",
+                     *       "status": 401,
+                     *       "message": "Unauthorized",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The key is a Sending key or is limited to one domain, or the request comes from outside its IP allowlist. */
+            403: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "forbidden",
+                     *       "status": 403,
+                     *       "message": "This key cannot be used from 203.0.113.7",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description A request with the same Idempotency-Key is still running. Retry after one second. */
+            409: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "concurrent_idempotent_requests",
+                     *       "status": 409,
+                     *       "message": "A request with this idempotency key is still in progress. Try again later.",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The body is larger than 2 MB. */
+            413: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "payload_too_large",
+                     *       "status": 413,
+                     *       "message": "The request body is too large",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The Content-Type header is not application/json. */
+            415: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "unsupported_media_type",
+                     *       "status": 415,
+                     *       "message": "The Content-Type must be application/json",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The Idempotency-Key was already used with a different request. */
+            422: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "invalid_idempotent_request",
+                     *       "status": 422,
+                     *       "message": "This idempotency key was already used with a different request",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description Too many requests for this key. Wait for the seconds in the Retry-After header. */
+            429: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "rate_limit_exceeded",
+                     *       "status": 429,
+                     *       "message": "Too many attempts. Try again later.",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description Something failed on our side. Retry later. */
+            500: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "unknown_error",
+                     *       "status": 500,
+                     *       "message": "Something went wrong. Please try again later.",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The request failed */
+            default: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+        };
+    };
+    get_api_import: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /**
+                 * @description The import id.
+                 * @example imp_06d2mfk8r8wq5ze1hv4ms
+                 */
+                import_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Returns the import and its progress. */
+            200: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "id": "imp_06d2mfk8r8wq5ze1hv4ms",
+                     *       "workspace_id": "ws_06d2mfk8r1aq9xv3jc6ne",
+                     *       "file_name": "contacts.csv",
+                     *       "file_key": "imports/ws_06d2mfk8r1aq9xv3jc6ne/0b9e6e5a-3c1f-4c55-9d3a-6f0d2a7c1e44.csv",
+                     *       "mapping": {
+                     *         "Email": "email",
+                     *         "First name": "first_name",
+                     *         "Notes": null
+                     *       },
+                     *       "status": "importing",
+                     *       "total_rows": 3,
+                     *       "processed_rows": 2,
+                     *       "created_count": 2,
+                     *       "updated_count": 0,
+                     *       "skipped_count": 0,
+                     *       "errors": [],
+                     *       "creator_id": "usr_06d2mfk8r0ce7ha2pw5jx",
+                     *       "completed_at": null,
+                     *       "created_at": "2026-10-14T08:30:00.000Z",
+                     *       "updated_at": "2026-10-14T08:30:20.000Z",
+                     *       "segment_id": null,
+                     *       "topic_id": null
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ContactImport"];
+                };
+            };
+            /** @description A path parameter is invalid. */
+            400: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "validation_error",
+                     *       "status": 400,
+                     *       "message": "length is greater than 100",
+                     *       "errors": [
+                     *         {
+                     *           "message": "length is greater than 100",
+                     *           "location": "import_id"
+                     *         }
+                     *       ],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The API key is missing, revoked or expired. */
+            401: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "unauthorized",
+                     *       "status": 401,
+                     *       "message": "Unauthorized",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The key is a Sending key or is limited to one domain, or the request comes from outside its IP allowlist. */
+            403: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "forbidden",
+                     *       "status": 403,
+                     *       "message": "This key cannot be used from 203.0.113.7",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The import does not exist in this workspace. */
+            404: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "not_found",
+                     *       "status": 404,
+                     *       "message": "Import not found",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description Too many requests for this key. Wait for the seconds in the Retry-After header. */
+            429: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "rate_limit_exceeded",
+                     *       "status": 429,
+                     *       "message": "Too many attempts. Try again later.",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description Something failed on our side. Retry later. */
+            500: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "unknown_error",
+                     *       "status": 500,
+                     *       "message": "Something went wrong. Please try again later.",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The request failed */
+            default: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+        };
+    };
+    list_api_contact_properties: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Returns the contact properties of the workspace. */
+            200: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example [
+                     *       {
+                     *         "id": "cpr_06d2mfk8r7tz4nb2kq8wd",
+                     *         "workspace_id": "ws_06d2mfk8r1aq9xv3jc6ne",
+                     *         "key": "plan",
+                     *         "label": "Plan",
+                     *         "type": "choice",
+                     *         "options": [
+                     *           "free",
+                     *           "pro"
+                     *         ],
+                     *         "created_at": "2026-09-02T10:12:00.000Z",
+                     *         "updated_at": "2026-09-02T10:12:00.000Z"
+                     *       }
+                     *     ]
+                     */
+                    "application/json": components["schemas"]["ContactProperty"][];
+                };
+            };
+            /** @description The API key is missing, revoked or expired. */
+            401: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "unauthorized",
+                     *       "status": 401,
+                     *       "message": "Unauthorized",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The key is a Sending key or is limited to one domain, or the request comes from outside its IP allowlist. */
+            403: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "forbidden",
+                     *       "status": 403,
+                     *       "message": "This key cannot be used from 203.0.113.7",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description Too many requests for this key. Wait for the seconds in the Retry-After header. */
+            429: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "rate_limit_exceeded",
+                     *       "status": 429,
+                     *       "message": "Too many attempts. Try again later.",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description Something failed on our side. Retry later. */
+            500: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "unknown_error",
+                     *       "status": 500,
+                     *       "message": "Something went wrong. Please try again later.",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The request failed */
+            default: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+        };
+    };
     list_api_contacts: {
         parameters: {
             query?: {
@@ -7204,6 +14069,12 @@ export interface operations {
                  *         {
                  *           "id": "top_06d2mfk8r6pn2tc8yw3hd",
                  *           "status": "unsubscribed"
+                 *         }
+                 *       ],
+                 *       "brands": [
+                 *         {
+                 *           "id": "brd_06d2mfk8r4wq7zc1ka5pe",
+                 *           "status": "subscribed"
                  *         }
                  *       ]
                  *     }
@@ -9208,9 +16079,9 @@ export interface operations {
                 content: {
                     /**
                      * @example {
-                     *       "name": "forbidden",
+                     *       "name": "domain_not_verified",
                      *       "status": 403,
-                     *       "message": "acme.dev is not verified yet",
+                     *       "message": "acme.dev is not verified",
                      *       "errors": [],
                      *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
                      *     }
@@ -10859,6 +17730,231 @@ export interface operations {
             };
         };
     };
+    list_email_events: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description The email id, such as `eml_06d2mfk8r4tq9xv2bnc7s`. */
+                email_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Returns the events of the email, oldest first. */
+            200: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "data": [
+                     *         {
+                     *           "event_id": "V1StGXR8_Z5jdHi6",
+                     *           "type": "delivered",
+                     *           "recipient": "riti@example.com",
+                     *           "occurred_at": "2026-10-15T14:02:36.000Z",
+                     *           "user_agent": "",
+                     *           "ip_address": "",
+                     *           "client": "",
+                     *           "browser": "",
+                     *           "os": "",
+                     *           "device_type": "",
+                     *           "device": "",
+                     *           "country_code": "",
+                     *           "country": "",
+                     *           "region": "",
+                     *           "city": "",
+                     *           "latitude": null,
+                     *           "longitude": null,
+                     *           "link": "",
+                     *           "bounce_type": "",
+                     *           "bounce_sub": "",
+                     *           "smtp_response": "250 2.0.0 OK",
+                     *           "remote_mta_ip": "203.0.113.25",
+                     *           "processing_time_ms": 812,
+                     *           "diagnostic_code": "",
+                     *           "error_message": ""
+                     *         }
+                     *       ]
+                     *     }
+                     */
+                    "application/json": components["schemas"]["EmailEventList"];
+                };
+            };
+            /** @description A path parameter is invalid. */
+            400: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "validation_error",
+                     *       "status": 400,
+                     *       "message": "length is greater than 100",
+                     *       "errors": [
+                     *         {
+                     *           "message": "length is greater than 100",
+                     *           "location": "email_id"
+                     *         }
+                     *       ],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The API key is missing, revoked or expired. */
+            401: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "unauthorized",
+                     *       "status": 401,
+                     *       "message": "Unauthorized",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The key is a Sending key, or the request comes from outside its IP allowlist. */
+            403: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "forbidden",
+                     *       "status": 403,
+                     *       "message": "This key cannot be used from 203.0.113.7",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The email does not exist in this workspace. */
+            404: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "not_found",
+                     *       "status": 404,
+                     *       "message": "Email not found",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description Too many requests for this key. Wait for the seconds in the Retry-After header. */
+            429: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "rate_limit_exceeded",
+                     *       "status": 429,
+                     *       "message": "Too many attempts. Try again later.",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description Something failed on our side. Retry later. */
+            500: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "unknown_error",
+                     *       "status": 500,
+                     *       "message": "Something went wrong. Please try again later.",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The request failed */
+            default: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+        };
+    };
     track_contact_event: {
         parameters: {
             query?: never;
@@ -10875,6 +17971,7 @@ export interface operations {
                  * @example {
                  *       "name": "order.completed",
                  *       "email": "riti@example.com",
+                 *       "user_id": "usr_8842",
                  *       "data": {
                  *         "order_id": "4821",
                  *         "total": 49
@@ -10921,10 +18018,10 @@ export interface operations {
                      * @example {
                      *       "name": "validation_error",
                      *       "status": 400,
-                     *       "message": "Use letters, numbers, dots, dashes or underscores",
+                     *       "message": "Use letters, numbers, dots, colons, dashes or underscores",
                      *       "errors": [
                      *         {
-                     *           "message": "Use letters, numbers, dots, dashes or underscores",
+                     *           "message": "Use letters, numbers, dots, colons, dashes or underscores",
                      *           "location": "name"
                      *         }
                      *       ],
@@ -10975,6 +18072,798 @@ export interface operations {
                      *       "name": "forbidden",
                      *       "status": 403,
                      *       "message": "This key cannot be used from 203.0.113.7",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description No contact has the `user_id`, and no email was sent to create one. */
+            404: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The email and the `user_id` belong to different contacts, or a request with the same Idempotency-Key is still running. Retry the second case after one second. */
+            409: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "concurrent_idempotent_requests",
+                     *       "status": 409,
+                     *       "message": "A request with this idempotency key is still in progress. Try again later.",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The body is larger than 2 MB. */
+            413: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "payload_too_large",
+                     *       "status": 413,
+                     *       "message": "The request body is too large",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The Content-Type header is not application/json. */
+            415: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "unsupported_media_type",
+                     *       "status": 415,
+                     *       "message": "The Content-Type must be application/json",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The Idempotency-Key was already used with a different request. */
+            422: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "invalid_idempotent_request",
+                     *       "status": 422,
+                     *       "message": "This idempotency key was already used with a different request",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description Too many requests for this key. Wait for the seconds in the Retry-After header. */
+            429: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "rate_limit_exceeded",
+                     *       "status": 429,
+                     *       "message": "Too many attempts. Try again later.",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description Something failed on our side. Retry later. */
+            500: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "unknown_error",
+                     *       "status": 500,
+                     *       "message": "Something went wrong. Please try again later.",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The request failed */
+            default: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+        };
+    };
+    track_contact_event_batch: {
+        parameters: {
+            query?: never;
+            header?: {
+                /** @description A key that makes a retry of this request return the first response. It is kept for 24 hours. */
+                "Idempotency-Key"?: string;
+            };
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                /**
+                 * @example [
+                 *       {
+                 *         "name": "order.completed",
+                 *         "user_id": "usr_8842",
+                 *         "data": {
+                 *           "order_id": "4821"
+                 *         }
+                 *       },
+                 *       {
+                 *         "name": "signed_up",
+                 *         "email": "marcus.lee@example.com",
+                 *         "occurred_at": "2026-11-14T09:30:00Z"
+                 *       }
+                 *     ]
+                 */
+                "application/json": components["schemas"]["EventBody"][];
+            };
+        };
+        responses: {
+            /** @description Accepted. Inboxjot records the events in the background. A batch is all or nothing: one invalid event refuses the whole batch. */
+            202: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "idempotent-replayed": components["headers"]["IdempotentReplayed"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "data": [
+                     *         {
+                     *           "contact_id": "con_06d2mfk8r9wq3zh5ka2pe"
+                     *         },
+                     *         {
+                     *           "contact_id": "con_06d2mfk8rb4xk2vt9nq7d"
+                     *         }
+                     *       ]
+                     *     }
+                     */
+                    "application/json": components["schemas"]["TrackedBatchResponse"];
+                };
+            };
+            /** @description The list is empty or has more than 100 events, a field is missing or invalid, or the Idempotency-Key header is not valid. */
+            400: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "validation_error",
+                     *       "status": 400,
+                     *       "message": "The request body is not valid JSON",
+                     *       "errors": [
+                     *         {
+                     *           "message": "The request body is not valid JSON",
+                     *           "location": "body"
+                     *         }
+                     *       ],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The API key is missing, revoked or expired. */
+            401: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "unauthorized",
+                     *       "status": 401,
+                     *       "message": "Unauthorized",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The key is a Sending key or is limited to one domain, or the request comes from outside its IP allowlist. */
+            403: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "forbidden",
+                     *       "status": 403,
+                     *       "message": "This key cannot be used from 203.0.113.7",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description An event has a `user_id` that no contact has, and no email to create one. The message names the event, such as `Event 2: …`. */
+            404: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description An event has an email and a `user_id` that belong to different contacts, or a request with the same Idempotency-Key is still running. */
+            409: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "concurrent_idempotent_requests",
+                     *       "status": 409,
+                     *       "message": "A request with this idempotency key is still in progress. Try again later.",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The body is larger than 2 MB. */
+            413: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "payload_too_large",
+                     *       "status": 413,
+                     *       "message": "The request body is too large",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The Content-Type header is not application/json. */
+            415: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "unsupported_media_type",
+                     *       "status": 415,
+                     *       "message": "The Content-Type must be application/json",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The Idempotency-Key was already used with a different request. */
+            422: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "invalid_idempotent_request",
+                     *       "status": 422,
+                     *       "message": "This idempotency key was already used with a different request",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description Too many requests for this key. Wait for the seconds in the Retry-After header. */
+            429: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "rate_limit_exceeded",
+                     *       "status": 429,
+                     *       "message": "Too many attempts. Try again later.",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description Something failed on our side. Retry later. */
+            500: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "unknown_error",
+                     *       "status": 500,
+                     *       "message": "Something went wrong. Please try again later.",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The request failed */
+            default: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+        };
+    };
+    list_api_exports: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Returns the 20 latest exports of the workspace, newest first. A token sees only the kinds its scopes allow. */
+            200: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example [
+                     *       {
+                     *         "id": "exp_06d2mfk8r5jc8vd3yt2qa",
+                     *         "kind": "contacts",
+                     *         "status": "completed",
+                     *         "file_name": "contacts-acme-2026-10-14.csv",
+                     *         "row_count": 3230,
+                     *         "error": null,
+                     *         "created_at": "2026-10-14T08:30:00.000Z",
+                     *         "completed_at": "2026-10-14T08:30:12.000Z",
+                     *         "download_url": null
+                     *       }
+                     *     ]
+                     */
+                    "application/json": components["schemas"]["ExportResponse"][];
+                };
+            };
+            /** @description The API key is missing, revoked or expired. */
+            401: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "unauthorized",
+                     *       "status": 401,
+                     *       "message": "Unauthorized",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The key is a Sending key or is limited to one domain, or the request comes from outside its IP allowlist. */
+            403: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "forbidden",
+                     *       "status": 403,
+                     *       "message": "This key cannot be used from 203.0.113.7",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description Too many requests for this key. Wait for the seconds in the Retry-After header. */
+            429: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "rate_limit_exceeded",
+                     *       "status": 429,
+                     *       "message": "Too many attempts. Try again later.",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description Something failed on our side. Retry later. */
+            500: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "unknown_error",
+                     *       "status": 500,
+                     *       "message": "Something went wrong. Please try again later.",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The request failed */
+            default: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+        };
+    };
+    create_api_export: {
+        parameters: {
+            query?: never;
+            header?: {
+                /** @description A key that makes a retry of this request return the first response. It is kept for 24 hours. */
+                "Idempotency-Key"?: string;
+            };
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                /**
+                 * @example {
+                 *       "kind": "contacts",
+                 *       "filters": {
+                 *         "segment_id": "seg_06d2mfk8r2kd7fq4mx9ab"
+                 *       }
+                 *     }
+                 */
+                "application/json": components["schemas"]["ExportInput"];
+            };
+        };
+        responses: {
+            /** @description Queued the export. Read it by its id until `status` is `completed`, then download the file from `download_url`. */
+            201: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "idempotent-replayed": components["headers"]["IdempotentReplayed"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "id": "exp_06d2mfk8r5jc8vd3yt2qa",
+                     *       "kind": "contacts",
+                     *       "status": "queued",
+                     *       "file_name": "contacts-acme-2026-10-14.csv",
+                     *       "row_count": 0,
+                     *       "error": null,
+                     *       "created_at": "2026-10-14T08:30:00.000Z",
+                     *       "completed_at": null,
+                     *       "download_url": null
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ExportResponse"];
+                };
+            };
+            /** @description A field is missing or invalid, or the Idempotency-Key header is not valid. */
+            400: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "validation_error",
+                     *       "status": 400,
+                     *       "message": "The request body is not valid JSON",
+                     *       "errors": [
+                     *         {
+                     *           "message": "The request body is not valid JSON",
+                     *           "location": "body"
+                     *         }
+                     *       ],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The API key is missing, revoked or expired. */
+            401: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "unauthorized",
+                     *       "status": 401,
+                     *       "message": "Unauthorized",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The token does not have the scope for this kind, only an admin can export the audit log, the key is a Sending key or is limited to one domain, or the request comes from outside its IP allowlist. */
+            403: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "forbidden",
+                     *       "status": 403,
+                     *       "message": "Only admins can export the audit log",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The segment does not exist in this workspace. */
+            404: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "not_found",
+                     *       "status": 404,
+                     *       "message": "Segment not found",
                      *       "errors": [],
                      *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
                      *     }
@@ -11071,6 +18960,214 @@ export interface operations {
                      *       "name": "invalid_idempotent_request",
                      *       "status": 422,
                      *       "message": "This idempotency key was already used with a different request",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description Too many requests for this key. Wait for the seconds in the Retry-After header. */
+            429: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "rate_limit_exceeded",
+                     *       "status": 429,
+                     *       "message": "Too many attempts. Try again later.",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description Something failed on our side. Retry later. */
+            500: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "unknown_error",
+                     *       "status": 500,
+                     *       "message": "Something went wrong. Please try again later.",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The request failed */
+            default: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+        };
+    };
+    get_api_export: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /**
+                 * @description The export id.
+                 * @example exp_06d2mfk8r5jc8vd3yt2qa
+                 */
+                export_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Returns the export. A completed export has a `download_url`. */
+            200: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "id": "exp_06d2mfk8r5jc8vd3yt2qa",
+                     *       "kind": "contacts",
+                     *       "status": "completed",
+                     *       "file_name": "contacts-acme-2026-10-14.csv",
+                     *       "row_count": 3230,
+                     *       "error": null,
+                     *       "created_at": "2026-10-14T08:30:00.000Z",
+                     *       "completed_at": "2026-10-14T08:30:12.000Z",
+                     *       "download_url": "https://files.inboxjot.com/exports/ws_06d2mfk8r1aq9xv3jc6ne/exp_06d2mfk8r5jc8vd3yt2qa?X-Amz-Expires=600"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ExportResponse"];
+                };
+            };
+            /** @description A path parameter is invalid. */
+            400: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "validation_error",
+                     *       "status": 400,
+                     *       "message": "length is greater than 100",
+                     *       "errors": [
+                     *         {
+                     *           "message": "length is greater than 100",
+                     *           "location": "export_id"
+                     *         }
+                     *       ],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The API key is missing, revoked or expired. */
+            401: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "unauthorized",
+                     *       "status": 401,
+                     *       "message": "Unauthorized",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The key is a Sending key or is limited to one domain, or the request comes from outside its IP allowlist. */
+            403: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "forbidden",
+                     *       "status": 403,
+                     *       "message": "This key cannot be used from 203.0.113.7",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The export does not exist in this workspace, or the token cannot read its kind. */
+            404: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "not_found",
+                     *       "status": 404,
+                     *       "message": "Export not found",
                      *       "errors": [],
                      *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
                      *     }
@@ -12293,6 +20390,422 @@ export interface operations {
                      *       "name": "invalid_idempotent_request",
                      *       "status": 422,
                      *       "message": "This idempotency key was already used with a different request",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description Too many requests for this key. Wait for the seconds in the Retry-After header. */
+            429: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "rate_limit_exceeded",
+                     *       "status": 429,
+                     *       "message": "Too many attempts. Try again later.",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description Something failed on our side. Retry later. */
+            500: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "unknown_error",
+                     *       "status": 500,
+                     *       "message": "Something went wrong. Please try again later.",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The request failed */
+            default: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+        };
+    };
+    list_api_logs: {
+        parameters: {
+            query?: {
+                /** @description `succeeded` keeps requests with a status below 400. `failed` keeps the others. */
+                outcome?: "succeeded" | "failed";
+                /** @description Keeps the requests of one API key or connected app, by its id. */
+                api_key_id?: string;
+                /** @description A request id, or text to find in the method and the path. */
+                query?: string;
+                /** @description `asc` or `desc`. Defaults to `desc`, newest first. */
+                direction?: components["schemas"]["SortDirection"];
+                /** @description How many items to return, from 1 to 100. Defaults to 50. */
+                per_page?: number;
+                /**
+                 * @description A `next_cursor` from the last page. Returns the items after it.
+                 * @example next_cursor
+                 */
+                after?: string;
+                /**
+                 * @description A `prev_cursor` from the last page. Returns the items before it. When you send both, `before` wins.
+                 * @example prev_cursor
+                 */
+                before?: string;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Returns a page of API requests, newest first. */
+            200: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "next_cursor": "8f14e45f-ceea-467a-9575-5b9d1f6c2a10",
+                     *       "prev_cursor": null,
+                     *       "data": [
+                     *         {
+                     *           "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90",
+                     *           "method": "POST",
+                     *           "path": "/v1/emails",
+                     *           "status": 200,
+                     *           "summary": "Queued an email to riti@example.com",
+                     *           "api_key_id": "api_06d2mfk8r7tq2zn6bv4xa",
+                     *           "occurred_at": "2026-10-15T14:02:33.000Z",
+                     *           "api_key_name": "Production",
+                     *           "caller_kind": "key"
+                     *         }
+                     *       ]
+                     *     }
+                     */
+                    "application/json": components["schemas"]["LogPage"];
+                };
+            };
+            /** @description A parameter is missing or invalid. */
+            400: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "validation_error",
+                     *       "status": 400,
+                     *       "message": "Invalid cursor",
+                     *       "errors": [
+                     *         {
+                     *           "message": "Invalid cursor",
+                     *           "location": "after"
+                     *         }
+                     *       ],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The API key is missing, revoked or expired. */
+            401: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "unauthorized",
+                     *       "status": 401,
+                     *       "message": "Unauthorized",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The key is a Sending key or is limited to one domain, or the request comes from outside its IP allowlist. */
+            403: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "forbidden",
+                     *       "status": 403,
+                     *       "message": "This key cannot be used from 203.0.113.7",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description Too many requests for this key. Wait for the seconds in the Retry-After header. */
+            429: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "rate_limit_exceeded",
+                     *       "status": 429,
+                     *       "message": "Too many attempts. Try again later.",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description Something failed on our side. Retry later. */
+            500: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "unknown_error",
+                     *       "status": 500,
+                     *       "message": "Something went wrong. Please try again later.",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The request failed */
+            default: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+        };
+    };
+    get_api_log: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description The request id, such as `5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90`. */
+                request_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Returns the API request. */
+            200: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90",
+                     *       "method": "POST",
+                     *       "path": "/v1/emails",
+                     *       "status": 200,
+                     *       "summary": "Queued an email to riti@example.com",
+                     *       "api_key_id": "api_06d2mfk8r7tq2zn6bv4xa",
+                     *       "occurred_at": "2026-10-15T14:02:33.000Z",
+                     *       "duration_ms": 84,
+                     *       "resource_id": "eml_06d2mfk8r4tq9xv2bnc7s",
+                     *       "request_body": "{\"from\":\"Acme <hello@acme.dev>\",\"to\":\"riti@example.com\",\"subject\":\"Your receipt from Acme\",\"text\":\"Thanks for your order.\"}",
+                     *       "response_body": "{\"id\":\"eml_06d2mfk8r4tq9xv2bnc7s\"}",
+                     *       "response_size": 34,
+                     *       "ip_address": "203.0.113.7",
+                     *       "api_key_name": "Production",
+                     *       "caller_kind": "key"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["NamedRequestView_ApiRequestDetail"];
+                };
+            };
+            /** @description A path parameter is invalid. */
+            400: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "validation_error",
+                     *       "status": 400,
+                     *       "message": "length is greater than 100",
+                     *       "errors": [
+                     *         {
+                     *           "message": "length is greater than 100",
+                     *           "location": "request_id"
+                     *         }
+                     *       ],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The API key is missing, revoked or expired. */
+            401: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "unauthorized",
+                     *       "status": 401,
+                     *       "message": "Unauthorized",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The key is a Sending key or is limited to one domain, or the request comes from outside its IP allowlist. */
+            403: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "forbidden",
+                     *       "status": 403,
+                     *       "message": "This key cannot be used from 203.0.113.7",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The request does not exist in this workspace, or it is older than the log window of the plan. */
+            404: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "not_found",
+                     *       "status": 404,
+                     *       "message": "Request not found",
                      *       "errors": [],
                      *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
                      *     }
@@ -14421,6 +22934,986 @@ export interface operations {
                      *       "name": "unsupported_media_type",
                      *       "status": 415,
                      *       "message": "The Content-Type must be application/json",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The Idempotency-Key was already used with a different request. */
+            422: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "invalid_idempotent_request",
+                     *       "status": 422,
+                     *       "message": "This idempotency key was already used with a different request",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description Too many requests for this key. Wait for the seconds in the Retry-After header. */
+            429: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "rate_limit_exceeded",
+                     *       "status": 429,
+                     *       "message": "Too many attempts. Try again later.",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description Something failed on our side. Retry later. */
+            500: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "unknown_error",
+                     *       "status": 500,
+                     *       "message": "Something went wrong. Please try again later.",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The request failed */
+            default: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+        };
+    };
+    get_stats: {
+        parameters: {
+            query: {
+                /**
+                 * @description The first day of the range, as `YYYY-MM-DD`.
+                 * @example 2026-10-01
+                 */
+                from: string;
+                /**
+                 * @description The last day of the range, as `YYYY-MM-DD`. The range is 1 to 400 days.
+                 * @example 2026-10-31
+                 */
+                to: string;
+                /** @description The IANA time zone of the days, such as `Europe/Berlin`. Defaults to the `Time-Zone` header, then to `UTC`. */
+                tz?: string;
+                /** @description A comma-separated list of domain ids. Counts only the emails sent from these domains. */
+                domain_ids?: string;
+                /** @description `transactional` or `campaign`. Counts only emails of this kind. */
+                kind?: string;
+                /** @description Counts only emails from this source: `api`, `smtp`, `dashboard`, `mcp`, `campaign` or `automation`. */
+                source?: string;
+                /** @description `true` adds the totals of the period before the range in `previous`. */
+                compare?: string;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Returns the email counts of each day in the range. */
+            200: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "from": "2026-10-14",
+                     *       "to": "2026-10-15",
+                     *       "tz": "UTC",
+                     *       "stats": [
+                     *         {
+                     *           "day": "2026-10-14",
+                     *           "sent": 120,
+                     *           "delivered": 118,
+                     *           "opened": 64,
+                     *           "clicked": 21,
+                     *           "bounced": 1,
+                     *           "soft_bounced": 1,
+                     *           "complained": 0,
+                     *           "unsubscribed": 2
+                     *         },
+                     *         {
+                     *           "day": "2026-10-15",
+                     *           "sent": 80,
+                     *           "delivered": 80,
+                     *           "opened": 41,
+                     *           "clicked": 12,
+                     *           "bounced": 0,
+                     *           "soft_bounced": 0,
+                     *           "complained": 0,
+                     *           "unsubscribed": 1
+                     *         }
+                     *       ],
+                     *       "total": {
+                     *         "sent": 200,
+                     *         "delivered": 198,
+                     *         "opened": 105,
+                     *         "clicked": 33,
+                     *         "bounced": 1,
+                     *         "soft_bounced": 1,
+                     *         "complained": 0,
+                     *         "unsubscribed": 3
+                     *       },
+                     *       "previous": null,
+                     *       "domains": [
+                     *         {
+                     *           "domain_id": "dom_06d2mfk8r6vn4xp8cq3ws",
+                     *           "sent": 200
+                     *         }
+                     *       ],
+                     *       "links": [
+                     *         {
+                     *           "url": "https://acme.dev/pricing",
+                     *           "clicks": 18
+                     *         }
+                     *       ],
+                     *       "sources": {
+                     *         "api": 150,
+                     *         "smtp": 0,
+                     *         "dashboard": 0,
+                     *         "mcp": 0,
+                     *         "campaign": 50,
+                     *         "automation": 0
+                     *       },
+                     *       "refreshed_at": "2026-10-15T14:02:33.000Z"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["StatsReport"];
+                };
+            };
+            /** @description The range is longer than 400 days, or a parameter is not valid. */
+            400: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "bad_request",
+                     *       "status": 400,
+                     *       "message": "Pick a range of 1 to 400 days",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The API key is missing, revoked or expired. */
+            401: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "unauthorized",
+                     *       "status": 401,
+                     *       "message": "Unauthorized",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The key is a Sending key or is limited to one domain, or the request comes from outside its IP allowlist. */
+            403: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "forbidden",
+                     *       "status": 403,
+                     *       "message": "This key cannot be used from 203.0.113.7",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description Too many requests for this key. Wait for the seconds in the Retry-After header. */
+            429: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "rate_limit_exceeded",
+                     *       "status": 429,
+                     *       "message": "Too many attempts. Try again later.",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description Something failed on our side. Retry later. */
+            500: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "unknown_error",
+                     *       "status": 500,
+                     *       "message": "Something went wrong. Please try again later.",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The request failed */
+            default: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+        };
+    };
+    list_api_suppressions: {
+        parameters: {
+            query?: {
+                /** @description `bounce`, `complaint` or `manual`. */
+                reason?: components["schemas"]["SuppressionReason"];
+                /** @description Text to find in the email address. */
+                query?: string;
+                /** @description `added` or `email`. Defaults to `added`. */
+                sort?: string;
+                /** @description `asc` or `desc`. Defaults to `desc`. */
+                direction?: components["schemas"]["SortDirection"];
+                /** @description How many items to return, from 1 to 100. Defaults to 50. */
+                per_page?: number;
+                /**
+                 * @description A `next_cursor` from the last page. Returns the items after it.
+                 * @example next_cursor
+                 */
+                after?: string;
+                /**
+                 * @description A `prev_cursor` from the last page. Returns the items before it. When you send both, `before` wins.
+                 * @example prev_cursor
+                 */
+                before?: string;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Returns a page of suppressed addresses. */
+            200: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "data": [
+                     *         {
+                     *           "id": "sup_06d2mfk8r9vb3xq1te7nc",
+                     *           "email": "riti@example.com",
+                     *           "reason": "bounce",
+                     *           "scope": "all",
+                     *           "expires_at": null,
+                     *           "details": "550 5.1.1 The mailbox does not exist",
+                     *           "source": "api",
+                     *           "creator_name": null,
+                     *           "source_email_id": "em_06d2mfk8r4hs2wq9zc5ty",
+                     *           "created_at": "2026-10-14T08:30:00.000Z"
+                     *         }
+                     *       ],
+                     *       "prev_cursor": null,
+                     *       "next_cursor": null
+                     *     }
+                     */
+                    "application/json": components["schemas"]["CursorPage_SuppressionItem"];
+                };
+            };
+            /** @description A parameter is missing or invalid. */
+            400: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "validation_error",
+                     *       "status": 400,
+                     *       "message": "Invalid cursor",
+                     *       "errors": [
+                     *         {
+                     *           "message": "Invalid cursor",
+                     *           "location": "after"
+                     *         }
+                     *       ],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The API key is missing, revoked or expired. */
+            401: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "unauthorized",
+                     *       "status": 401,
+                     *       "message": "Unauthorized",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The key is a Sending key or is limited to one domain, or the request comes from outside its IP allowlist. */
+            403: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "forbidden",
+                     *       "status": 403,
+                     *       "message": "This key cannot be used from 203.0.113.7",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description Too many requests for this key. Wait for the seconds in the Retry-After header. */
+            429: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "rate_limit_exceeded",
+                     *       "status": 429,
+                     *       "message": "Too many attempts. Try again later.",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description Something failed on our side. Retry later. */
+            500: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "unknown_error",
+                     *       "status": 500,
+                     *       "message": "Something went wrong. Please try again later.",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The request failed */
+            default: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+        };
+    };
+    add_api_suppressions: {
+        parameters: {
+            query?: never;
+            header?: {
+                /** @description A key that makes a retry of this request return the first response. It is kept for 24 hours. */
+                "Idempotency-Key"?: string;
+            };
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                /**
+                 * @example {
+                 *       "emails": [
+                 *         "riti@example.com",
+                 *         "arik@example.com"
+                 *       ]
+                 *     }
+                 */
+                "application/json": components["schemas"]["AddSuppressionsBody"];
+            };
+        };
+        responses: {
+            /** @description Added the addresses as manual suppressions. */
+            200: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "idempotent-replayed": components["headers"]["IdempotentReplayed"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "added": 1,
+                     *       "skipped": 1
+                     *     }
+                     */
+                    "application/json": components["schemas"]["AddedSuppressions"];
+                };
+            };
+            /** @description A field is missing or invalid, or the Idempotency-Key header is not valid. */
+            400: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "validation_error",
+                     *       "status": 400,
+                     *       "message": "The request body is not valid JSON",
+                     *       "errors": [
+                     *         {
+                     *           "message": "The request body is not valid JSON",
+                     *           "location": "body"
+                     *         }
+                     *       ],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The API key is missing, revoked or expired. */
+            401: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "unauthorized",
+                     *       "status": 401,
+                     *       "message": "Unauthorized",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The key is a Sending key or is limited to one domain, or the request comes from outside its IP allowlist. */
+            403: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "forbidden",
+                     *       "status": 403,
+                     *       "message": "This key cannot be used from 203.0.113.7",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description A request with the same Idempotency-Key is still running. Retry after one second. */
+            409: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "concurrent_idempotent_requests",
+                     *       "status": 409,
+                     *       "message": "A request with this idempotency key is still in progress. Try again later.",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The body is larger than 2 MB. */
+            413: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "payload_too_large",
+                     *       "status": 413,
+                     *       "message": "The request body is too large",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The Content-Type header is not application/json. */
+            415: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "unsupported_media_type",
+                     *       "status": 415,
+                     *       "message": "The Content-Type must be application/json",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The Idempotency-Key was already used with a different request. */
+            422: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "invalid_idempotent_request",
+                     *       "status": 422,
+                     *       "message": "This idempotency key was already used with a different request",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description Too many requests for this key. Wait for the seconds in the Retry-After header. */
+            429: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "rate_limit_exceeded",
+                     *       "status": 429,
+                     *       "message": "Too many attempts. Try again later.",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description Something failed on our side. Retry later. */
+            500: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "unknown_error",
+                     *       "status": 500,
+                     *       "message": "Something went wrong. Please try again later.",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The request failed */
+            default: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+        };
+    };
+    delete_api_suppression: {
+        parameters: {
+            query?: never;
+            header?: {
+                /** @description A key that makes a retry of this request return the first response. It is kept for 24 hours. */
+                "Idempotency-Key"?: string;
+            };
+            path: {
+                /**
+                 * @description The suppression id.
+                 * @example sup_06d2mfk8r9vb3xq1te7nc
+                 */
+                suppression_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Removed the suppression. Email to the address sends again. */
+            200: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "idempotent-replayed": components["headers"]["IdempotentReplayed"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "status": "ok"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["StatusOk"];
+                };
+            };
+            /** @description The suppression is a complaint, a parameter is invalid, or the Idempotency-Key header is not valid. Only the recipient can lift a complaint. */
+            400: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "validation_error",
+                     *       "status": 400,
+                     *       "message": "Only the recipient can lift a complaint",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The API key is missing, revoked or expired. */
+            401: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "unauthorized",
+                     *       "status": 401,
+                     *       "message": "Unauthorized",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The key is a Sending key or is limited to one domain, or the request comes from outside its IP allowlist. */
+            403: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "forbidden",
+                     *       "status": 403,
+                     *       "message": "This key cannot be used from 203.0.113.7",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The suppression does not exist in this workspace. */
+            404: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "not_found",
+                     *       "status": 404,
+                     *       "message": "Suppression not found",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description A request with the same Idempotency-Key is still running. Retry after one second. */
+            409: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "concurrent_idempotent_requests",
+                     *       "status": 409,
+                     *       "message": "A request with this idempotency key is still in progress. Try again later.",
                      *       "errors": [],
                      *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
                      *     }
@@ -18692,6 +28185,691 @@ export interface operations {
             };
         };
     };
+    list_api_webhook_deliveries: {
+        parameters: {
+            query?: {
+                /** @description One webhook id or a comma-separated list. Returns only the deliveries to these webhooks. */
+                endpoint_id?: string;
+                /** @description One event type or a comma-separated list, such as `email.delivered,email.bounced`. */
+                event_type?: string;
+                /** @description `succeeded`, `retrying` or `failed`. */
+                outcome?: string;
+                /** @description A delivery id, an event id (`evt_…`) or an email id (`eml_…`). Returns only the deliveries that match it. */
+                query?: string;
+                /** @description `desc` for the newest first, or `asc` for the oldest first. Defaults to `desc`. */
+                direction?: components["schemas"]["SortDirection"];
+                /** @description How many items to return, from 1 to 100. Defaults to 50. */
+                per_page?: number;
+                /**
+                 * @description A `next_cursor` from the last page. Returns the items after it.
+                 * @example next_cursor
+                 */
+                after?: string;
+                /**
+                 * @description A `prev_cursor` from the last page. Returns the items before it. When you send both, `before` wins.
+                 * @example prev_cursor
+                 */
+                before?: string;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Returns a page of webhook deliveries. */
+            200: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "next_cursor": null,
+                     *       "prev_cursor": null,
+                     *       "data": [
+                     *         {
+                     *           "delivery_id": "whd_06d2mfk8r9cz5tb1qh4mv",
+                     *           "event_id": "evt_06d2mfk8r9bw4sa0pg3lu",
+                     *           "event_type": "email.delivered",
+                     *           "endpoint_id": "whk_06d2mfk8r8ja5fv2xn7qe",
+                     *           "email_id": "eml_06d2mfk8r4tq9xv2bnc7s",
+                     *           "status": 200,
+                     *           "attempt": 1,
+                     *           "duration_ms": 81,
+                     *           "created_at": "2026-10-21T11:42:08.000Z",
+                     *           "last_attempt_at": "2026-10-21T11:42:08.000Z",
+                     *           "next_attempt_at": null,
+                     *           "endpoint_name": "Production"
+                     *         }
+                     *       ]
+                     *     }
+                     */
+                    "application/json": components["schemas"]["DeliveryPage"];
+                };
+            };
+            /** @description A filter is invalid. */
+            400: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "validation_error",
+                     *       "status": 400,
+                     *       "message": "Use one of: succeeded, retrying, failed",
+                     *       "errors": [
+                     *         {
+                     *           "message": "Use one of: succeeded, retrying, failed",
+                     *           "location": "outcome"
+                     *         }
+                     *       ],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The API key is missing, revoked or expired. */
+            401: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "unauthorized",
+                     *       "status": 401,
+                     *       "message": "Unauthorized",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The key is a Sending key or is limited to one domain, or the request comes from outside its IP allowlist. */
+            403: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "forbidden",
+                     *       "status": 403,
+                     *       "message": "This key cannot be used from 203.0.113.7",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description Too many requests for this key. Wait for the seconds in the Retry-After header. */
+            429: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "rate_limit_exceeded",
+                     *       "status": 429,
+                     *       "message": "Too many attempts. Try again later.",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description Something failed on our side. Retry later. */
+            500: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "unknown_error",
+                     *       "status": 500,
+                     *       "message": "Something went wrong. Please try again later.",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The request failed */
+            default: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+        };
+    };
+    get_api_webhook_delivery: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description The delivery id. */
+                delivery_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Returns the delivery with its request and every try. */
+            200: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "delivery_id": "whd_06d2mfk8r9cz5tb1qh4mv",
+                     *       "event_id": "evt_06d2mfk8r9bw4sa0pg3lu",
+                     *       "event_type": "email.delivered",
+                     *       "email_id": "eml_06d2mfk8r4tq9xv2bnc7s",
+                     *       "endpoint_id": "whk_06d2mfk8r8ja5fv2xn7qe",
+                     *       "endpoint_name": "Production",
+                     *       "endpoint_url": "https://api.acme.dev/webhooks/inboxjot",
+                     *       "payload": "{\"id\":\"evt_06d2mfk8r9bw4sa0pg3lu\",\"type\":\"email.delivered\",\"created_at\":\"2026-10-21T11:42:07.000Z\",\"data\":{\"email_id\":\"eml_06d2mfk8r4tq9xv2bnc7s\"}}",
+                     *       "created_at": "2026-10-21T11:40:02.000Z",
+                     *       "next_attempt_at": null,
+                     *       "headers": {
+                     *         "Content-Type": "application/json",
+                     *         "User-Agent": "Inboxjot-Webhooks/1.0",
+                     *         "webhook-id": "evt_06d2mfk8r9bw4sa0pg3lu",
+                     *         "webhook-timestamp": "1792582928",
+                     *         "webhook-signature": "v1,K5oZfzN95Z9UVu1EsfQmfVNQhnkZ2pj9o9NDN/H/pI4="
+                     *       },
+                     *       "attempts": [
+                     *         {
+                     *           "attempt": 1,
+                     *           "status": 503,
+                     *           "duration_ms": 410,
+                     *           "error": "Service Unavailable",
+                     *           "response_body": "unavailable",
+                     *           "attempted_at": "2026-10-21T11:40:02.000Z"
+                     *         },
+                     *         {
+                     *           "attempt": 2,
+                     *           "status": 200,
+                     *           "duration_ms": 81,
+                     *           "error": "",
+                     *           "response_body": "ok",
+                     *           "attempted_at": "2026-10-21T11:42:08.000Z"
+                     *         }
+                     *       ]
+                     *     }
+                     */
+                    "application/json": components["schemas"]["DeliveryDetail"];
+                };
+            };
+            /** @description A path parameter is invalid. */
+            400: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "validation_error",
+                     *       "status": 400,
+                     *       "message": "length is greater than 100",
+                     *       "errors": [
+                     *         {
+                     *           "message": "length is greater than 100",
+                     *           "location": "delivery_id"
+                     *         }
+                     *       ],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The API key is missing, revoked or expired. */
+            401: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "unauthorized",
+                     *       "status": 401,
+                     *       "message": "Unauthorized",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The key is a Sending key or is limited to one domain, or the request comes from outside its IP allowlist. */
+            403: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "forbidden",
+                     *       "status": 403,
+                     *       "message": "This key cannot be used from 203.0.113.7",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The delivery does not exist in this workspace, or it is past the retention period. */
+            404: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "not_found",
+                     *       "status": 404,
+                     *       "message": "Delivery not found",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description Too many requests for this key. Wait for the seconds in the Retry-After header. */
+            429: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "rate_limit_exceeded",
+                     *       "status": 429,
+                     *       "message": "Too many attempts. Try again later.",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description Something failed on our side. Retry later. */
+            500: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "unknown_error",
+                     *       "status": 500,
+                     *       "message": "Something went wrong. Please try again later.",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The request failed */
+            default: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+        };
+    };
+    replay_api_webhook_delivery: {
+        parameters: {
+            query?: never;
+            header?: {
+                /** @description A key that makes a retry of this request return the first response. It is kept for 24 hours. */
+                "Idempotency-Key"?: string;
+            };
+            path: {
+                /** @description The delivery id. */
+                delivery_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Queued the same event again as a new delivery, with the same payload. */
+            200: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "idempotent-replayed": components["headers"]["IdempotentReplayed"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "delivery_id": "whd_06d2mfk8rb2xe7wd3sk9p"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ReplayResponse"];
+                };
+            };
+            /** @description A parameter is missing or invalid, or the Idempotency-Key header is not valid. */
+            400: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "invalid_idempotency_key",
+                     *       "status": 400,
+                     *       "message": "Idempotency-Key must be 1 to 256 printable ASCII characters",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The API key is missing, revoked or expired. */
+            401: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "unauthorized",
+                     *       "status": 401,
+                     *       "message": "Unauthorized",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The key is a Sending key or is limited to one domain, or the request comes from outside its IP allowlist. */
+            403: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "forbidden",
+                     *       "status": 403,
+                     *       "message": "This key cannot be used from 203.0.113.7",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The delivery or its webhook does not exist in this workspace, or the payload is past the retention period. */
+            404: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "not_found",
+                     *       "status": 404,
+                     *       "message": "Delivery not found",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description A request with the same Idempotency-Key is still running. Retry after one second. */
+            409: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "concurrent_idempotent_requests",
+                     *       "status": 409,
+                     *       "message": "A request with this idempotency key is still in progress. Try again later.",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The Idempotency-Key was already used with a different request. */
+            422: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "invalid_idempotent_request",
+                     *       "status": 422,
+                     *       "message": "This idempotency key was already used with a different request",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description Too many requests for this key. Wait for the seconds in the Retry-After header. */
+            429: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "rate_limit_exceeded",
+                     *       "status": 429,
+                     *       "message": "Too many attempts. Try again later.",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description Something failed on our side. Retry later. */
+            500: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "unknown_error",
+                     *       "status": 500,
+                     *       "message": "Something went wrong. Please try again later.",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The request failed */
+            default: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+        };
+    };
     list_api_webhooks: {
         parameters: {
             query?: {
@@ -18897,10 +29075,7 @@ export interface operations {
     create_api_webhook: {
         parameters: {
             query?: never;
-            header?: {
-                /** @description A key that makes a retry of this request return the first response. It is kept for 24 hours. */
-                "Idempotency-Key"?: string;
-            };
+            header?: never;
             path?: never;
             cookie?: never;
         };
@@ -18929,7 +29104,6 @@ export interface operations {
                     "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
                     "ratelimit-reset": components["headers"]["RateLimitReset"];
                     "ratelimit-policy": components["headers"]["RateLimitPolicy"];
-                    "idempotent-replayed": components["headers"]["IdempotentReplayed"];
                     [name: string]: unknown;
                 };
                 content: {
@@ -18953,7 +29127,7 @@ export interface operations {
                     "application/json": components["schemas"]["PublicCreatedWebhookEndpoint"];
                 };
             };
-            /** @description A field is missing or invalid, or the Idempotency-Key header is not valid. */
+            /** @description A field is missing or invalid. */
             400: {
                 headers: {
                     "x-request-id": components["headers"]["RequestId"];
@@ -19030,30 +29204,6 @@ export interface operations {
                     "application/json": components["schemas"]["ErrorBody"];
                 };
             };
-            /** @description A request with the same Idempotency-Key is still running. Retry after one second. */
-            409: {
-                headers: {
-                    "x-request-id": components["headers"]["RequestId"];
-                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
-                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
-                    "ratelimit-reset": components["headers"]["RateLimitReset"];
-                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
-                    "retry-after": components["headers"]["RetryAfter"];
-                    [name: string]: unknown;
-                };
-                content: {
-                    /**
-                     * @example {
-                     *       "name": "concurrent_idempotent_requests",
-                     *       "status": 409,
-                     *       "message": "A request with this idempotency key is still in progress. Try again later.",
-                     *       "errors": [],
-                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
-                     *     }
-                     */
-                    "application/json": components["schemas"]["ErrorBody"];
-                };
-            };
             /** @description The body is larger than 2 MB. */
             413: {
                 headers: {
@@ -19095,30 +29245,6 @@ export interface operations {
                      *       "name": "unsupported_media_type",
                      *       "status": 415,
                      *       "message": "The Content-Type must be application/json",
-                     *       "errors": [],
-                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
-                     *     }
-                     */
-                    "application/json": components["schemas"]["ErrorBody"];
-                };
-            };
-            /** @description The Idempotency-Key was already used with a different request. */
-            422: {
-                headers: {
-                    "x-request-id": components["headers"]["RequestId"];
-                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
-                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
-                    "ratelimit-reset": components["headers"]["RateLimitReset"];
-                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
-                    "retry-after": components["headers"]["RetryAfter"];
-                    [name: string]: unknown;
-                };
-                content: {
-                    /**
-                     * @example {
-                     *       "name": "invalid_idempotent_request",
-                     *       "status": 422,
-                     *       "message": "This idempotency key was already used with a different request",
                      *       "errors": [],
                      *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
                      *     }
@@ -19883,6 +30009,644 @@ export interface operations {
                      *       "name": "unsupported_media_type",
                      *       "status": 415,
                      *       "message": "The Content-Type must be application/json",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The Idempotency-Key was already used with a different request. */
+            422: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "invalid_idempotent_request",
+                     *       "status": 422,
+                     *       "message": "This idempotency key was already used with a different request",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description Too many requests for this key. Wait for the seconds in the Retry-After header. */
+            429: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "rate_limit_exceeded",
+                     *       "status": 429,
+                     *       "message": "Too many attempts. Try again later.",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description Something failed on our side. Retry later. */
+            500: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "unknown_error",
+                     *       "status": 500,
+                     *       "message": "Something went wrong. Please try again later.",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The request failed */
+            default: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+        };
+    };
+    get_api_webhook_secret: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description The webhook id. */
+                endpoint_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Returns the signing secret of the webhook. */
+            200: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "secret": "whsec_MfKQ9r1GKG3tZ8vQ2pX7aN4bE6cD1fH0"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["SecretResponse"];
+                };
+            };
+            /** @description A path parameter is invalid. */
+            400: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "validation_error",
+                     *       "status": 400,
+                     *       "message": "length is greater than 100",
+                     *       "errors": [
+                     *         {
+                     *           "message": "length is greater than 100",
+                     *           "location": "endpoint_id"
+                     *         }
+                     *       ],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The API key is missing, revoked or expired. */
+            401: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "unauthorized",
+                     *       "status": 401,
+                     *       "message": "Unauthorized",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The key is a Sending key or is limited to one domain, or the request comes from outside its IP allowlist. */
+            403: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "forbidden",
+                     *       "status": 403,
+                     *       "message": "This key cannot be used from 203.0.113.7",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The webhook does not exist in this workspace. */
+            404: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "not_found",
+                     *       "status": 404,
+                     *       "message": "Webhook not found",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description Too many requests for this key. Wait for the seconds in the Retry-After header. */
+            429: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "rate_limit_exceeded",
+                     *       "status": 429,
+                     *       "message": "Too many attempts. Try again later.",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description Something failed on our side. Retry later. */
+            500: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "unknown_error",
+                     *       "status": 500,
+                     *       "message": "Something went wrong. Please try again later.",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The request failed */
+            default: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+        };
+    };
+    rotate_api_webhook_secret: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description The webhook id. */
+                endpoint_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Replaced the signing secret. The old secret stops working at once. */
+            200: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "secret": "whsec_Vb7Rt2Wq5Xn8Ys1Za4Pc6Md0Lk3Jh9Gf"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["SecretResponse"];
+                };
+            };
+            /** @description A path parameter is invalid. */
+            400: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "validation_error",
+                     *       "status": 400,
+                     *       "message": "length is greater than 100",
+                     *       "errors": [
+                     *         {
+                     *           "message": "length is greater than 100",
+                     *           "location": "endpoint_id"
+                     *         }
+                     *       ],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The API key is missing, revoked or expired. */
+            401: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "unauthorized",
+                     *       "status": 401,
+                     *       "message": "Unauthorized",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The key is a Sending key or is limited to one domain, or the request comes from outside its IP allowlist. */
+            403: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "forbidden",
+                     *       "status": 403,
+                     *       "message": "This key cannot be used from 203.0.113.7",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The webhook does not exist in this workspace. */
+            404: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "not_found",
+                     *       "status": 404,
+                     *       "message": "Webhook not found",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description Too many requests for this key. Wait for the seconds in the Retry-After header. */
+            429: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "rate_limit_exceeded",
+                     *       "status": 429,
+                     *       "message": "Too many attempts. Try again later.",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description Something failed on our side. Retry later. */
+            500: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "unknown_error",
+                     *       "status": 500,
+                     *       "message": "Something went wrong. Please try again later.",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The request failed */
+            default: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+        };
+    };
+    test_api_webhook: {
+        parameters: {
+            query?: never;
+            header?: {
+                /** @description A key that makes a retry of this request return the first response. It is kept for 24 hours. */
+                "Idempotency-Key"?: string;
+            };
+            path: {
+                /** @description The webhook id. */
+                endpoint_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Queued a test event for the webhook. It goes out also when the webhook is disabled. */
+            200: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "idempotent-replayed": components["headers"]["IdempotentReplayed"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "delivery_id": "whd_06d2mfk8r9cz5tb1qh4mv"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["DeliveryIdResponse"];
+                };
+            };
+            /** @description A parameter is missing or invalid, or the Idempotency-Key header is not valid. */
+            400: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "invalid_idempotency_key",
+                     *       "status": 400,
+                     *       "message": "Idempotency-Key must be 1 to 256 printable ASCII characters",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The API key is missing, revoked or expired. */
+            401: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "unauthorized",
+                     *       "status": 401,
+                     *       "message": "Unauthorized",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The key is a Sending key or is limited to one domain, or the request comes from outside its IP allowlist. */
+            403: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "forbidden",
+                     *       "status": 403,
+                     *       "message": "This key cannot be used from 203.0.113.7",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The webhook does not exist in this workspace. */
+            404: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "not_found",
+                     *       "status": 404,
+                     *       "message": "Webhook not found",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description A request with the same Idempotency-Key is still running. Retry after one second. */
+            409: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "concurrent_idempotent_requests",
+                     *       "status": 409,
+                     *       "message": "A request with this idempotency key is still in progress. Try again later.",
                      *       "errors": [],
                      *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
                      *     }

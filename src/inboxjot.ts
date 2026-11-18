@@ -1,3 +1,4 @@
+import { Brands } from './brands';
 import { Campaigns } from './campaigns';
 import { Contacts } from './contacts';
 import { Domains } from './domains';
@@ -50,6 +51,7 @@ export class Inboxjot {
   readonly images = new Images(this);
   readonly segments = new Segments(this);
   readonly topics = new Topics(this);
+  readonly brands = new Brands(this);
   readonly webhooks = new Webhooks(this);
 
   constructor(options: InboxjotOptions = {}) {
