@@ -33,7 +33,7 @@ export type PageQuery<T> = {
 type Method = 'GET' | 'POST' | 'PATCH' | 'DELETE';
 type Query = Record<string, string | number | boolean | null | undefined>;
 
-const VERSION = '0.1.0';
+const VERSION = '0.2.0';
 
 export class Inboxjot {
   private readonly apiKey: string;
