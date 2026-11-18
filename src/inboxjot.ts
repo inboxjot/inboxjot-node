@@ -13,7 +13,6 @@ import { Webhooks } from './webhooks';
 
 export type InboxjotOptions = {
   apiKey?: string;
-  userToken?: string;
   baseUrl?: string;
   fetch?: typeof fetch;
   timeout?: number;
@@ -38,7 +37,6 @@ const VERSION = '0.1.0';
 
 export class Inboxjot {
   private readonly apiKey: string;
-  private readonly userToken: string | undefined;
   private readonly baseUrl: string;
   private readonly fetch: typeof fetch;
   private readonly timeout: number;
@@ -70,7 +68,6 @@ export class Inboxjot {
     const baseUrl = options.baseUrl ?? 'https://api.inboxjot.com';
 
     this.apiKey = key;
-    this.userToken = options.userToken;
     this.baseUrl = baseUrl.replace(/\/+$/, '');
     this.fetch = (options.fetch ?? globalThis.fetch).bind(globalThis);
     this.timeout = options.timeout ?? 60_000;
@@ -95,9 +92,6 @@ export class Inboxjot {
     }
     if (options.idempotencyKey !== undefined) {
       headers['Idempotency-Key'] = options.idempotencyKey;
-    }
-    if (this.userToken !== undefined) {
-      headers['X-Inboxjot-User-Token'] = this.userToken;
     }
 
     const query = Object.entries(options.query ?? {}).filter(

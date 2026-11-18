@@ -1,7 +1,6 @@
 import { describe, expect, it } from 'vite-plus/test';
 
-import { Inboxjot, signUserToken } from '../src';
-import { json, mockFetch, readCall } from './fetch';
+import { signUserToken } from '../src';
 
 describe('signUserToken', () => {
   it('signs an HS256 token with the user and an expiry', async () => {
@@ -44,19 +43,5 @@ describe('signUserToken', () => {
     await expect(
       signUserToken({ secret: 's', userId: 'u', expiresIn: 31 * 86_400 })
     ).rejects.toThrow();
-  });
-
-  it('sends the user token with every request', async () => {
-    const fetch = mockFetch(json({ contact_id: 'con_1' }));
-    const client = new Inboxjot({
-      apiKey: 'ibx_tracking',
-      baseUrl: 'https://api.test',
-      fetch,
-      userToken: 'ut_1',
-    });
-
-    await client.events.send({ name: 'page.viewed' });
-
-    expect(readCall(fetch).init.headers['X-Inboxjot-User-Token']).toBe('ut_1');
   });
 });
