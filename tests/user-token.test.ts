@@ -7,7 +7,7 @@ describe('signUserToken', () => {
     const token = await signUserToken({
       secret: 'ibxts_secret',
       userId: 'usr_1',
-      expiresIn: 60,
+      expiresIn: '1m',
     });
 
     const [header, payload, signature] = token.split('.');
@@ -38,10 +38,25 @@ describe('signUserToken', () => {
     expect(claims.exp - Math.floor(Date.now() / 1000)).toBeLessThanOrEqual(60);
   });
 
-  it('refuses a token without a user or over 30 days', async () => {
+  it('defaults to one hour', async () => {
+    const token = await signUserToken({ secret: 's', userId: 'u' });
+    const claims = JSON.parse(
+      atob(token.split('.')[1]!.replace(/-/g, '+').replace(/_/g, '/'))
+    );
+
+    expect(claims.exp - Math.floor(Date.now() / 1000)).toBeGreaterThan(3590);
+    expect(claims.exp - Math.floor(Date.now() / 1000)).toBeLessThanOrEqual(
+      3600
+    );
+  });
+
+  it('refuses a token without a user, over 30 days or with a bad duration', async () => {
     await expect(signUserToken({ secret: 's' })).rejects.toThrow();
     await expect(
-      signUserToken({ secret: 's', userId: 'u', expiresIn: 31 * 86_400 })
+      signUserToken({ secret: 's', userId: 'u', expiresIn: '31d' })
+    ).rejects.toThrow();
+    await expect(
+      signUserToken({ secret: 's', userId: 'u', expiresIn: '1.5h' })
     ).rejects.toThrow();
   });
 });
