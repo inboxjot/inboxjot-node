@@ -19,17 +19,15 @@ function toSeconds(duration: string) {
   return Number(match[1]) * UNIT_SECONDS[match[2] as keyof typeof UNIT_SECONDS];
 }
 
-function toBase64Url(bytes: Uint8Array) {
+function toBase64Url(input: string | Uint8Array) {
+  const bytes =
+    typeof input === 'string' ? new TextEncoder().encode(input) : input;
   let text = '';
   for (const byte of bytes) {
     text += String.fromCharCode(byte);
   }
 
   return btoa(text).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
-}
-
-function encodeJson(value: unknown) {
-  return toBase64Url(new TextEncoder().encode(JSON.stringify(value)));
 }
 
 export async function signUserToken(
@@ -47,12 +45,14 @@ export async function signUserToken(
     );
   }
 
-  const header = encodeJson({ alg: 'HS256', typ: 'JWT' });
-  const payload = encodeJson({
-    ...(email ? { email } : {}),
-    ...(userId ? { user_id: userId } : {}),
-    exp: Math.floor(Date.now() / 1000) + seconds,
-  });
+  const header = toBase64Url(JSON.stringify({ alg: 'HS256', typ: 'JWT' }));
+  const payload = toBase64Url(
+    JSON.stringify({
+      ...(email ? { email } : {}),
+      ...(userId ? { user_id: userId } : {}),
+      exp: Math.floor(Date.now() / 1000) + seconds,
+    })
+  );
   const input = `${header}.${payload}`;
 
   const key = await crypto.subtle.importKey(
