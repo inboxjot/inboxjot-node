@@ -1,6 +1,6 @@
 {
   "name": "inboxjot",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "The official Node.js SDK for the Inboxjot email API",
   "license": "MIT",
   "author": "Arik Chakma <arikchangma@gmail.com>",
