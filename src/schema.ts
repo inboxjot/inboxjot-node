@@ -1652,6 +1652,10 @@ export interface components {
             };
             /** @description Up to 10 tags, stored with the email and passed to webhooks. Use each name once. `email_id`, `workspace_id` and `campaign_id` are reserved. */
             tags?: components["schemas"]["EmailTag"][];
+            /** @description Turns open tracking on or off for this email. Leave it out to use the domain setting. Opens are tracked only when the domain has a verified tracking domain. */
+            open_tracking?: boolean;
+            /** @description Turns click tracking on or off for this email. Leave it out to use the domain setting. Clicks are tracked only when the domain has a verified tracking domain. */
+            click_tracking?: boolean;
         };
         BatchEmailId: {
             /** @description The email id. */
@@ -3480,6 +3484,10 @@ export interface components {
             scheduled_at?: string | null;
             /** @description Up to 20 files, 30 MB in total. The whole request can be up to 45 MB. */
             attachments?: components["schemas"]["AttachmentInput"][];
+            /** @description Turns open tracking on or off for this email. Leave it out to use the domain setting. Opens are tracked only when the domain has a verified tracking domain. */
+            open_tracking?: boolean;
+            /** @description Turns click tracking on or off for this email. Leave it out to use the domain setting. Clicks are tracked only when the domain has a verified tracking domain. */
+            click_tracking?: boolean;
         };
         SignedHeaders: {
             /** @description Always `application/json`. */

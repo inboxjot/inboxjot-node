@@ -43787,6 +43787,14 @@
               "$ref": "#/components/schemas/EmailTag"
             },
             "description": "Up to 10 tags, stored with the email and passed to webhooks. Use each name once. `email_id`, `workspace_id` and `campaign_id` are reserved."
+          },
+          "open_tracking": {
+            "type": "boolean",
+            "description": "Turns open tracking on or off for this email. Leave it out to use the domain setting. Opens are tracked only when the domain has a verified tracking domain."
+          },
+          "click_tracking": {
+            "type": "boolean",
+            "description": "Turns click tracking on or off for this email. Leave it out to use the domain setting. Clicks are tracked only when the domain has a verified tracking domain."
           }
         }
       },
@@ -49045,6 +49053,14 @@
               "$ref": "#/components/schemas/AttachmentInput"
             },
             "description": "Up to 20 files, 30 MB in total. The whole request can be up to 45 MB."
+          },
+          "open_tracking": {
+            "type": "boolean",
+            "description": "Turns open tracking on or off for this email. Leave it out to use the domain setting. Opens are tracked only when the domain has a verified tracking domain."
+          },
+          "click_tracking": {
+            "type": "boolean",
+            "description": "Turns click tracking on or off for this email. Leave it out to use the domain setting. Clicks are tracked only when the domain has a verified tracking domain."
           }
         }
       },

@@ -29,6 +29,22 @@ describe('Emails', () => {
     expect(JSON.parse(init.body as string)).toEqual(email);
   });
 
+  it('sends tracking choices only when set', async () => {
+    const fetch = mockFetch(json({ id: 'em_1' }, 202), json({ data: [] }));
+    const inboxjot = createClient(fetch);
+
+    await inboxjot.emails.send({ to: 'ada@acme.dev', open_tracking: false });
+    await inboxjot.emails.batch([{ to: 'ada@acme.dev', click_tracking: true }]);
+
+    expect(JSON.parse(readCall(fetch, 0).init.body as string)).toEqual({
+      to: 'ada@acme.dev',
+      open_tracking: false,
+    });
+    expect(JSON.parse(readCall(fetch, 1).init.body as string)).toEqual([
+      { to: 'ada@acme.dev', click_tracking: true },
+    ]);
+  });
+
   it('maps each method to its route', async () => {
     const replies = Array.from({ length: 7 }, () => json({}));
     const fetch = mockFetch(...replies);
