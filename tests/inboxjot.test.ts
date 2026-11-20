@@ -220,7 +220,7 @@ describe('retries', () => {
     expect(serverFetch).toHaveBeenCalledTimes(1);
 
     const networkFetch = mockFetch(new TypeError('fetch failed'));
-    const event = { name: 'a', email: 'a@acme.dev' };
+    const event = { event: 'a', email: 'a@acme.dev' };
     const network = await settle(createClient(networkFetch).events.send(event));
 
     expect((network as { error: unknown }).error).toBeInstanceOf(

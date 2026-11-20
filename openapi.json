@@ -16220,7 +16220,7 @@
             }
           },
           {
-            "name": "name",
+            "name": "event",
             "in": "query",
             "description": "Only events with this name.",
             "required": false,
@@ -22167,10 +22167,10 @@
                 "$ref": "#/components/schemas/EventBody"
               },
               "example": {
-                "name": "order.completed",
+                "event": "order.completed",
                 "email": "riti@example.com",
                 "user_id": "usr_8842",
-                "data": {
+                "properties": {
                   "order_id": "4821",
                   "total": 49
                 }
@@ -22227,7 +22227,7 @@
                   "errors": [
                     {
                       "message": "Use letters, numbers, dots, colons, dashes or underscores",
-                      "location": "name"
+                      "location": "event"
                     }
                   ],
                   "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
@@ -22656,14 +22656,14 @@
               },
               "example": [
                 {
-                  "name": "order.completed",
+                  "event": "order.completed",
                   "user_id": "usr_8842",
-                  "data": {
+                  "properties": {
                     "order_id": "4821"
                   }
                 },
                 {
-                  "name": "signed_up",
+                  "event": "signed_up",
                   "email": "marcus.lee@example.com",
                   "occurred_at": "2026-11-14T09:30:00Z"
                 }
@@ -44718,8 +44718,8 @@
         "type": "object",
         "required": [
           "id",
-          "name",
-          "data",
+          "event",
+          "properties",
           "source",
           "occurred_at"
         ],
@@ -44728,13 +44728,13 @@
             "type": "string",
             "description": "The event id."
           },
-          "name": {
+          "event": {
             "type": "string",
             "description": "The event name."
           },
-          "data": {
+          "properties": {
             "type": "object",
-            "description": "The event data.",
+            "description": "The event properties.",
             "additionalProperties": {},
             "propertyNames": {
               "type": "string"
@@ -46734,7 +46734,7 @@
       "EventBody": {
         "type": "object",
         "required": [
-          "name"
+          "event"
         ],
         "properties": {
           "id": {
@@ -46745,9 +46745,9 @@
             "description": "Your ID for this event, 1 to 64 letters, numbers, `-` or `_`, such as a UUID. Inboxjot records an ID once for 24 hours, so a retry with the same ID is safe. IDs from a tracking key are checked per user, apart from your server's.",
             "pattern": "^[A-Za-z0-9_-]{1,64}$"
           },
-          "name": {
+          "event": {
             "type": "string",
-            "description": "Event name, 1 to 100 characters. Start with a letter or number, then use letters, numbers, `.`, `_`, `:` or `-`.",
+            "description": "The event name, such as `signed_up`, 1 to 100 characters. Start with a letter or number, then use letters, numbers, `.`, `_`, `:` or `-`.",
             "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.:-]{0,99}$"
           },
           "email": {
@@ -46772,9 +46772,9 @@
             "format": "date-time",
             "description": "When the event happened, as ISO 8601 with an offset, such as `2026-11-14T09:30:00Z`. Leave it out for now. It must be within the last 400 days. An event older than 72 hours is recorded but starts no automation. A tracking key's events always use the time Inboxjot received them."
           },
-          "data": {
+          "properties": {
             "type": "object",
-            "description": "Event data, such as `{ \"plan\": \"pro\" }`, up to 16 KB as JSON. Automations started by the event can use it in their emails.",
+            "description": "The event properties, such as `{ \"plan\": \"pro\" }`, up to 16 KB as JSON. Automations started by the event can use them in their emails.",
             "additionalProperties": {},
             "propertyNames": {
               "type": "string"

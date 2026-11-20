@@ -7,9 +7,9 @@ describe('Events', () => {
   it('maps send to its route', async () => {
     const fetch = mockFetch(json({}));
     const event = {
-      name: 'signed_up',
+      event: 'signed_up',
       email: 'jane@acme.dev',
-      data: { plan: 'pro' },
+      properties: { plan: 'pro' },
     };
 
     await createClient(fetch).events.send(event);
@@ -22,11 +22,11 @@ describe('Events', () => {
 
     await createClient(fetch).events.batch([
       {
-        name: 'signed_up',
+        event: 'signed_up',
         user_id: 'usr_1',
         occurred_at: '2026-11-14T09:30:00Z',
       },
-      { name: 'paid', email: 'jane@acme.dev' },
+      { event: 'paid', email: 'jane@acme.dev' },
     ]);
 
     expect(readRoutes(fetch)).toEqual([

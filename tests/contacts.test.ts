@@ -23,7 +23,7 @@ describe('Contacts', () => {
       brands: [{ id: 'br_1', status: 'subscribed' }],
     });
     await inboxjot.contacts.delete('ct_1');
-    await inboxjot.contacts.listEvents('ct_1', { name: 'signed_up' });
+    await inboxjot.contacts.listEvents('ct_1', { event: 'signed_up' });
     await inboxjot.contacts.erase(
       { email: 'jane@acme.dev' },
       { idempotencyKey: 'key-1' }
@@ -35,7 +35,7 @@ describe('Contacts', () => {
       'GET https://api.test/v1/contacts/ct_1',
       'PATCH https://api.test/v1/contacts/ct_1',
       'DELETE https://api.test/v1/contacts/ct_1',
-      'GET https://api.test/v1/contacts/ct_1/events?name=signed_up',
+      'GET https://api.test/v1/contacts/ct_1/events?event=signed_up',
       'POST https://api.test/v1/contacts/erase',
     ]);
     expect(readCall(fetch, 6).init.headers['Idempotency-Key']).toBe('key-1');

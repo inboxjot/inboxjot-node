@@ -44,9 +44,9 @@ const contact = await inboxjot.contacts.create({
 await inboxjot.contacts.update('jane@example.com', { last_name: 'Doe' });
 await inboxjot.contacts.erase({ email: 'jane@example.com' });
 await inboxjot.events.send({
-  name: 'signed_up',
+  event: 'signed_up',
   email: 'jane@example.com',
-  data: { plan: 'pro' },
+  properties: { plan: 'pro' },
 });
 
 const campaign = await inboxjot.campaigns.create({

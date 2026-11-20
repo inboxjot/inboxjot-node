@@ -1855,9 +1855,9 @@ export interface components {
             /** @description The event id. */
             id: string;
             /** @description The event name. */
-            name: string;
-            /** @description The event data. */
-            data: {
+            event: string;
+            /** @description The event properties. */
+            properties: {
                 [key: string]: unknown;
             };
             /** @description `api` for an event from your server, `client` for one from a browser with a tracking key. */
@@ -2493,8 +2493,8 @@ export interface components {
         EventBody: {
             /** @description Your ID for this event, 1 to 64 letters, numbers, `-` or `_`, such as a UUID. Inboxjot records an ID once for 24 hours, so a retry with the same ID is safe. IDs from a tracking key are checked per user, apart from your server's. */
             id?: string | null;
-            /** @description Event name, 1 to 100 characters. Start with a letter or number, then use letters, numbers, `.`, `_`, `:` or `-`. */
-            name: string;
+            /** @description The event name, such as `signed_up`, 1 to 100 characters. Start with a letter or number, then use letters, numbers, `.`, `_`, `:` or `-`. */
+            event: string;
             /** @description The contact address. A new address creates a subscribed contact. Disposable addresses are refused. Send `email`, `user_id` or both. */
             email?: string | null;
             /** @description Your ID for the contact, 1 to 255 characters. With an email, it is saved on the contact. Without one, it must match a contact that has it. */
@@ -2504,8 +2504,8 @@ export interface components {
              * @description When the event happened, as ISO 8601 with an offset, such as `2026-11-14T09:30:00Z`. Leave it out for now. It must be within the last 400 days. An event older than 72 hours is recorded but starts no automation. A tracking key's events always use the time Inboxjot received them.
              */
             occurred_at?: string | null;
-            /** @description Event data, such as `{ "plan": "pro" }`, up to 16 KB as JSON. Automations started by the event can use it in their emails. */
-            data?: {
+            /** @description The event properties, such as `{ "plan": "pro" }`, up to 16 KB as JSON. Automations started by the event can use them in their emails. */
+            properties?: {
                 [key: string]: unknown;
             };
         };
@@ -14456,7 +14456,7 @@ export interface operations {
         parameters: {
             query?: {
                 /** @description Only events with this name. */
-                name?: string;
+                event?: string;
                 /** @description How many items to return, from 1 to 100. Defaults to 50. */
                 per_page?: number;
                 /**
@@ -18257,10 +18257,10 @@ export interface operations {
             content: {
                 /**
                  * @example {
-                 *       "name": "order.completed",
+                 *       "event": "order.completed",
                  *       "email": "riti@example.com",
                  *       "user_id": "usr_8842",
-                 *       "data": {
+                 *       "properties": {
                  *         "order_id": "4821",
                  *         "total": 49
                  *       }
@@ -18310,7 +18310,7 @@ export interface operations {
                      *       "errors": [
                      *         {
                      *           "message": "Use letters, numbers, dots, colons, dashes or underscores",
-                     *           "location": "name"
+                     *           "location": "event"
                      *         }
                      *       ],
                      *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
@@ -18567,14 +18567,14 @@ export interface operations {
                 /**
                  * @example [
                  *       {
-                 *         "name": "order.completed",
+                 *         "event": "order.completed",
                  *         "user_id": "usr_8842",
-                 *         "data": {
+                 *         "properties": {
                  *           "order_id": "4821"
                  *         }
                  *       },
                  *       {
-                 *         "name": "signed_up",
+                 *         "event": "signed_up",
                  *         "email": "marcus.lee@example.com",
                  *         "occurred_at": "2026-11-14T09:30:00Z"
                  *       }
