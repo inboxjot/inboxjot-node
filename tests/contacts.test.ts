@@ -7,7 +7,7 @@ type Schemas = components['schemas'];
 
 describe('Contacts', () => {
   it('maps each method to its route', async () => {
-    const replies = Array.from({ length: 6 }, () => json({}));
+    const replies = Array.from({ length: 7 }, () => json({}));
     const fetch = mockFetch(...replies);
     const inboxjot = createClient(fetch);
 
@@ -23,6 +23,7 @@ describe('Contacts', () => {
       brands: [{ id: 'br_1', status: 'subscribed' }],
     });
     await inboxjot.contacts.delete('ct_1');
+    await inboxjot.contacts.listEvents('ct_1', { name: 'signed_up' });
     await inboxjot.contacts.erase(
       { email: 'jane@acme.dev' },
       { idempotencyKey: 'key-1' }
@@ -34,10 +35,11 @@ describe('Contacts', () => {
       'GET https://api.test/v1/contacts/ct_1',
       'PATCH https://api.test/v1/contacts/ct_1',
       'DELETE https://api.test/v1/contacts/ct_1',
+      'GET https://api.test/v1/contacts/ct_1/events?name=signed_up',
       'POST https://api.test/v1/contacts/erase',
     ]);
-    expect(readCall(fetch, 5).init.headers['Idempotency-Key']).toBe('key-1');
-    expect(readCall(fetch, 5).init.body).toBe(
+    expect(readCall(fetch, 6).init.headers['Idempotency-Key']).toBe('key-1');
+    expect(readCall(fetch, 6).init.body).toBe(
       JSON.stringify({ email: 'jane@acme.dev' })
     );
   });
@@ -56,6 +58,9 @@ describe('Contacts', () => {
       .toEqualTypeOf<Schemas['UpdateContactBody']>();
     expectTypeOf(contacts.delete).returns.resolves.toEqualTypeOf<
       Schemas['StatusOk']
+    >();
+    expectTypeOf(contacts.listEvents).returns.resolves.toEqualTypeOf<
+      Schemas['ContactEventPage']
     >();
     expectTypeOf(contacts.erase)
       .parameter(0)

@@ -12,6 +12,12 @@ export type UpdateContactOptions = components['schemas']['UpdateContactBody'];
 export type DeleteContactResponse = components['schemas']['StatusOk'];
 export type EraseContactOptions = components['schemas']['EraseContactBody'];
 export type EraseContactResponse = components['schemas']['ErasureQueued'];
+export type ListContactEventsOptions = PageQuery<
+  NonNullable<
+    paths['/v1/contacts/{contact_id}/events']['get']['parameters']['query']
+  >
+>;
+export type ContactEventPage = components['schemas']['ContactEventPage'];
 
 export class Contacts {
   constructor(private readonly client: Inboxjot) {}
@@ -53,6 +59,16 @@ export class Contacts {
     const path = `/v1/contacts/${encodeURIComponent(contactIdOrEmail)}`;
 
     return this.client.request('DELETE', path, options);
+  }
+
+  listEvents(
+    contactIdOrEmail: string,
+    query?: ListContactEventsOptions,
+    options?: RequestOptions
+  ): Promise<ContactEventPage> {
+    const path = `/v1/contacts/${encodeURIComponent(contactIdOrEmail)}/events`;
+
+    return this.client.request('GET', path, { ...options, query });
   }
 
   erase(
