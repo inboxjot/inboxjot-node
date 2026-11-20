@@ -16204,6 +16204,376 @@
         ]
       }
     },
+    "/v1/contacts/{contact_id}/events": {
+      "get": {
+        "operationId": "list_api_contact_events",
+        "parameters": [
+          {
+            "name": "contact_id",
+            "in": "path",
+            "description": "A contact id, or the contact's email address.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "maxLength": 320,
+              "minLength": 1
+            }
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "description": "Only events with this name.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "per_page",
+            "in": "query",
+            "description": "How many items to return, from 1 to 100. Defaults to 50.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 50,
+              "maximum": 100,
+              "minimum": 1
+            }
+          },
+          {
+            "name": "after",
+            "in": "query",
+            "description": "A `next_cursor` from the last page. Returns the items after it.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "example": "next_cursor"
+          },
+          {
+            "name": "before",
+            "in": "query",
+            "description": "A `prev_cursor` from the last page. Returns the items before it. When you send both, `before` wins.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "example": "prev_cursor"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The custom events of the contact, newest first, as far back as your plan keeps them.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ContactEventPage"
+                },
+                "example": {
+                  "data": [
+                    {
+                      "id": "8f2c1a9b4d7e6f30",
+                      "name": "order.completed",
+                      "data": {
+                        "order_id": "4821",
+                        "total": 49
+                      },
+                      "source": "api",
+                      "occurred_at": "2026-11-14T09:30:00.000Z"
+                    }
+                  ],
+                  "prev_cursor": null,
+                  "next_cursor": null
+                }
+              }
+            },
+            "headers": {
+              "x-request-id": {
+                "$ref": "#/components/headers/RequestId"
+              },
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/RateLimitLimit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/RateLimitRemaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/RateLimitReset"
+              },
+              "ratelimit-policy": {
+                "$ref": "#/components/headers/RateLimitPolicy"
+              }
+            }
+          },
+          "400": {
+            "description": "A parameter is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorBody"
+                },
+                "example": {
+                  "name": "validation_error",
+                  "status": 400,
+                  "message": "Invalid cursor",
+                  "errors": [
+                    {
+                      "message": "Invalid cursor",
+                      "location": "after"
+                    }
+                  ],
+                  "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                }
+              }
+            },
+            "headers": {
+              "x-request-id": {
+                "$ref": "#/components/headers/RequestId"
+              },
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/RateLimitLimit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/RateLimitRemaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/RateLimitReset"
+              },
+              "ratelimit-policy": {
+                "$ref": "#/components/headers/RateLimitPolicy"
+              },
+              "retry-after": {
+                "$ref": "#/components/headers/RetryAfter"
+              }
+            }
+          },
+          "401": {
+            "description": "The API key is missing, revoked or expired.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorBody"
+                },
+                "example": {
+                  "name": "unauthorized",
+                  "status": 401,
+                  "message": "Unauthorized",
+                  "errors": [],
+                  "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                }
+              }
+            },
+            "headers": {
+              "x-request-id": {
+                "$ref": "#/components/headers/RequestId"
+              },
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/RateLimitLimit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/RateLimitRemaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/RateLimitReset"
+              },
+              "ratelimit-policy": {
+                "$ref": "#/components/headers/RateLimitPolicy"
+              },
+              "retry-after": {
+                "$ref": "#/components/headers/RetryAfter"
+              }
+            }
+          },
+          "403": {
+            "description": "The key is a Sending key or is limited to one domain, or the request comes from outside its IP allowlist.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorBody"
+                },
+                "example": {
+                  "name": "forbidden",
+                  "status": 403,
+                  "message": "This key cannot be used from 203.0.113.7",
+                  "errors": [],
+                  "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                }
+              }
+            },
+            "headers": {
+              "x-request-id": {
+                "$ref": "#/components/headers/RequestId"
+              },
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/RateLimitLimit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/RateLimitRemaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/RateLimitReset"
+              },
+              "ratelimit-policy": {
+                "$ref": "#/components/headers/RateLimitPolicy"
+              },
+              "retry-after": {
+                "$ref": "#/components/headers/RetryAfter"
+              }
+            }
+          },
+          "404": {
+            "description": "The contact does not exist in this workspace.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorBody"
+                },
+                "example": {
+                  "name": "not_found",
+                  "status": 404,
+                  "message": "Contact not found",
+                  "errors": [],
+                  "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                }
+              }
+            },
+            "headers": {
+              "x-request-id": {
+                "$ref": "#/components/headers/RequestId"
+              },
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/RateLimitLimit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/RateLimitRemaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/RateLimitReset"
+              },
+              "ratelimit-policy": {
+                "$ref": "#/components/headers/RateLimitPolicy"
+              },
+              "retry-after": {
+                "$ref": "#/components/headers/RetryAfter"
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests for this key. Wait for the seconds in the Retry-After header.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorBody"
+                },
+                "example": {
+                  "name": "rate_limit_exceeded",
+                  "status": 429,
+                  "message": "Too many attempts. Try again later.",
+                  "errors": [],
+                  "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                }
+              }
+            },
+            "headers": {
+              "x-request-id": {
+                "$ref": "#/components/headers/RequestId"
+              },
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/RateLimitLimit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/RateLimitRemaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/RateLimitReset"
+              },
+              "ratelimit-policy": {
+                "$ref": "#/components/headers/RateLimitPolicy"
+              },
+              "retry-after": {
+                "$ref": "#/components/headers/RetryAfter"
+              }
+            }
+          },
+          "500": {
+            "description": "Something failed on our side. Retry later.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorBody"
+                },
+                "example": {
+                  "name": "unknown_error",
+                  "status": 500,
+                  "message": "Something went wrong. Please try again later.",
+                  "errors": [],
+                  "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                }
+              }
+            },
+            "headers": {
+              "x-request-id": {
+                "$ref": "#/components/headers/RequestId"
+              },
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/RateLimitLimit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/RateLimitRemaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/RateLimitReset"
+              },
+              "ratelimit-policy": {
+                "$ref": "#/components/headers/RateLimitPolicy"
+              },
+              "retry-after": {
+                "$ref": "#/components/headers/RetryAfter"
+              }
+            }
+          },
+          "default": {
+            "description": "The request failed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorBody"
+                }
+              }
+            },
+            "headers": {
+              "x-request-id": {
+                "$ref": "#/components/headers/RequestId"
+              },
+              "ratelimit-limit": {
+                "$ref": "#/components/headers/RateLimitLimit"
+              },
+              "ratelimit-remaining": {
+                "$ref": "#/components/headers/RateLimitRemaining"
+              },
+              "ratelimit-reset": {
+                "$ref": "#/components/headers/RateLimitReset"
+              },
+              "ratelimit-policy": {
+                "$ref": "#/components/headers/RateLimitPolicy"
+              },
+              "retry-after": {
+                "$ref": "#/components/headers/RetryAfter"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "api_key": [
+              "full",
+              "workspace"
+            ]
+          }
+        ]
+      }
+    },
     "/v1/domains": {
       "get": {
         "operationId": "list_api_domains",
@@ -21965,6 +22335,13 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ErrorBody"
+                },
+                "example": {
+                  "name": "not_found",
+                  "status": 404,
+                  "message": "No contact has this user_id. Send an email with it to create the contact.",
+                  "errors": [],
+                  "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
                 }
               }
             },
@@ -22337,7 +22714,7 @@
             }
           },
           "400": {
-            "description": "The list is empty or has more than 100 events, a field is missing or invalid, or the Idempotency-Key header is not valid.",
+            "description": "The list is empty or has more than 100 events (60 with a tracking key), a field is missing or invalid, or the Idempotency-Key header is not valid.",
             "content": {
               "application/json": {
                 "schema": {
@@ -22458,6 +22835,13 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ErrorBody"
+                },
+                "example": {
+                  "name": "not_found",
+                  "status": 404,
+                  "message": "Event 2: No contact has this user_id. Send an email with it to create the contact.",
+                  "errors": [],
+                  "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
                 }
               }
             },
@@ -42488,7 +42872,7 @@
             "items": {
               "type": "string"
             },
-            "description": "The events a `tracking` key can send."
+            "description": "The events a `tracking` key can send. An empty list allows any event."
           },
           "signing_secret": {
             "type": [
@@ -42632,7 +43016,7 @@
             "items": {
               "type": "string"
             },
-            "description": "The events a `tracking` key can send."
+            "description": "The events a `tracking` key can send. An empty list allows any event."
           },
           "expires_at": {
             "type": [
@@ -43549,6 +43933,19 @@
               "event": {
                 "type": "string"
               },
+              "filter": {
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/WaitEventFilter",
+                    "description": "Continue only when the awaited event's data matches.",
+                    "properties": null
+                  },
+                  {
+                    "type": "null",
+                    "properties": null
+                  }
+                ]
+              },
               "timeout_amount": {
                 "type": "integer",
                 "format": "int32",
@@ -43789,11 +44186,17 @@
             "description": "Up to 10 tags, stored with the email and passed to webhooks. Use each name once. `email_id`, `workspace_id` and `campaign_id` are reserved."
           },
           "open_tracking": {
-            "type": "boolean",
+            "type": [
+              "boolean",
+              "null"
+            ],
             "description": "Turns open tracking on or off for this email. Leave it out to use the domain setting. Opens are tracked only when the domain has a verified tracking domain."
           },
           "click_tracking": {
-            "type": "boolean",
+            "type": [
+              "boolean",
+              "null"
+            ],
             "description": "Turns click tracking on or off for this email. Leave it out to use the domain setting. Clicks are tracked only when the domain has a verified tracking domain."
           }
         }
@@ -44311,6 +44714,43 @@
           }
         }
       },
+      "ContactEvent": {
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "data",
+          "source",
+          "occurred_at"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The event id."
+          },
+          "name": {
+            "type": "string",
+            "description": "The event name."
+          },
+          "data": {
+            "type": "object",
+            "description": "The event data.",
+            "additionalProperties": {},
+            "propertyNames": {
+              "type": "string"
+            }
+          },
+          "source": {
+            "type": "string",
+            "description": "`api` for an event from your server, `client` for one from a browser with a tracking key."
+          },
+          "occurred_at": {
+            "type": "string",
+            "format": "date-time",
+            "description": "When the event happened."
+          }
+        }
+      },
       "ContactEventData": {
         "type": "object",
         "required": [
@@ -44379,6 +44819,37 @@
           "updated_at": {
             "type": "string",
             "format": "date-time"
+          }
+        }
+      },
+      "ContactEventPage": {
+        "type": "object",
+        "required": [
+          "data",
+          "prev_cursor",
+          "next_cursor"
+        ],
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ContactEvent"
+            },
+            "description": "The events on this page, newest first."
+          },
+          "prev_cursor": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Send it as `before` to get the page before. `null` on the first page."
+          },
+          "next_cursor": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Send it as `after` to get the next page. `null` on the last page."
           }
         }
       },
@@ -44964,14 +45435,14 @@
           },
           "permission": {
             "$ref": "#/components/schemas/ApiKeyPermission",
-            "description": "`full`, `sending` or `tracking`. Defaults to `full`. A tracking key is safe to use in a browser: it can only track the events in `allowed_events`, for the contact in a user token your server signs."
+            "description": "`full`, `sending` or `tracking`. Defaults to `full`. A tracking key is safe to use in a browser: it can only track events, for the contact in a user token your server signs. List `allowed_events` to limit which ones."
           },
           "allowed_events": {
             "type": "array",
             "items": {
               "type": "string"
             },
-            "description": "The events a `tracking` key can send, up to 50. Required for a tracking key."
+            "description": "The events a `tracking` key can send, up to 50. Leave it empty to allow any event."
           },
           "domain_id": {
             "type": [
@@ -46266,6 +46737,14 @@
           "name"
         ],
         "properties": {
+          "id": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Your ID for this event, 1 to 64 letters, numbers, `-` or `_`, such as a UUID. Inboxjot records an ID once for 24 hours, so a retry with the same ID is safe. IDs from a tracking key are checked per user, apart from your server's.",
+            "pattern": "^[A-Za-z0-9_-]{1,64}$"
+          },
           "name": {
             "type": "string",
             "description": "Event name, 1 to 100 characters. Start with a letter or number, then use letters, numbers, `.`, `_`, `:` or `-`.",
@@ -46291,7 +46770,7 @@
               "null"
             ],
             "format": "date-time",
-            "description": "When the event happened, as ISO 8601 with an offset, such as `2026-11-14T09:30:00Z`. Leave it out for now. An event older than 72 hours is recorded but starts no automation."
+            "description": "When the event happened, as ISO 8601 with an offset, such as `2026-11-14T09:30:00Z`. Leave it out for now. It must be within the last 400 days. An event older than 72 hours is recorded but starts no automation. A tracking key's events always use the time Inboxjot received them."
           },
           "data": {
             "type": "object",
@@ -48601,7 +49080,8 @@
           "prefix",
           "short_token",
           "long_token",
-          "previous_expires_at"
+          "previous_expires_at",
+          "signing_secret"
         ],
         "properties": {
           "id": {
@@ -48631,6 +49111,13 @@
           "long_token": {
             "type": "string",
             "description": "The new secret part of the key. Returned only here; store it now."
+          },
+          "signing_secret": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "The secret your server signs user tokens with, for a `tracking` key. Returned only here; store it now."
           }
         }
       },
@@ -49055,11 +49542,17 @@
             "description": "Up to 20 files, 30 MB in total. The whole request can be up to 45 MB."
           },
           "open_tracking": {
-            "type": "boolean",
+            "type": [
+              "boolean",
+              "null"
+            ],
             "description": "Turns open tracking on or off for this email. Leave it out to use the domain setting. Opens are tracked only when the domain has a verified tracking domain."
           },
           "click_tracking": {
-            "type": "boolean",
+            "type": [
+              "boolean",
+              "null"
+            ],
             "description": "Turns click tracking on or off for this email. Leave it out to use the domain setting. Clicks are tracked only when the domain has a verified tracking domain."
           }
         }
@@ -50034,6 +50527,33 @@
           "all",
           "saved"
         ]
+      },
+      "WaitEventFilter": {
+        "type": "object",
+        "required": [
+          "path",
+          "operator"
+        ],
+        "properties": {
+          "path": {
+            "type": "string",
+            "description": "A field of the awaited event's data. Use dots for nested fields, such as `order.total`."
+          },
+          "operator": {
+            "$ref": "#/components/schemas/PropertyOperator"
+          },
+          "value": {
+            "type": "string",
+            "description": "The value to compare with. Not used by `is_set` and `is_not_set`, or when `trigger_path` is set."
+          },
+          "trigger_path": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Compare with this field of the event that started the run instead of `value`, such as `cart_id`."
+          }
+        }
       },
       "WaitUnit": {
         "type": "string",

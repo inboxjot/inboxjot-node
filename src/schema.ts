@@ -404,6 +404,22 @@ export interface paths {
         patch: operations["update_api_contact"];
         trace?: never;
     };
+    "/v1/contacts/{contact_id}/events": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["list_api_contact_events"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/v1/domains": {
         parameters: {
             query?: never;
@@ -1160,7 +1176,7 @@ export interface components {
             domain_id: string | null;
             /** @description The IP addresses that can use the key. An empty list lets every address use it. */
             ip_allowlist: string[];
-            /** @description The events a `tracking` key can send. */
+            /** @description The events a `tracking` key can send. An empty list allows any event. */
             allowed_events: string[];
             /** @description The secret your server signs user tokens with, for a `tracking` key. Returned only here; store it now. */
             signing_secret: string | null;
@@ -1221,7 +1237,7 @@ export interface components {
             domain_id: string | null;
             /** @description The IP addresses that can use the key. An empty list lets every address use it. */
             ip_allowlist: string[];
-            /** @description The events a `tracking` key can send. */
+            /** @description The events a `tracking` key can send. An empty list allows any event. */
             allowed_events: string[];
             /**
              * Format: date-time
@@ -1574,6 +1590,7 @@ export interface components {
         } | {
             id: string;
             event: string;
+            filter?: components["schemas"]["WaitEventFilter"] | null;
             /** Format: int32 */
             timeout_amount: number;
             timeout_unit: components["schemas"]["WaitUnit"];
@@ -1653,9 +1670,9 @@ export interface components {
             /** @description Up to 10 tags, stored with the email and passed to webhooks. Use each name once. `email_id`, `workspace_id` and `campaign_id` are reserved. */
             tags?: components["schemas"]["EmailTag"][];
             /** @description Turns open tracking on or off for this email. Leave it out to use the domain setting. Opens are tracked only when the domain has a verified tracking domain. */
-            open_tracking?: boolean;
+            open_tracking?: boolean | null;
             /** @description Turns click tracking on or off for this email. Leave it out to use the domain setting. Clicks are tracked only when the domain has a verified tracking domain. */
-            click_tracking?: boolean;
+            click_tracking?: boolean | null;
         };
         BatchEmailId: {
             /** @description The email id. */
@@ -1834,6 +1851,23 @@ export interface components {
             brand_id: string;
             status: string;
         };
+        ContactEvent: {
+            /** @description The event id. */
+            id: string;
+            /** @description The event name. */
+            name: string;
+            /** @description The event data. */
+            data: {
+                [key: string]: unknown;
+            };
+            /** @description `api` for an event from your server, `client` for one from a browser with a tracking key. */
+            source: string;
+            /**
+             * Format: date-time
+             * @description When the event happened.
+             */
+            occurred_at: string;
+        };
         ContactEventData: {
             contact_id: string;
             email: string;
@@ -1850,6 +1884,14 @@ export interface components {
             created_at: string;
             /** Format: date-time */
             updated_at: string;
+        };
+        ContactEventPage: {
+            /** @description The events on this page, newest first. */
+            data: components["schemas"]["ContactEvent"][];
+            /** @description Send it as `before` to get the page before. `null` on the first page. */
+            prev_cursor: string | null;
+            /** @description Send it as `after` to get the next page. `null` on the last page. */
+            next_cursor: string | null;
         };
         ContactExportFilters: {
             status?: components["schemas"]["ContactStatus"] | null;
@@ -2046,9 +2088,9 @@ export interface components {
         CreateKeyBody: {
             /** @description The key name, 1 to 100 characters. */
             name: string;
-            /** @description `full`, `sending` or `tracking`. Defaults to `full`. A tracking key is safe to use in a browser: it can only track the events in `allowed_events`, for the contact in a user token your server signs. */
+            /** @description `full`, `sending` or `tracking`. Defaults to `full`. A tracking key is safe to use in a browser: it can only track events, for the contact in a user token your server signs. List `allowed_events` to limit which ones. */
             permission?: components["schemas"]["ApiKeyPermission"];
-            /** @description The events a `tracking` key can send, up to 50. Required for a tracking key. */
+            /** @description The events a `tracking` key can send, up to 50. Leave it empty to allow any event. */
             allowed_events?: string[];
             /** @description A domain to limit the key to. The key can then send only from this domain. */
             domain_id?: string | null;
@@ -2449,6 +2491,8 @@ export interface components {
         /** @enum {string} */
         ErrorName: "validation_error" | "not_found" | "unauthorized" | "forbidden" | "internal_server_error" | "bad_request" | "user_not_verified" | "domain_not_verified" | "rate_limit_exceeded" | "conflict" | "limit_exceeded" | "reauthentication_required" | "invalid_idempotency_key" | "concurrent_idempotent_requests" | "invalid_idempotent_request" | "payload_too_large" | "unsupported_media_type" | "service_unavailable" | "unknown_error";
         EventBody: {
+            /** @description Your ID for this event, 1 to 64 letters, numbers, `-` or `_`, such as a UUID. Inboxjot records an ID once for 24 hours, so a retry with the same ID is safe. IDs from a tracking key are checked per user, apart from your server's. */
+            id?: string | null;
             /** @description Event name, 1 to 100 characters. Start with a letter or number, then use letters, numbers, `.`, `_`, `:` or `-`. */
             name: string;
             /** @description The contact address. A new address creates a subscribed contact. Disposable addresses are refused. Send `email`, `user_id` or both. */
@@ -2457,7 +2501,7 @@ export interface components {
             user_id?: string | null;
             /**
              * Format: date-time
-             * @description When the event happened, as ISO 8601 with an offset, such as `2026-11-14T09:30:00Z`. Leave it out for now. An event older than 72 hours is recorded but starts no automation.
+             * @description When the event happened, as ISO 8601 with an offset, such as `2026-11-14T09:30:00Z`. Leave it out for now. It must be within the last 400 days. An event older than 72 hours is recorded but starts no automation. A tracking key's events always use the time Inboxjot received them.
              */
             occurred_at?: string | null;
             /** @description Event data, such as `{ "plan": "pro" }`, up to 16 KB as JSON. Automations started by the event can use it in their emails. */
@@ -3360,6 +3404,8 @@ export interface components {
             previous_expires_at: string | null;
             /** @description The new secret part of the key. Returned only here; store it now. */
             long_token: string;
+            /** @description The secret your server signs user tokens with, for a `tracking` key. Returned only here; store it now. */
+            signing_secret: string | null;
         };
         RuleValue: string | number | boolean | components["schemas"]["RuleWindow"];
         RuleWindow: {
@@ -3485,9 +3531,9 @@ export interface components {
             /** @description Up to 20 files, 30 MB in total. The whole request can be up to 45 MB. */
             attachments?: components["schemas"]["AttachmentInput"][];
             /** @description Turns open tracking on or off for this email. Leave it out to use the domain setting. Opens are tracked only when the domain has a verified tracking domain. */
-            open_tracking?: boolean;
+            open_tracking?: boolean | null;
             /** @description Turns click tracking on or off for this email. Leave it out to use the domain setting. Clicks are tracked only when the domain has a verified tracking domain. */
-            click_tracking?: boolean;
+            click_tracking?: boolean | null;
         };
         SignedHeaders: {
             /** @description Always `application/json`. */
@@ -3847,6 +3893,15 @@ export interface components {
         };
         /** @enum {string} */
         VersionFilter: "all" | "saved";
+        WaitEventFilter: {
+            /** @description A field of the awaited event's data. Use dots for nested fields, such as `order.total`. */
+            path: string;
+            operator: components["schemas"]["PropertyOperator"];
+            /** @description The value to compare with. Not used by `is_set` and `is_not_set`, or when `trigger_path` is set. */
+            value?: string;
+            /** @description Compare with this field of the event that started the run instead of `value`, such as `cart_id`. */
+            trigger_path?: string | null;
+        };
         /** @enum {string} */
         WaitUnit: "minutes" | "hours" | "days";
         WebhookDeliveryListItem: {
@@ -14397,6 +14452,231 @@ export interface operations {
             };
         };
     };
+    list_api_contact_events: {
+        parameters: {
+            query?: {
+                /** @description Only events with this name. */
+                name?: string;
+                /** @description How many items to return, from 1 to 100. Defaults to 50. */
+                per_page?: number;
+                /**
+                 * @description A `next_cursor` from the last page. Returns the items after it.
+                 * @example next_cursor
+                 */
+                after?: string;
+                /**
+                 * @description A `prev_cursor` from the last page. Returns the items before it. When you send both, `before` wins.
+                 * @example prev_cursor
+                 */
+                before?: string;
+            };
+            header?: never;
+            path: {
+                /** @description A contact id, or the contact's email address. */
+                contact_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The custom events of the contact, newest first, as far back as your plan keeps them. */
+            200: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "data": [
+                     *         {
+                     *           "id": "8f2c1a9b4d7e6f30",
+                     *           "name": "order.completed",
+                     *           "data": {
+                     *             "order_id": "4821",
+                     *             "total": 49
+                     *           },
+                     *           "source": "api",
+                     *           "occurred_at": "2026-11-14T09:30:00.000Z"
+                     *         }
+                     *       ],
+                     *       "prev_cursor": null,
+                     *       "next_cursor": null
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ContactEventPage"];
+                };
+            };
+            /** @description A parameter is missing or invalid. */
+            400: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "validation_error",
+                     *       "status": 400,
+                     *       "message": "Invalid cursor",
+                     *       "errors": [
+                     *         {
+                     *           "message": "Invalid cursor",
+                     *           "location": "after"
+                     *         }
+                     *       ],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The API key is missing, revoked or expired. */
+            401: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "unauthorized",
+                     *       "status": 401,
+                     *       "message": "Unauthorized",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The key is a Sending key or is limited to one domain, or the request comes from outside its IP allowlist. */
+            403: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "forbidden",
+                     *       "status": 403,
+                     *       "message": "This key cannot be used from 203.0.113.7",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The contact does not exist in this workspace. */
+            404: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "not_found",
+                     *       "status": 404,
+                     *       "message": "Contact not found",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description Too many requests for this key. Wait for the seconds in the Retry-After header. */
+            429: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "rate_limit_exceeded",
+                     *       "status": 429,
+                     *       "message": "Too many attempts. Try again later.",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description Something failed on our side. Retry later. */
+            500: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    /**
+                     * @example {
+                     *       "name": "unknown_error",
+                     *       "status": 500,
+                     *       "message": "Something went wrong. Please try again later.",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+            /** @description The request failed */
+            default: {
+                headers: {
+                    "x-request-id": components["headers"]["RequestId"];
+                    "ratelimit-limit": components["headers"]["RateLimitLimit"];
+                    "ratelimit-remaining": components["headers"]["RateLimitRemaining"];
+                    "ratelimit-reset": components["headers"]["RateLimitReset"];
+                    "ratelimit-policy": components["headers"]["RateLimitPolicy"];
+                    "retry-after": components["headers"]["RetryAfter"];
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorBody"];
+                };
+            };
+        };
+    };
     list_api_domains: {
         parameters: {
             query?: {
@@ -18099,6 +18379,15 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
+                    /**
+                     * @example {
+                     *       "name": "not_found",
+                     *       "status": 404,
+                     *       "message": "No contact has this user_id. Send an email with it to create the contact.",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
                     "application/json": components["schemas"]["ErrorBody"];
                 };
             };
@@ -18322,7 +18611,7 @@ export interface operations {
                     "application/json": components["schemas"]["TrackedBatchResponse"];
                 };
             };
-            /** @description The list is empty or has more than 100 events, a field is missing or invalid, or the Idempotency-Key header is not valid. */
+            /** @description The list is empty or has more than 100 events (60 with a tracking key), a field is missing or invalid, or the Idempotency-Key header is not valid. */
             400: {
                 headers: {
                     "x-request-id": components["headers"]["RequestId"];
@@ -18411,6 +18700,15 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
+                    /**
+                     * @example {
+                     *       "name": "not_found",
+                     *       "status": 404,
+                     *       "message": "Event 2: No contact has this user_id. Send an email with it to create the contact.",
+                     *       "errors": [],
+                     *       "request_id": "5f0c6a2e-8d1b-4c7a-9e3f-2b6d4a1c8e90"
+                     *     }
+                     */
                     "application/json": components["schemas"]["ErrorBody"];
                 };
             };
